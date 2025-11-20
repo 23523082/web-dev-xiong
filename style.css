@@ -1,0 +1,75 @@
+body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #fdeef4; /* soft pink background */
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: #f7c9d4; /* muted pink */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f3b4c2;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #6a2c41;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: #f9dfe8;
+            border-right: 2px solid #f3b4c2;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #8b3f55;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #6a2c41;
+            padding: 6px 4px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            background: #f7c9d4;
+            padding-left: 10px;
+        }
+
+        /* Content area */
+        .content {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .content h2 {
+            color: #8b3f55;
+        }
+
+        .box {
+            background: #fff;
+            border: 2px solid #f3b4c2;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
