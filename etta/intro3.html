@@ -8,7 +8,7 @@
 <body>
 
 <!-- BACKGROUND VIDEO -->
-<video id="bg-video" autoplay muted loop playsinline playbackrate="0.1">
+<video id="bg-video" autoplay muted loop playsinline>
     <source src="../etta/mediaPage/background.mp4" type="video/mp4">
 </video>
 <div id="overlay"></div>
@@ -22,13 +22,18 @@
 
     <!-- LEFT PANEL -->
     <div class="left-panel">
-        <h2>⚙️ Settings</h2>
-        <ul>
-            <li>Account</li>
-            <li>Preferences</li>
-            <li>Themes</li>
-            <li>About</li>
-        </ul>
+        <h2>⚙️ Controls</h2>
+
+        <!-- Disable Video -->
+        <button class="btn" onclick="toggleVideo()">Disable/Enable Video</button>
+
+        <!-- Theme Selection -->
+        <h3>Themes</h3>
+        <select id="theme-select" onchange="changeTheme()">
+            <option value="wuthering-wave">Wuthering Wave</option>
+            <option value="punishing-gray-raven">Punishing Gray Raven</option>
+            <option value="honkai-star-rail">Honkai Star Rail</option>
+        </select>
     </div>
 
     <!-- MIDDLE PANEL -->
@@ -71,15 +76,40 @@
 
 </div>
 
+    <!-- ================== ABOUT ME SECTION ================== -->
+<div class="about-me-section">
+    <h2>About Me</h2>
+    <div class="about-me-layout">
+        <!-- LEFT MENU -->
+        <div class="about-me-menu">
+            <ul>
+                <li onclick="showContent('place')">My Place</li>
+                <li onclick="showContent('hobby')">My Fav Hobby</li>
+                <li onclick="showContent('character')">My Fav Character</li>
+            </ul>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="about-me-content">
+            <div id="place" class="about-content-item">
+                <p>I live in Singapore. Cozy home with a small desk setup for coding.</p>
+            </div>
+            <div id="hobby" class="about-content-item" style="display:none;">
+                <p>My favorite hobbies include coding, playing guitar, and reading sci-fi novels.</p>
+            </div>
+            <div id="character" class="about-content-item" style="display:none;">
+                <p>My favorite character is Adit from our dev team for his dedication to clean code.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- CLICK SOUND -->
 <audio id="click-sound" src="../etta/mediaPage/background.mp3" preload="auto"></audio>
-<script>
-function playClickSound() {
-    const sound = document.getElementById('click-sound');
-    sound.currentTime = 0;
-    sound.play();
-}
-</script>
+
+<script src="../etta/script/intro3Script.js"></script>
+
 
 </body>
 </html>

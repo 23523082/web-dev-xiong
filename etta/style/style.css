@@ -18,14 +18,38 @@ body {
     z-index: -2;
 }
 
+/* VIDEO TINT OVERLAY */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.7); /* darker tint */
     z-index: -1;
+}
+
+/* THEME DROPDOWN */
+#theme-select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 8px;
+    background: rgba(50,0,50,0.35);
+    color: #e0c8ff;
+    border: 1px solid rgba(199,122,255,0.5);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+#theme-select:hover, #theme-select:focus {
+    background: rgba(50,0,50,0.55);
+    color: #fff0ff;
+}
+#theme-select option {
+    background: rgba(50,0,50,0.9);
+    color: #e0c8ff;
 }
 
 /* HEADER */
@@ -60,11 +84,31 @@ body {
 .left-panel h2 { color: #c77aff; }
 .left-panel li { padding: 6px 0; color: #d8bfff; }
 
+/* LEFT PANEL BUTTON */
+.left-panel .btn {
+    width: 100%;
+    margin-top: 8px;
+    background: rgba(50,0,50,0.35);
+    color: #e0c8ff;
+    border: 1px solid rgba(199,122,255,0.5);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+}
+.left-panel .btn:hover {
+    background: rgba(50,0,50,0.55);
+    color: #fff0ff;
+    transform: translateY(-2px);
+}
+
 /* MIDDLE PANEL */
 .middle-panel h2 {
     display: flex;
     flex-direction: column;
-    align-items: center; /* horizontally center the card */
+    align-items: center;
     justify-content: flex-start;
 }
 
@@ -79,10 +123,9 @@ body {
     box-sizing: border-box;
     backdrop-filter: blur(6px);
     width: 100%;
-    max-width: 500px; /* smaller than middle column for proper centering */
+    max-width: 500px;
     margin-left: auto;
-    margin-right: auto; /* ensures card stays centered */
-    
+    margin-right: auto;
 }
 
 /* TOP BOX: IMAGE + BIODATA */
@@ -107,7 +150,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* BUTTON */
+/* BUTTON (GENERAL) */
 .btn {
     display: inline-block;
     padding: 8px 12px;
@@ -133,8 +176,71 @@ body {
 .right-panel h2 { color: #c77aff; }
 .right-panel li { padding: 6px 0; color: #d8bfff; }
 
+/* ================== ABOUT ME SECTION ================== */
+.about-me-section {
+    margin: 40px 20px;
+    padding: 20px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+.about-me-section h2 {
+    color: #c77aff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Layout: left menu + right content */
+.about-me-layout {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* LEFT MENU */
+.about-me-menu {
+    flex: 1;
+    min-width: 160px;
+    background: rgba(50,0,50,0.25);
+    border-radius: 10px;
+    padding: 16px;
+}
+.about-me-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.about-me-menu li {
+    padding: 8px 0;
+    cursor: pointer;
+    color: #d8bfff;
+    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 6px;
+}
+.about-me-menu li:hover {
+    background: rgba(199,122,255,0.25);
+    color: #fff0ff;
+}
+
+/* RIGHT CONTENT */
+.about-me-content {
+    flex: 2;
+    min-width: 250px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 10px;
+    padding: 16px;
+    color: #e0c8ff;
+    line-height: 1.4;
+}
+.about-content-item {
+    display: block;
+}
+
 /* RESPONSIVE */
 @media (max-width: 520px) {
     .personal-top-box { flex-direction: column; align-items: center; text-align: center; }
     .personal-biodata p { text-align: center; }
+    .about-me-layout { flex-direction: column; }
+    .about-me-menu { margin-bottom: 12px; }
 }
