@@ -1,183 +1,140 @@
+/* ================== GENERAL ================== */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #fdeef4;
-    color: #333;
+    color: #d8bfff; /* violet text */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* VIDEO BACKGROUND */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    z-index: -1;
 }
 
 /* HEADER */
 .header {
-    background: #f7c9d4;
+    background: rgba(0,0,0,0.35);
     padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #f3b4c2;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
-
 .header h1 {
     margin: 0;
     font-size: 28px;
-    color: #6a2c41;
+    color: #c77aff;
 }
 
-/* MAIN 3-COLUMN GRID LAYOUT */
+/* GRID LAYOUT */
 .layout {
     display: grid;
     grid-template-columns: 220px 1fr 260px;
     gap: 20px;
     padding: 20px;
-
-    /* Make columns only as tall as needed */
-    align-items: start;   /* ⬅ ensures no stretching vertically */
+    align-items: start;
 }
 
 /* LEFT PANEL */
 .left-panel {
-    background: #f9dfe8;
-    border: 2px solid #f3b4c2;
+    background: rgba(0,0,0,0.35);
     border-radius: 10px;
     padding: 20px;
+    backdrop-filter: blur(6px);
 }
-
-.left-panel h2 {
-    color: #8b3f55;
-    justify-content: center;
-    align-items: center;
-}
-
-.left-panel ul {
-    list-style: none;
-    padding: 0;
-}
-
-.left-panel li {
-    padding: 6px 0;
-    color: #6a2c41;
-}
+.left-panel h2 { color: #c77aff; }
+.left-panel li { padding: 6px 0; color: #d8bfff; }
 
 /* MIDDLE PANEL */
 .middle-panel h2 {
-    color: #8b3f55;
-    margin-bottom: 15px;
-}
-
-.middle-panel {
     display: flex;
     flex-direction: column;
-    align-items: center;   /* ⬅ centers the cards horizontally */
+    align-items: center; /* horizontally center the card */
+    justify-content: flex-start;
 }
 
-/* CARD: horizontal layout with left icon */
-.card {
+/* PERSONAL CARD */
+.personal-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.35);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(6px);
+    width: 100%;
+    max-width: 500px; /* smaller than middle column for proper centering */
+    margin-left: auto;
+    margin-right: auto; /* ensures card stays centered */
+    
+}
+
+/* TOP BOX: IMAGE + BIODATA */
+.personal-top-box {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-    background: #ffffff;
-    border: 2px solid #f3b4c2;
-    padding: 16px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
-    box-sizing: border-box;
+    margin-bottom: 12px;
 }
+.personal-biodata h3 { margin: 0; color: #c77aff; }
+.personal-biodata p { margin: 4px 0; color: #d8bfff; line-height: 1.3; }
+.card-icon { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
 
-/* icon on left */
-.card-icon {
-    width: 64px;
-    height: 64px;
+/* BOTTOM BOX: EXTRA INFO */
+.personal-bottom-box {
+    background: rgba(50,0,50,0.25);
+    padding: 10px 12px;
     border-radius: 8px;
-    object-fit: cover;
-    flex: 0 0 64px;
-}
-
-/* card content stacks vertically */
-.card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1 1 auto;
-}
-
-/* main text area (title + paragraph) */
-.card-main h3 {
-    margin: 0;
-    color: #6a2c41;
-    font-size: 18px;
-}
-
-.card-main p {
-    margin: 6px 0 0 0;
-    color: #444;
+    color: #e0c8ff;
+    font-size: 0.9rem;
     line-height: 1.3;
+    margin-bottom: 10px;
 }
 
-/* footer holds the button; align to start so it doesn't stretch */
-.card-footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-}
-
-/* button only as wide as its content */
+/* BUTTON */
 .btn {
-    display: inline-block;      /* IMPORTANT: prevents full-width stretching */
+    display: inline-block;
     padding: 8px 12px;
-    background: #f7c9d4;
+    background: rgba(199, 122, 255, 0.35);
     border-radius: 6px;
     text-decoration: none;
-    color: #6a2c41;
+    color: #e5d4ff;
     transition: transform .12s ease, background .12s ease;
-    align-self: flex-start;     /* keeps it left inside the footer */
-    white-space: nowrap;        /* prevents wrapping so width fits content */
+    white-space: nowrap;
 }
-
-/* hover effect stays subtle */
 .btn:hover {
     transform: translateY(-2px);
-    background: #f3b4c2;
+    background: rgba(199, 122, 255, 0.55);
 }
-
-/* ensure middle-panel still centers cards */
-.middle-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* small responsive tweak: stack icon above content on narrow screens */
-@media (max-width: 520px) {
-    .card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .card-icon {
-        margin-bottom: 8px;
-    }
-    .card-footer {
-        justify-content: center;
-    }
-}
-
 
 /* RIGHT PANEL */
 .right-panel {
-    background: #f9dfe8;
-    border: 2px solid #f3b4c2;
+    background: rgba(0,0,0,0.35);
     border-radius: 10px;
     padding: 20px;
+    backdrop-filter: blur(6px);
 }
+.right-panel h2 { color: #c77aff; }
+.right-panel li { padding: 6px 0; color: #d8bfff; }
 
-.right-panel h2 {
-    color: #8b3f55;
-}
-
-.right-panel ul {
-    list-style: none;
-    padding: 0;
-}
-
-.right-panel li {
-    padding: 6px 0;
-    color: #6a2c41;
+/* RESPONSIVE */
+@media (max-width: 520px) {
+    .personal-top-box { flex-direction: column; align-items: center; text-align: center; }
+    .personal-biodata p { text-align: center; }
 }

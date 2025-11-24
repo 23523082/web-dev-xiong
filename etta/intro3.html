@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🌸WEB-DEV-XIONG Wiki</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Introduction - Etta 龙内塔</title>
+    <link rel="stylesheet" href="../etta/style/style.css"> <!-- external CSS -->
 </head>
 <body>
 
+<!-- BACKGROUND VIDEO -->
+<video id="bg-video" autoplay muted loop playsinline playbackrate="0.1">
+    <source src="../etta/mediaPage/background.mp4" type="video/mp4">
+</video>
+<div id="overlay"></div>
+
+<!-- HEADER -->
 <div class="header">
-    <h1>🌸 WEB-DEV-XIONG Mini Wiki</h1>
+    <h1>Introduction - ETTA 龙内塔</h1>
 </div>
 
 <div class="layout">
 
-    <!-- LEFT COLUMN – SETTINGS -->
+    <!-- LEFT PANEL -->
     <div class="left-panel">
         <h2>⚙️ Settings</h2>
         <ul>
@@ -24,64 +31,55 @@
         </ul>
     </div>
 
-    <!-- MIDDLE COLUMN – CONTENT -->
-    <!-- MIDDLE COLUMN – CONTENT -->
-<div class="middle-panel">
-    <h2>Members</h2>
+    <!-- MIDDLE PANEL -->
+    <div class="middle-panel">
+        <h2>About Me</h2>
 
-    <div class="card">
-        <img src="icon.png" alt="Adit icon" class="card-icon">
-        <div class="card-content">
-            <div class="card-main">
-                <h3>Adit</h3>
-                <p>Adit is the core HTML builder of the group, specializing in layout structure.</p>
+        <div class="personal-card" onclick="playClickSound()">
+            <!-- TOP BOX -->
+            <div class="personal-top-box">
+                <img src="../etta/image/Icon.png" alt="Etta icon" class="card-icon">
+                <div class="personal-biodata">
+                    <h3>Etta 龙内塔</h3>
+                    <p>Role: Web Developer & Designer</p>
+                    <p>Specializes in HTML, CSS, JS, and interactive web experiences.</p>
+                </div>
             </div>
+            <!-- BOTTOM BOX -->
+            <div class="personal-bottom-box">
+                <p>Likes: Coding, Design, Animation</p>
+                <p>Dislikes: Bugs, Messy Code</p>
+                <p>Interests: UI/UX, Open Source, Creative Projects</p>
+            </div>
+            <!-- BUTTON -->
             <div class="card-footer">
-                <a href="adit/intro1.html" class="btn">Go to Intro 1 →</a>
+                <a href="etta/intro3.html" class="btn">Go to My Intro →</a>
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <img src="icon.png" alt="Cindi icon" class="card-icon">
-        <div class="card-content">
-            <div class="card-main">
-                <h3>Cindi</h3>
-                <p>Cindi focuses on CSS beautification and UI styling for projects.</p>
-            </div>
-            <div class="card-footer">
-                <a href="Cindi/intro2.html" class="btn">Go to Intro 2 →</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="icon.png" alt="Etta icon" class="card-icon">
-        <div class="card-content">
-            <div class="card-main">
-                <h3>Etta</h3>
-                <p>Etta handles JavaScript logic and interactivity within the team.</p>
-            </div>
-            <div class="card-footer">
-                <a href="etta/intro3.html" class="btn">Go to Intro 3 →</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <!-- RIGHT COLUMN – NEWS -->
+    <!-- RIGHT PANEL -->
     <div class="right-panel">
         <h2>📰 News</h2>
         <ul>
             <li>New CSS theme added</li>
-            <li>Adit finished layout update</li>
-            <li>Etta debugging new scripts</li>
-            <li>Cindi optimizing color palettes</li>
+            <li>Finished layout update</li>
+            <li>Debugging new scripts</li>
+            <li>Optimizing color palettes</li>
         </ul>
     </div>
 
 </div>
+
+<!-- CLICK SOUND -->
+<audio id="click-sound" src="../etta/mediaPage/background.mp3" preload="auto"></audio>
+<script>
+function playClickSound() {
+    const sound = document.getElementById('click-sound');
+    sound.currentTime = 0;
+    sound.play();
+}
+</script>
 
 </body>
 </html>
