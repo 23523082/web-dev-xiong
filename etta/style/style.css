@@ -1,13 +1,23 @@
-/* ================== GENERAL ================== */
+/* ================== GENERAL / BASE ================== */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
     color: #d8bfff; /* violet text */
     position: relative;
     overflow-x: hidden;
+    background: transparent;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    box-sizing: border-box;
 }
 
-/* VIDEO BACKGROUND */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* ===== Video background & overlay ===== */
 #bg-video {
     position: fixed;
     top: 0;
@@ -18,18 +28,17 @@ body {
     z-index: -2;
 }
 
-/* VIDEO TINT OVERLAY */
 #overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7); /* darker tint */
+    background: rgba(0,0,0,0.7);
     z-index: -1;
 }
 
-/* THEME DROPDOWN */
+/* ===== Generic controls / selects / buttons ===== */
 #theme-select {
     width: 100%;
     padding: 8px 12px;
@@ -43,7 +52,8 @@ body {
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
 }
-#theme-select:hover, #theme-select:focus {
+#theme-select:hover,
+#theme-select:focus {
     background: rgba(50,0,50,0.55);
     color: #fff0ff;
 }
@@ -52,12 +62,32 @@ body {
     color: #e0c8ff;
 }
 
-/* HEADER */
+/* General .btn shared style (used across panels/cards) */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background: rgba(199, 122, 255, 0.35);
+    border-radius: 6px;
+    text-decoration: none;
+    color: #e5d4ff;
+    transition: transform .12s ease, background .12s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    background: rgba(199, 122, 255, 0.55);
+}
+
+/* ================== HEADER ================== */
 .header {
     background: rgba(0,0,0,0.35);
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+    z-index: 1;
 }
 .header h1 {
     margin: 0;
@@ -65,26 +95,34 @@ body {
     color: #c77aff;
 }
 
-/* GRID LAYOUT */
+/* ================== GRID LAYOUT (LEFT / MIDDLE / RIGHT) ================== */
 .layout {
     display: grid;
     grid-template-columns: 220px 1fr 260px;
     gap: 20px;
     padding: 20px;
-    align-items: start;
+    align-items: start; /* ensures panels don't stretch vertically */
 }
 
-/* LEFT PANEL */
+
+
+
+/* ---------- LEFT PANEL ---------- */
 .left-panel {
     background: rgba(0,0,0,0.35);
     border-radius: 10px;
     padding: 20px;
     backdrop-filter: blur(6px);
 }
-.left-panel h2 { color: #c77aff; }
-.left-panel li { padding: 6px 0; color: #d8bfff; }
-
-/* LEFT PANEL BUTTON */
+.left-panel h2 {
+    color: #c77aff;
+    margin: 0 0 12px 0;
+}
+.left-panel ul { margin: 0; padding: 0; list-style: none; }
+.left-panel li {
+    padding: 6px 0;
+    color: #d8bfff;
+}
 .left-panel .btn {
     width: 100%;
     margin-top: 8px;
@@ -104,15 +142,21 @@ body {
     transform: translateY(-2px);
 }
 
-/* MIDDLE PANEL */
-.middle-panel h2 {
+/* ---------- MIDDLE PANEL ---------- */
+.middle-panel {
+    /* centering the content area */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+}
+.middle-panel h2 {
+    color: #c77aff;
+    margin: 0 0 12px 0;
+    width: 100%;
+    text-align: center;
 }
 
-/* PERSONAL CARD */
+/* ----- PERSONAL CARD (About Me) ----- */
 .personal-card {
     display: flex;
     flex-direction: column;
@@ -128,18 +172,32 @@ body {
     margin-right: auto;
 }
 
-/* TOP BOX: IMAGE + BIODATA */
+/* TOP BOX: image + biodata */
 .personal-top-box {
     display: flex;
     gap: 16px;
     align-items: flex-start;
     margin-bottom: 12px;
 }
-.personal-biodata h3 { margin: 0; color: #c77aff; }
-.personal-biodata p { margin: 4px 0; color: #d8bfff; line-height: 1.3; }
-.card-icon { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
+.card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex: 0 0 64px;
+}
+.personal-biodata h3 {
+    margin: 0;
+    color: #c77aff;
+    font-size: 1.1rem;
+}
+.personal-biodata p {
+    margin: 4px 0;
+    color: #d8bfff;
+    line-height: 1.3;
+}
 
-/* BOTTOM BOX: EXTRA INFO */
+/* BOTTOM BOX: extra info */
 .personal-bottom-box {
     background: rgba(50,0,50,0.25);
     padding: 10px 12px;
@@ -150,33 +208,25 @@ body {
     margin-bottom: 10px;
 }
 
-/* BUTTON (GENERAL) */
-.btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background: rgba(199, 122, 255, 0.35);
-    border-radius: 6px;
-    text-decoration: none;
-    color: #e5d4ff;
-    transition: transform .12s ease, background .12s ease;
-    white-space: nowrap;
-}
-.btn:hover {
-    transform: translateY(-2px);
-    background: rgba(199, 122, 255, 0.55);
+/* card footer (button container) */
+.card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* RIGHT PANEL */
+/* ================== RIGHT PANEL ================== */
 .right-panel {
     background: rgba(0,0,0,0.35);
     border-radius: 10px;
     padding: 20px;
     backdrop-filter: blur(6px);
 }
-.right-panel h2 { color: #c77aff; }
+.right-panel h2 { color: #c77aff; margin: 0 0 12px 0; }
+.right-panel ul { margin: 0; padding: 0; list-style: none; }
 .right-panel li { padding: 6px 0; color: #d8bfff; }
 
-/* ================== ABOUT ME SECTION ================== */
+/* ================== ABOUT-ME SECTION (below grid) ================== */
 .about-me-section {
     margin: 40px 20px;
     padding: 20px;
@@ -198,7 +248,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* LEFT MENU */
+/* left menu inside about-me */
 .about-me-menu {
     flex: 1;
     min-width: 160px;
@@ -223,7 +273,7 @@ body {
     color: #fff0ff;
 }
 
-/* RIGHT CONTENT */
+/* right content inside about-me */
 .about-me-content {
     flex: 2;
     min-width: 250px;
@@ -233,14 +283,172 @@ body {
     color: #e0c8ff;
     line-height: 1.4;
 }
-.about-content-item {
+.about-content-item { display: block; }
+
+/* ================== MY PASTS PROJECT (placed after about-me) ================== */
+.past-projects {
+    max-width: 1200px;
+    margin: 36px auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+.past-projects h2 {
+    color: #c77aff; /* match theme */
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+/* grid of project thumbnails */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+/* project card */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    box-sizing: border-box;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* project image */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(199,122,255,0.15);
     display: block;
 }
 
-/* RESPONSIVE */
+/* info box under image adjusted to dark theme */
+.project-info {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(199,122,255,0.12);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: #e0c8ff;
+}
+.project-title {
+    margin: 4px 0;
+    font-size: 16px;
+    color: #f3d8ff;
+}
+.project-desc {
+    margin: 0;
+    font-size: 13px;
+    color: #d8bfff;
+    line-height: 1.3;
+}
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(106,44,65,0.06);
+}
+
+
+/* ========== Footer / Contact ========== */
+.site-footer {
+  margin: 36px 20px;
+  padding: 18px 20px;
+  background: rgba(0,0,0,0.32);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  color: #e0c8ff;
+}
+
+.site-footer .footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.site-footer h3 {
+  margin: 0;
+  color: #c77aff;
+  font-size: 1.05rem;
+}
+
+/* buttons row */
+.contact-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* single button */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #140417;
+  background: linear-gradient(180deg, #f6e9ff 0%, #e9d0ff 100%);
+  border: 1px solid rgba(199,122,255,0.6);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+  font-weight: 600;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(106,44,65,0.08);
+}
+
+/* variant styling (optional) */
+.contact-btn.email { background: linear-gradient(180deg,#fff2f9,#ffeef8); }
+.contact-btn.wechat { background: linear-gradient(180deg,#e9fff0,#d7ffea); }
+.contact-btn.whatsapp { background: linear-gradient(180deg,#eafff7,#d6fff0); }
+
+/* small helper note */
+.footer-note {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #d8bfff;
+  opacity: 0.9;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .site-footer .footer-inner { flex-direction: column; align-items: stretch; gap: 12px; }
+  .contact-buttons { justify-content: center; }
+}
+
+
+/* ================== RESPONSIVE / MEDIA QUERIES ================== */
+@media (max-width: 980px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .layout { grid-template-columns: 180px 1fr 220px; gap: 16px; padding: 16px; }
+    .personal-card { max-width: 520px; }
+}
+
+@media (max-width: 720px) {
+    .layout { grid-template-columns: 1fr; }
+    .left-panel, .right-panel { width: 100%; }
+    .right-panel { order: 3; }
+    .left-panel { order: 1; }
+    .middle-panel { order: 2; }
+    .past-projects { padding: 16px; }
+}
+
 @media (max-width: 520px) {
     .personal-top-box { flex-direction: column; align-items: center; text-align: center; }
     .personal-biodata p { text-align: center; }
     .about-me-layout { flex-direction: column; }
     .about-me-menu { margin-bottom: 12px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card img { height: 200px; }
+    .past-projects { padding: 12px; margin: 20px auto; }
 }
