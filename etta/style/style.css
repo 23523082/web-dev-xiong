@@ -1,8 +1,27 @@
+/* ================== THEME VARIABLES (editable by JS) ================== */
+:root {
+    /* main colors (JS will override these) */
+    --accent: #c77aff;                /* heading / highlight */
+    --text: #d8bfff;                  /* primary text color */
+    --panel-bg: rgba(0,0,0,0.35);     /* panels / cards background */
+    --muted-panel: rgba(50,0,50,0.25);/* subtle panels */
+    --overlay-bg: rgba(0,0,0,0.7);    /* page overlay */
+    --btn-bg: rgba(199, 122, 255, 0.35); /* button background */
+    --btn-bg-hover: rgba(199, 122, 255, 0.55);
+    --project-border: rgba(199,122,255,0.15);
+    --project-info-border: rgba(199,122,255,0.12);
+    --project-title: #f3d8ff;
+    --project-desc: #d8bfff;
+    --footer-bg: rgba(0,0,0,0.32);
+    --footer-text: #e0c8ff;
+    --btn-foreground: #e5d4ff;
+}
+
 /* ================== GENERAL / BASE ================== */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #d8bfff; /* violet text */
+    color: var(--text);
     position: relative;
     overflow-x: hidden;
     background: transparent;
@@ -34,7 +53,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: var(--overlay-bg);
     z-index: -1;
 }
 
@@ -43,8 +62,8 @@ body {
     width: 100%;
     padding: 8px 12px;
     margin-top: 8px;
-    background: rgba(50,0,50,0.35);
-    color: #e0c8ff;
+    background: var(--muted-panel);
+    color: var(--text);
     border: 1px solid rgba(199,122,255,0.5);
     border-radius: 6px;
     font-size: 1rem;
@@ -59,17 +78,17 @@ body {
 }
 #theme-select option {
     background: rgba(50,0,50,0.9);
-    color: #e0c8ff;
+    color: var(--text);
 }
 
 /* General .btn shared style (used across panels/cards) */
 .btn {
     display: inline-block;
     padding: 8px 12px;
-    background: rgba(199, 122, 255, 0.35);
+    background: var(--btn-bg);
     border-radius: 6px;
     text-decoration: none;
-    color: #e5d4ff;
+    color: var(--btn-foreground);
     transition: transform .12s ease, background .12s ease;
     white-space: nowrap;
     cursor: pointer;
@@ -77,7 +96,7 @@ body {
 }
 .btn:hover {
     transform: translateY(-2px);
-    background: rgba(199, 122, 255, 0.55);
+    background: var(--btn-bg-hover);
 }
 
 /* ================== HEADER ================== */
@@ -92,7 +111,7 @@ body {
 .header h1 {
     margin: 0;
     font-size: 28px;
-    color: #c77aff;
+    color: var(--accent);
 }
 
 /* ================== GRID LAYOUT (LEFT / MIDDLE / RIGHT) ================== */
@@ -104,30 +123,27 @@ body {
     align-items: start; /* ensures panels don't stretch vertically */
 }
 
-
-
-
 /* ---------- LEFT PANEL ---------- */
 .left-panel {
-    background: rgba(0,0,0,0.35);
+    background: var(--panel-bg);
     border-radius: 10px;
     padding: 20px;
     backdrop-filter: blur(6px);
 }
 .left-panel h2 {
-    color: #c77aff;
+    color: var(--accent);
     margin: 0 0 12px 0;
 }
 .left-panel ul { margin: 0; padding: 0; list-style: none; }
 .left-panel li {
     padding: 6px 0;
-    color: #d8bfff;
+    color: var(--text);
 }
 .left-panel .btn {
     width: 100%;
     margin-top: 8px;
-    background: rgba(50,0,50,0.35);
-    color: #e0c8ff;
+    background: var(--muted-panel);
+    color: var(--text);
     border: 1px solid rgba(199,122,255,0.5);
     border-radius: 6px;
     padding: 8px 12px;
@@ -150,7 +166,7 @@ body {
     align-items: center;
 }
 .middle-panel h2 {
-    color: #c77aff;
+    color: var(--accent);
     margin: 0 0 12px 0;
     width: 100%;
     text-align: center;
@@ -160,7 +176,7 @@ body {
 .personal-card {
     display: flex;
     flex-direction: column;
-    background: rgba(0,0,0,0.35);
+    background: var(--panel-bg);
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 20px;
@@ -188,21 +204,21 @@ body {
 }
 .personal-biodata h3 {
     margin: 0;
-    color: #c77aff;
+    color: var(--accent);
     font-size: 1.1rem;
 }
 .personal-biodata p {
     margin: 4px 0;
-    color: #d8bfff;
+    color: var(--text);
     line-height: 1.3;
 }
 
 /* BOTTOM BOX: extra info */
 .personal-bottom-box {
-    background: rgba(50,0,50,0.25);
+    background: var(--muted-panel);
     padding: 10px 12px;
     border-radius: 8px;
-    color: #e0c8ff;
+    color: var(--text);
     font-size: 0.9rem;
     line-height: 1.3;
     margin-bottom: 10px;
@@ -217,25 +233,25 @@ body {
 
 /* ================== RIGHT PANEL ================== */
 .right-panel {
-    background: rgba(0,0,0,0.35);
+    background: var(--panel-bg);
     border-radius: 10px;
     padding: 20px;
     backdrop-filter: blur(6px);
 }
-.right-panel h2 { color: #c77aff; margin: 0 0 12px 0; }
+.right-panel h2 { color: var(--accent); margin: 0 0 12px 0; }
 .right-panel ul { margin: 0; padding: 0; list-style: none; }
-.right-panel li { padding: 6px 0; color: #d8bfff; }
+.right-panel li { padding: 6px 0; color: var(--text); }
 
 /* ================== ABOUT-ME SECTION (below grid) ================== */
 .about-me-section {
     margin: 40px 20px;
     padding: 20px;
-    background: rgba(0,0,0,0.35);
+    background: var(--panel-bg);
     border-radius: 12px;
     backdrop-filter: blur(6px);
 }
 .about-me-section h2 {
-    color: #c77aff;
+    color: var(--accent);
     margin-bottom: 20px;
     text-align: center;
     font-size: 1.8rem;
@@ -252,7 +268,7 @@ body {
 .about-me-menu {
     flex: 1;
     min-width: 160px;
-    background: rgba(50,0,50,0.25);
+    background: var(--muted-panel);
     border-radius: 10px;
     padding: 16px;
 }
@@ -264,7 +280,7 @@ body {
 .about-me-menu li {
     padding: 8px 0;
     cursor: pointer;
-    color: #d8bfff;
+    color: var(--text);
     transition: background 0.2s ease, color 0.2s ease;
     border-radius: 6px;
 }
@@ -280,7 +296,7 @@ body {
     background: rgba(0,0,0,0.25);
     border-radius: 10px;
     padding: 16px;
-    color: #e0c8ff;
+    color: var(--footer-text);
     line-height: 1.4;
 }
 .about-content-item { display: block; }
@@ -293,7 +309,7 @@ body {
     box-sizing: border-box;
 }
 .past-projects h2 {
-    color: #c77aff; /* match theme */
+    color: var(--accent); /* match theme */
     margin-bottom: 18px;
     text-align: left;
 }
@@ -322,28 +338,28 @@ body {
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
-    border: 2px solid rgba(199,122,255,0.15);
+    border: 2px solid var(--project-border);
     display: block;
 }
 
 /* info box under image adjusted to dark theme */
 .project-info {
-    background: rgba(0,0,0,0.35);
-    border: 1px solid rgba(199,122,255,0.12);
+    background: var(--panel-bg);
+    border: 1px solid var(--project-info-border);
     padding: 10px;
     border-radius: 8px;
     text-align: center;
-    color: #e0c8ff;
+    color: var(--footer-text);
 }
 .project-title {
     margin: 4px 0;
     font-size: 16px;
-    color: #f3d8ff;
+    color: var(--project-title);
 }
 .project-desc {
     margin: 0;
     font-size: 13px;
-    color: #d8bfff;
+    color: var(--project-desc);
     line-height: 1.3;
 }
 .project-card:hover {
@@ -351,15 +367,14 @@ body {
     box-shadow: 0 8px 20px rgba(106,44,65,0.06);
 }
 
-
 /* ========== Footer / Contact ========== */
 .site-footer {
   margin: 36px 20px;
   padding: 18px 20px;
-  background: rgba(0,0,0,0.32);
+  background: var(--footer-bg);
   border-radius: 10px;
   backdrop-filter: blur(6px);
-  color: #e0c8ff;
+  color: var(--footer-text);
 }
 
 .site-footer .footer-inner {
@@ -374,7 +389,7 @@ body {
 
 .site-footer h3 {
   margin: 0;
-  color: #c77aff;
+  color: var(--accent);
   font-size: 1.05rem;
 }
 
@@ -416,7 +431,7 @@ body {
   width: 100%;
   margin-top: 8px;
   font-size: 0.85rem;
-  color: #d8bfff;
+  color: var(--text);
   opacity: 0.9;
 }
 
