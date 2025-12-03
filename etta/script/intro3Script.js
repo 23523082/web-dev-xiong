@@ -132,7 +132,29 @@ if (!themeAudio) {
       '--project-title': '#fff1c8',
       '--project-desc': '#fff3d9'
     }
-  }
+  },
+
+  'where-winds-meet': {
+    video: '../etta/mediaPage/WWM/WWM.mp4',
+    audio: '../etta/mediaPage/WWM/WWM.mp3',
+    vars: {
+      '--accent': '#3c8dff',
+      '--panel-bg': 'rgba(5,15,35,0.55)',
+      '--muted-panel': 'rgba(10,20,40,0.35)',
+      '--text': '#d6e6ff',
+      '--btn-bg': 'rgba(60,141,255,0.14)',
+      '--btn-bg-hover': 'rgba(60,141,255,0.32)',
+      '--btn-border': 'rgba(60,141,255,0.28)',
+      '--select-bg': 'rgba(10,20,40,0.28)',
+      '--select-text': '#d6e6ff',
+      '--about-p-color': '#d6e6ff',
+      '--project-box-bg': 'rgba(5,15,35,0.45)',
+      '--project-info-border': 'rgba(60,141,255,0.08)',
+      '--project-border': 'rgba(60,141,255,0.08)',
+      '--project-title': '#e6f1ff',
+      '--project-desc': '#d6e6ff'
+    }
+}
 };
 
   // Helper: set CSS variables
