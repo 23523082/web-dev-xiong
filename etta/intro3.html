@@ -13,10 +13,33 @@
 </video>
 <div id="overlay"></div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Introduction - ETTA 龙内塔</h1>
-</div>
+
+<!-- HEADER: IMAGE SLIDER -->
+<header class="header slider" aria-label="Header image carousel">
+  <div class="slides" id="headerSlides">
+    <figure class="slide active">
+      <img src="../etta/mediaPage/600x200.png" alt="Header image 1">
+      <figcaption class="slide-caption">Introduction - ETTA 龙内塔</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="../etta/mediaPage/Education/Alhasyimiyyah.jpg" alt="Header image 2">
+      <figcaption class="slide-caption">Creative web developer</figcaption>
+    </figure>
+    <figure class="slide">
+      <img src="../etta/mediaPage/Education/UII.jpg" alt="Header image 3">
+      <figcaption class="slide-caption">Design & Code</figcaption>
+    </figure>
+    <!-- add / remove <figure> blocks as needed -->
+  </div>
+
+  <!-- dots (generated automatically by JS) -->
+  <div class="slider-dots" id="headerDots" role="tablist" aria-label="Slide dots"></div>
+
+  <!-- optional previous/next controls (unobtrusive) -->
+  <button class="slider-prev" aria-label="Previous slide" id="headerPrev">&lt;</button>
+  <button class="slider-next" aria-label="Next slide" id="headerNext">&gt;</button>
+</header>
+
 
 <div class="layout">
 

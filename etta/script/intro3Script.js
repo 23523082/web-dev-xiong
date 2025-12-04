@@ -242,3 +242,86 @@ if (!themeAudio) {
   // Expose function globally if you need to call it elsewhere:
   window.applySiteTheme = applyTheme;
 })();
+
+/* ===== Header Slider Initialization ===== */
+(function initHeaderSlider() {
+  const slider = document.querySelector('.header.slider');
+  if (!slider) return;
+
+  const slidesContainer = slider.querySelector('.slides');
+  const slides = Array.from(slidesContainer.querySelectorAll('.slide'));
+  const dotsContainer = document.getElementById('headerDots');
+  const prevBtn = document.getElementById('headerPrev');
+  const nextBtn = document.getElementById('headerNext');
+
+  let current = slides.findIndex(s => s.classList.contains('active'));
+  if (current === -1) current = 0;
+
+  // Create dots based on number of slides
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', `Go to slide ${i+1}`);
+    btn.dataset.index = i;
+    if (i === current) btn.classList.add('active');
+    btn.addEventListener('click', (e) => {
+      goToSlide(i);
+      resetAutoplay(); // user interaction resets timer
+    });
+    dotsContainer.appendChild(btn);
+  });
+
+  function updateUI() {
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === current);
+    });
+    const dotButtons = Array.from(dotsContainer.children);
+    dotButtons.forEach((d, idx) => d.classList.toggle('active', idx === current));
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    if (index === current) return;
+    current = index;
+    updateUI();
+  }
+
+  function prevSlide() { goToSlide(current - 1); }
+  function nextSlide() { goToSlide(current + 1); }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+
+  // Autoplay
+  const INTERVAL = 5000; // milliseconds
+  let autoplayTimer = null;
+  function startAutoplay() {
+    if (autoplayTimer) return;
+    autoplayTimer = setInterval(() => { nextSlide(); }, INTERVAL);
+  }
+  function stopAutoplay() {
+    if (!autoplayTimer) return;
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+  function resetAutoplay() {
+    stopAutoplay();
+    // restart after small delay so user sees result
+    setTimeout(startAutoplay, 2500);
+  }
+
+  // Pause on hover/focus to improve UX
+  slider.addEventListener('mouseenter', stopAutoplay);
+  slider.addEventListener('mouseleave', startAutoplay);
+  // Pause while focusing controls
+  dotsContainer.addEventListener('focusin', stopAutoplay);
+  dotsContainer.addEventListener('focusout', startAutoplay);
+  if (prevBtn) prevBtn.addEventListener('focusin', stopAutoplay);
+  if (nextBtn) nextBtn.addEventListener('focusin', stopAutoplay);
+
+  // Kick off
+  updateUI();
+  startAutoplay();
+})();
+

@@ -1,373 +1,504 @@
-/* ================== THEME VARIABLES (editable by JS) ================== */
-:root {
-    /* main colors (JS will override these) */
-    --accent: #c77aff;                /* heading / highlight */
-    --text: #d8bfff;                  /* primary text color */
-    --panel-bg: rgba(0,0,0,0.35);     /* panels / cards background */
-    --muted-panel: rgba(50,0,50,0.25);/* subtle panels */
-    --overlay-bg: rgba(0,0,0,0.7);    /* page overlay */
-    --btn-bg: rgba(199, 122, 255, 0.35); /* button background */
-    --btn-bg-hover: rgba(199, 122, 255, 0.55);
-    --project-border: rgba(199,122,255,0.15);
-    --project-info-border: rgba(199,122,255,0.12);
-    --project-title: #f3d8ff;
-    --project-desc: #d8bfff;
-    --footer-bg: rgba(0,0,0,0.32);
-    --footer-text: #e0c8ff;
-    --btn-foreground: #e5d4ff;
-}
+/* =========================================================
+   THEME VARIABLES (editable by JS)
+   ========================================================= */
+:root{
+  /* layout */
+  --header-height: 400px;            /* change this to make header taller/shorter */
 
-/* ================== GENERAL / BASE ================== */
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: var(--text);
-    position: relative;
-    overflow-x: hidden;
-    background: transparent;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    box-sizing: border-box;
-}
+  /* main colors (JS will override these) */
+  --accent: #c77aff;                 /* heading / highlight */
+  --text: #d8bfff;                   /* primary text color */
+  --panel-bg: rgba(0,0,0,0.35);      /* panels / cards background */
+  --muted-panel: rgba(50,0,50,0.25); /* subtle panels */
+  --overlay-bg: rgba(0,0,0,0.7);     /* page overlay */
 
+  /* controls */
+  --btn-bg: rgba(199, 122, 255, 0.35);
+  --btn-bg-hover: rgba(199, 122, 255, 0.55);
+  --btn-foreground: #e5d4ff;
+  --btn-border: rgba(199,122,255,0.5);
+
+  /* projects */
+  --project-border: rgba(199,122,255,0.15);
+  --project-info-border: rgba(199,122,255,0.12);
+  --project-title: #f3d8ff;
+  --project-desc: #d8bfff;
+
+  /* footer */
+  --footer-bg: rgba(0,0,0,0.32);
+  --footer-text: #e0c8ff;
+}
+/* ================= END THEME VARIABLES ================== */
+
+
+/* =========================================================
+   BASE / RESET
+   ========================================================= */
 *,
 *::before,
-*::after {
-    box-sizing: inherit;
+*::after { box-sizing: border-box; }
+
+html,body{ height:100%; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  position: relative;
+  overflow-x: hidden;
+  background: transparent;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+/* ================= END BASE / RESET ================== */
+
+
+/* =========================================================
+   VIDEO BACKGROUND & OVERLAY
+   ========================================================= */
+#bg-video{
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  z-index: -2;
 }
 
-/* ===== Video background & overlay ===== */
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
+#overlay{
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: var(--overlay-bg);
+  z-index: -1;
 }
+/* ================ END VIDEO BACKDROP =================== */
 
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--overlay-bg);
-    z-index: -1;
-}
 
-/* ===== Generic controls / selects / buttons ===== */
+/* =========================================================
+   GENERIC CONTROLS / SELECTS / BUTTONS
+   ========================================================= */
+/* Select & options (theme-aware) */
 #theme-select {
-    width: 100%;
-    padding: 8px 12px;
-    margin-top: 8px;
-    background: var(--muted-panel);
-    color: var(--text);
-    border: 1px solid rgba(199,122,255,0.5);
-    border-radius: 6px;
-    font-size: 1rem;
-    outline: none;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 8px;
+  background: var(--muted-panel);
+  color: var(--text);
+  border: 1px solid var(--btn-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: background .22s ease, color .22s ease, border-color .22s ease;
 }
-#theme-select:hover,
-#theme-select:focus {
-    background: rgba(50,0,50,0.55);
-    color: #fff0ff;
+#theme-select:focus,
+#theme-select:hover {
+  background: var(--accent);
+  color: var(--btn-foreground);
+  border-color: var(--accent);
 }
+/* Option styling (works well on modern browsers) */
 #theme-select option {
-    background: rgba(50,0,50,0.9);
-    color: var(--text);
+  background: var(--muted-panel);
+  color: var(--text);
+}
+#theme-select option:hover,
+#theme-select option:checked {
+  background: var(--accent);
+  color: var(--btn-foreground);
 }
 
-/* General .btn shared style (used across panels/cards) */
+/* Generic buttons */
 .btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background: var(--btn-bg);
-    border-radius: 6px;
-    text-decoration: none;
-    color: var(--btn-foreground);
-    transition: transform .12s ease, background .12s ease;
-    white-space: nowrap;
-    cursor: pointer;
-    border: none;
+  display: inline-block;
+  padding: 8px 12px;
+  background: var(--btn-bg);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--btn-foreground);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  cursor: pointer;
+  border: 1px solid var(--btn-border);
 }
 .btn:hover {
-    transform: translateY(-2px);
-    background: var(--btn-bg-hover);
+  transform: translateY(-2px);
+  background: var(--btn-bg-hover);
 }
+/* ================ END CONTROLS / BUTTONS ================= */
 
-/* ================== HEADER ================== */
+
+/* =========================================================
+   HEADER (HERO) - Slider wrapper
+   ========================================================= */
+/* Alignment fixes applied:
+   - header is flush horizontally with layout content (no left gutter)
+   - slides/images are centered (object-position)
+   - arrow buttons overlay the image without creating extra space
+*/
 .header {
-    background: rgba(0,0,0,0.35);
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    position: relative;
-    z-index: 1;
-}
-.header h1 {
-    margin: 0;
-    font-size: 28px;
-    color: var(--accent);
+  position: relative;
+  z-index: 1;
+  margin: 12px 0;   /* remove left/right margin to align flush with page */
+  padding: 0;       /* remove internal padding that could offset content */
 }
 
-/* ================== GRID LAYOUT (LEFT / MIDDLE / RIGHT) ================== */
+/* slider variant of header */
+.header.slider {
+  width: 100%;
+  height: var(--header-height);
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  background: var(--panel-bg);
+  margin: 12px 0;   /* small vertical spacing only */
+  padding: 0;
+}
+
+/* slides container */
+.header.slider .slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* each slide */
+.header.slider .slide {
+  position: absolute;
+  inset: 0;                 /* top:0;right:0;bottom:0;left:0 */
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity .45s ease, transform .45s ease;
+  display: flex;
+  align-items: stretch;
+}
+.header.slider .slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+/* image fit & centering - critical for composition */
+.header.slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* ensure visible crop is centered */
+  display: block;
+}
+
+/* caption */
+.header.slider .slide-caption {
+  position: absolute;
+  left: 28px;
+  bottom: calc(28px + 18px);
+  margin: 0;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.18));
+  color: var(--text);
+  border-radius: 8px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  max-width: 70%;
+}
+
+/* dots */
+.slider-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  display: flex;
+  gap: 10px;
+  z-index: 6;
+}
+.slider-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.12);
+  padding: 0;
+  cursor: pointer;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+.slider-dots button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.2);
+}
+
+/* prev/next - overlay the image; remove margins that cause gutters */
+.slider-prev,
+.slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;                    /* on top of slides */
+  background: rgba(0,0,0,0.45);
+  color: var(--text);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-grid;
+  place-items: center;
+  font-weight: 700;
+  margin: 0;                      /* important: removes any button margin */
+  padding: 0;
+  box-shadow: none;
+}
+.slider-prev { left: 12px; }
+.slider-next { right: 12px; }
+.slider-prev:hover,
+.slider-next:hover { transform: translateY(-50%) scale(1.06); }
+
+/* subtle overlay vignette */
+.header.slider::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.18) 50%, rgba(0,0,0,0.45) 100%);
+}
+/* ================ END HEADER / SLIDER ================= */
+
+
+/* =========================================================
+   GRID LAYOUT (LEFT / MIDDLE / RIGHT)
+   ========================================================= */
 .layout {
-    display: grid;
-    grid-template-columns: 220px 1fr 260px;
-    gap: 20px;
-    padding: 20px;
-    align-items: start; /* ensures panels don't stretch vertically */
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
 }
+/* ================ END GRID LAYOUT ================= */
 
-/* ---------- LEFT PANEL ---------- */
+
+/* =========================================================
+   LEFT PANEL
+   ========================================================= */
 .left-panel {
-    background: var(--panel-bg);
-    border-radius: 10px;
-    padding: 20px;
-    backdrop-filter: blur(6px);
+  background: var(--panel-bg);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
 }
 .left-panel h2 {
-    color: var(--accent);
-    margin: 0 0 12px 0;
+  color: var(--accent);
+  margin: 0 0 12px 0;
 }
 .left-panel ul { margin: 0; padding: 0; list-style: none; }
 .left-panel li {
-    padding: 6px 0;
-    color: var(--text);
+  padding: 6px 0;
+  color: var(--text);
 }
 .left-panel .btn {
-    width: 100%;
-    margin-top: 8px;
-    background: var(--muted-panel);
-    color: var(--text);
-    border: 1px solid rgba(199,122,255,0.5);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+  width: 100%;
+  margin-top: 8px;
+  background: var(--muted-panel);
+  color: var(--text);
+  border: 1px solid var(--btn-border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  text-align: center;
+  transition: background .18s ease, color .18s ease, transform .12s ease;
 }
 .left-panel .btn:hover {
-    background: rgba(50,0,50,0.55);
-    color: #fff0ff;
-    transform: translateY(-2px);
+  background: rgba(50,0,50,0.55);
+  color: var(--btn-foreground);
+  transform: translateY(-2px);
 }
+/* ================ END LEFT PANEL ================= */
 
-/* ---------- MIDDLE PANEL ---------- */
+
+/* =========================================================
+   MIDDLE PANEL (PERSONAL CARD / ABOUT)
+   ========================================================= */
 .middle-panel {
-    /* centering the content area */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .middle-panel h2 {
-    color: var(--accent);
-    margin: 0 0 12px 0;
-    width: 100%;
-    text-align: center;
+  color: var(--accent);
+  margin: 0 0 12px 0;
+  width: 100%;
+  text-align: center;
 }
 
-/* ----- PERSONAL CARD (About Me) ----- */
+/* personal card */
 .personal-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--panel-bg);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    backdrop-filter: blur(6px);
-    width: 100%;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: 500px;
 }
 
-/* TOP BOX: image + biodata */
+/* personal top */
 .personal-top-box {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 12px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 12px;
 }
 .card-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
-    object-fit: cover;
-    flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex: 0 0 64px;
 }
 .personal-biodata h3 {
-    margin: 0;
-    color: var(--accent);
-    font-size: 1.1rem;
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
 }
 .personal-biodata p {
-    margin: 4px 0;
-    color: var(--text);
-    line-height: 1.3;
+  margin: 4px 0;
+  color: var(--text);
+  line-height: 1.3;
 }
 
-/* BOTTOM BOX: extra info */
+/* bottom box */
 .personal-bottom-box {
-    background: var(--muted-panel);
-    padding: 10px 12px;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.3;
-    margin-bottom: 10px;
+  background: var(--muted-panel);
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
+/* ================ END MIDDLE PANEL ================= */
 
-/* card footer (button container) */
-.card-footer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
 
-/* ================== RIGHT PANEL ================== */
+/* =========================================================
+   RIGHT PANEL
+   ========================================================= */
 .right-panel {
-    background: var(--panel-bg);
-    border-radius: 10px;
-    padding: 20px;
-    backdrop-filter: blur(6px);
+  background: var(--panel-bg);
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
 }
 .right-panel h2 { color: var(--accent); margin: 0 0 12px 0; }
 .right-panel ul { margin: 0; padding: 0; list-style: none; }
 .right-panel li { padding: 6px 0; color: var(--text); }
+/* ================ END RIGHT PANEL ================= */
 
-/* ================== ABOUT-ME SECTION (below grid) ================== */
+
+/* =========================================================
+   ABOUT-ME SECTION (below grid)
+   ========================================================= */
 .about-me-section {
-    margin: 40px 20px;
-    padding: 20px;
-    background: var(--panel-bg);
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
+  margin: 40px 20px;
+  padding: 20px;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
 }
 .about-me-section h2 {
-    color: var(--accent);
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
-/* Layout: left menu + right content */
-.about-me-layout {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* left menu inside about-me */
+/* layout inside about-me */
+.about-me-layout { display: flex; gap: 20px; flex-wrap: wrap; }
 .about-me-menu {
-    flex: 1;
-    min-width: 160px;
-    background: var(--muted-panel);
-    border-radius: 10px;
-    padding: 16px;
+  flex: 1;
+  min-width: 160px;
+  background: var(--muted-panel);
+  border-radius: 10px;
+  padding: 16px;
 }
-.about-me-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+.about-me-menu ul { list-style: none; padding: 0; margin: 0; }
 .about-me-menu li {
-    padding: 8px 0;
-    cursor: pointer;
-    color: var(--text);
-    transition: background 0.2s ease, color 0.2s ease;
-    border-radius: 6px;
+  padding: 8px 0;
+  cursor: pointer;
+  color: var(--text);
+  transition: background .18s ease, color .18s ease;
+  border-radius: 6px;
 }
-.about-me-menu li:hover {
-    background: rgba(199,122,255,0.25);
-    color: #fff0ff;
-}
+.about-me-menu li:hover { background: rgba(199,122,255,0.25); color: var(--btn-foreground); }
 
-/* right content inside about-me */
 .about-me-content {
-    flex: 2;
-    min-width: 250px;
-    background: rgba(0,0,0,0.25);
-    border-radius: 10px;
-    padding: 16px;
-    color: var(--footer-text);
-    line-height: 1.4;
+  flex: 2;
+  min-width: 250px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+  padding: 16px;
+  color: var(--footer-text);
+  line-height: 1.4;
 }
 .about-content-item { display: block; }
+/* ================ END ABOUT-ME SECTION ================= */
 
-/* ================== MY PASTS PROJECT (placed after about-me) ================== */
+
+/* =========================================================
+   MY PASTS PROJECT (placed after about-me)
+   ========================================================= */
 .past-projects {
-    max-width: 1200px;
-    margin: 36px auto;
-    padding: 24px;
-    box-sizing: border-box;
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 24px;
 }
-.past-projects h2 {
-    color: var(--accent); /* match theme */
-    margin-bottom: 18px;
-    text-align: left;
-}
+.past-projects h2 { color: var(--accent); margin-bottom: 18px; text-align: left; }
 
-/* grid of project thumbnails */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  align-items: start;
 }
 
-/* project card */
 .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    box-sizing: border-box;
-    transition: transform 180ms ease, box-shadow 180ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
-/* project image */
 .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid var(--project-border);
-    display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--project-border);
+  display: block;
 }
 
-/* info box under image adjusted to dark theme */
 .project-info {
-    background: var(--panel-bg);
-    border: 1px solid var(--project-info-border);
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    color: var(--footer-text);
+  background: var(--panel-bg);
+  border: 1px solid var(--project-info-border);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--footer-text);
 }
-.project-title {
-    margin: 4px 0;
-    font-size: 16px;
-    color: var(--project-title);
-}
-.project-desc {
-    margin: 0;
-    font-size: 13px;
-    color: var(--project-desc);
-    line-height: 1.3;
-}
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(106,44,65,0.06);
-}
+.project-title { margin: 4px 0; font-size: 16px; color: var(--project-title); }
+.project-desc  { margin: 0; font-size: 13px; color: var(--project-desc); line-height: 1.3; }
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(106,44,65,0.06); }
+/* ================ END PASTS PROJECT ================= */
 
-/* ========== Footer / Contact ========== */
+
+/* =========================================================
+   FOOTER / CONTACT
+   ========================================================= */
 .site-footer {
   margin: 36px 20px;
   padding: 18px 20px;
@@ -376,7 +507,6 @@ body {
   backdrop-filter: blur(6px);
   color: var(--footer-text);
 }
-
 .site-footer .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -386,84 +516,55 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.site-footer h3 { margin: 0; color: var(--accent); font-size: 1.05rem; }
 
-.site-footer h3 {
-  margin: 0;
-  color: var(--accent);
-  font-size: 1.05rem;
-}
-
-/* buttons row */
-.contact-buttons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* single button */
+.contact-buttons { display:flex; gap:10px; align-items:center; }
 .contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #140417;
-  background: linear-gradient(180deg, #f6e9ff 0%, #e9d0ff 100%);
-  border: 1px solid rgba(199,122,255,0.6);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  transition: transform .12s ease, box-shadow .12s ease;
-  font-weight: 600;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:8px; text-decoration:none; color:#140417;
+  background: linear-gradient(180deg,#f6e9ff 0%,#e9d0ff 100%);
+  border: 1px solid var(--btn-border); box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  font-weight:600;
 }
-
-.contact-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(106,44,65,0.08);
-}
-
-/* variant styling (optional) */
+.contact-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(106,44,65,0.08); }
 .contact-btn.email { background: linear-gradient(180deg,#fff2f9,#ffeef8); }
 .contact-btn.wechat { background: linear-gradient(180deg,#e9fff0,#d7ffea); }
 .contact-btn.whatsapp { background: linear-gradient(180deg,#eafff7,#d6fff0); }
 
-/* small helper note */
-.footer-note {
-  width: 100%;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: var(--text);
-  opacity: 0.9;
+.footer-note { width:100%; margin-top:8px; font-size:.85rem; color:var(--text); opacity:.9; }
+/* ================ END FOOTER ================= */
+
+
+/* =========================================================
+   RESPONSIVE / MEDIA QUERIES
+   ========================================================= */
+@media (max-width: 980px){
+  .projects-grid { grid-template-columns: repeat(2,1fr); }
+  .layout { grid-template-columns: 180px 1fr 220px; gap:16px; padding:16px; }
+  .personal-card { max-width:520px; }
 }
 
-/* responsive */
-@media (max-width: 720px) {
-  .site-footer .footer-inner { flex-direction: column; align-items: stretch; gap: 12px; }
+@media (max-width: 720px){
+  .header.slider { height: calc(var(--header-height) * 0.6); margin: 12px; }
+  .site-footer .footer-inner { flex-direction: column; align-items: stretch; gap:12px; }
   .contact-buttons { justify-content: center; }
+  .layout { grid-template-columns: 1fr; padding: 12px; }
+  .right-panel, .left-panel { width: 100%; }
+  .right-panel { order: 3; }
+  .left-panel  { order: 1; }
+  .middle-panel{ order: 2; }
+  .past-projects { padding: 16px; }
 }
 
-
-/* ================== RESPONSIVE / MEDIA QUERIES ================== */
-@media (max-width: 980px) {
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    .layout { grid-template-columns: 180px 1fr 220px; gap: 16px; padding: 16px; }
-    .personal-card { max-width: 520px; }
+@media (max-width: 520px){
+  :root{ --header-height: 220px; } /* smaller on very small screens */
+  .personal-top-box { flex-direction: column; align-items: center; text-align: center; }
+  .personal-biodata p { text-align: center; }
+  .about-me-layout { flex-direction: column; }
+  .about-me-menu { margin-bottom: 12px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card img { height: 200px; }
+  .past-projects { padding: 12px; margin: 20px auto; }
 }
-
-@media (max-width: 720px) {
-    .layout { grid-template-columns: 1fr; }
-    .left-panel, .right-panel { width: 100%; }
-    .right-panel { order: 3; }
-    .left-panel { order: 1; }
-    .middle-panel { order: 2; }
-    .past-projects { padding: 16px; }
-}
-
-@media (max-width: 520px) {
-    .personal-top-box { flex-direction: column; align-items: center; text-align: center; }
-    .personal-biodata p { text-align: center; }
-    .about-me-layout { flex-direction: column; }
-    .about-me-menu { margin-bottom: 12px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card img { height: 200px; }
-    .past-projects { padding: 12px; margin: 20px auto; }
-}
+/* ================ END RESPONSIVE ================= */
