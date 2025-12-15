@@ -1,0 +1,241 @@
+/* --- 1. GENERAL --- */
+:root {
+  --primary-color: #12d640;
+  --bg-color: #040b14;
+  --text-color: #fff;
+  --secondary-bg: #09203a;
+  --nav-bg: rgba(0, 0, 0, 0.9);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  margin: 0;
+}
+
+a { text-decoration: none; color: var(--primary-color); transition: 0.3s; }
+a:hover { color: #fff; }
+ul { list-style: none; padding: 0; margin: 0; }
+img { max-width: 100%; height: auto; }
+html {scroll-behavior: smooth; }
+
+/* Utilities */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-center { justify-content: center; }
+.flex-column { flex-direction: column; }
+
+/* --- 2. HEADER / NAVBAR (TOP) --- */
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--nav-bg); /* Background Navbar Gelap */
+  border-bottom: 1px solid #1c2938;
+}
+
+#header .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+#header .logo a { color: #fff; }
+
+/* Desktop Navigation */
+.navbar { padding: 0; }
+.navbar ul { display: flex; gap: 30px; }
+.navbar a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  padding: 10px 0 10px 0;
+  position: relative;
+}
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+  color: var(--primary-color);
+}
+/* Garis bawah animasi saat hover */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: 0.3s;
+}
+.navbar a:hover::after, .navbar .active::after {
+  width: 100%;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  font-size: 32px;
+  transition: all 0.4s;
+  outline: none !important;
+  background: none;
+  color: #fff;
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+}
+
+/* --- 3. MAIN LAYOUT --- */
+/* Reset margin karena navbar sekarang di atas, bukan di samping */
+main { margin-left: 0; margin-top: 70px; } 
+
+section { padding: 60px 0; overflow: hidden; scroll-margin-top: 80px; }
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+}
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--primary-color);
+  bottom: 0; left: 0;
+}
+
+/* --- 4. HERO SECTION --- */
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("assets/img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+  /* Override margin-top main untuk hero agar full screen */
+  margin-top: 0 !important; 
+}
+#hero::before {
+  content: "";
+  background: rgba(5, 13, 24, 0.7);
+  position: absolute;
+  bottom: 0; top: 0; left: 0; right: 0;
+}
+.hero-container {
+  position: relative;
+  text-align: center;
+}
+.hero-container h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero-container p {
+  color: #fff;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+}
+.hero-container p span {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.hero-container .social-links { margin-top: 20px; }
+.hero-container .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 38px;
+  height: 24px;
+  transition: 0.3s;
+}
+.hero-container .social-links a:hover {
+  background: var(--primary-color);
+  text-decoration: none;
+}
+
+/* --- 5. ABOUT, RESUME, PROJECTS, ETC --- */
+/* Layout Grid & Styles tetap mirip */
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+.about-img img { border-radius: 10px; border: 4px solid #2c2f3f; }
+.about-info ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.about-info li { display: flex; align-items: center; }
+.about-info i { color: var(--primary-color); font-size: 20px; margin-right: 5px; }
+
+.grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.resume-item {
+  padding-left: 20px;
+  border-left: 2px solid #1c2938;
+  position: relative;
+  margin-bottom: 20px;
+}
+.resume-item::before {
+  content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%;
+  left: -10.5px; top: 0; background: var(--bg-color); border: 2px solid var(--primary-color);
+}
+.resume-item h4 { color: var(--primary-color); font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+.resume-item h5 { background: rgba(255,255,255,0.15); padding: 5px 15px; display: inline-block; font-weight: 600; margin-bottom: 10px; }
+
+.interests-grid, .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;}
+.icon-box, .skill-box { background: rgba(255,255,255,0.08); padding: 20px; transition: 0.3s; }
+.icon-box:hover, .skill-box:hover { background: var(--secondary-bg); border: 1px solid var(--primary-color); }
+.icon-box i { font-size: 32px; color: var(--primary-color); margin-bottom: 10px; display: block; }
+.icon-box h3 { color: #fff; font-size: 16px; font-weight: 700; margin: 0; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.portfolio-filters { display: flex; justify-content: center; margin-bottom: 30px; gap: 15px; }
+.portfolio-filters li { cursor: pointer; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 4px; font-weight: 600; }
+.portfolio-filters li:hover, .portfolio-filters li.filter-active { background: var(--primary-color); color: #fff; }
+
+.portfolio-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.portfolio-item { position: relative; overflow: hidden; border-radius: 5px; }
+.portfolio-item img { width: 100%; transition: 0.3s; display: block; }
+.portfolio-info { position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7); opacity:0; display:flex; flex-direction:column; justify-content:center; align-items:center; transition:0.3s; }
+.portfolio-item:hover .portfolio-info { opacity:1; }
+.portfolio-item:hover img { transform: scale(1.1); }
+
+/* --- RESPONSIVE (MOBILE) --- */
+@media (max-width: 992px) {
+  .mobile-nav-toggle { display: block; }
+
+  /* Hide default navbar on mobile, show via JS toggle class */
+  #header { overflow-y: hidden; }
+  .navbar ul { 
+    display: none; /* Hidden by default */
+    flex-direction: column; 
+    position: absolute; 
+    top: 60px; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  /* Class to show menu on mobile */
+  .navbar-mobile ul { display: flex; }
+  
+  .hero-container h1 { font-size: 32px; }
+  .about-grid, .grid-2-col, .contact-grid { grid-template-columns: 1fr; }
+}
