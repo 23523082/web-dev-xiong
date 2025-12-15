@@ -3,113 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Introduction - Etta 龙内塔</title>
-    <link rel="stylesheet" href="../etta/style/style.css"> <!-- external CSS -->
+    <link rel="stylesheet" href="../etta/style/style.css">
 </head>
 <body>
 
-<!-- BACKGROUND VIDEO -->
+<!-- ================== BACKGROUND VIDEO ================== -->
 <video id="bg-video" autoplay muted loop playsinline>
     <source src="../etta/mediaPage/Wuthering Waves/background.mp4" type="video/mp4">
 </video>
 <div id="overlay"></div>
 
-
-<!-- HEADER: IMAGE SLIDER -->
-<header class="header slider" aria-label="Header image carousel">
-  <div class="slides" id="headerSlides">
-    <figure class="slide active">
-      <img src="../etta/mediaPage/600x200.png" alt="Header image 1">
-      <figcaption class="slide-caption">Introduction - ETTA 龙内塔</figcaption>
-    </figure>
-    <figure class="slide">
-      <img src="../etta/mediaPage/Education/Alhasyimiyyah.jpg" alt="Header image 2">
-      <figcaption class="slide-caption">Creative web developer</figcaption>
-    </figure>
-    <figure class="slide">
-      <img src="../etta/mediaPage/Education/UII.jpg" alt="Header image 3">
-      <figcaption class="slide-caption">Design & Code</figcaption>
-    </figure>
-    <!-- add / remove <figure> blocks as needed -->
+<!-- ================== TOP NAVBAR ================== -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <!-- dots (generated automatically by JS) -->
-  <div class="slider-dots" id="headerDots" role="tablist" aria-label="Slide dots"></div>
-
-  <!-- optional previous/next controls (unobtrusive) -->
-  <button class="slider-prev" aria-label="Previous slide" id="headerPrev">&lt;</button>
-  <button class="slider-next" aria-label="Next slide" id="headerNext">&gt;</button>
-</header>
-
-
+<!-- ================== MAIN LAYOUT ================== -->
 <div class="layout">
 
-    <!-- LEFT PANEL -->
-    <div class="left-panel">
-        <h2>⚙️ Controls</h2>
-
-        <!-- Disable Video -->
-        <button class="btn" onclick="toggleVideo()">Disable/Enable Video</button>
-
-        <!-- Theme Selection -->
-        <h3>Themes</h3>
-        <select id="theme-select" onchange="changeTheme()">
-            <option value="wuthering-wave">Wuthering Wave</option>
-            <option value="punishing-gray-raven">Punishing Gray Raven</option>
-            <option value="honkai-star-rail">Honkai Star Rail</option>
-            <option value="where-winds-meet"> Where Winds Meet</option>
-        </select>
+    <div class="personal-image-section">
+        <img src="../etta/image/Icon.png" alt="Etta icon" class="personal-image">
     </div>
 
-    <!-- MIDDLE PANEL -->
     <div class="middle-panel">
-        <h2>About Me</h2>
-
         <div class="personal-card" onclick="playClickSound()">
-            <!-- TOP BOX -->
             <div class="personal-top-box">
-                <img src="../etta/image/Icon.png" alt="Etta icon" class="card-icon">
                 <div class="personal-biodata">
                     <h3>Etta 龙内塔</h3>
                     <p>Full Name : Lunetta Maheswara Grahawijaya</p>
                     <p>Nickname : Etta</p>
                     <p>Chinese name : 龙内塔</p>
-                    <p>DOB : 2004 October 13 </p>
+                    <p>DOB : 2004 October 13</p>
                     <p>Age : 21</p>
-                    
                 </div>
             </div>
-            <!-- BOTTOM BOX -->
             <div class="personal-bottom-box">
                 <p>Likes: Coding, Music, Animation, Video game</p>
                 <p>Dislikes: Math</p>
-                <p>Interests: Coding and  Video game making</p>
+                <p>Interests: Coding and Video game making</p>
             </div>
         </div>
     </div>
 
-    <!-- RIGHT PANEL -->
-    <!-- Right panel content -->
-<div class="right-panel">
-  <h2>📰 News</h2>
-
-  <!-- Replace the URL below with your X profile URL -->
-  <a class="twitter-timeline" 
-     href="https://x.com/lunetta_g84084"
-     data-theme="dark" 
-     data-tweet-limit="10">
-    Tweets by Me
-  </a>
-  <script async src="https://platform.twitter.com/widgets.js"></script>
+    <div class="left-panel">
+        <h2>⚙️ Controls</h2>
+        <button class="btn" onclick="toggleVideo()">Disable / Enable Video</button>
+        <h3>Themes</h3>
+        <select id="theme-select" onchange="changeTheme()">
+            <option value="wuthering-wave">Wuthering Wave</option>
+            <option value="punishing-gray-raven">Punishing Gray Raven</option>
+            <option value="honkai-star-rail">Honkai Star Rail</option>
+            <option value="where-winds-meet">Where Winds Meet</option>
+        </select>
     </div>
-
-
 </div>
 
-    <!-- ================== ABOUT ME SECTION ================== -->
-<div class="about-me-section">
+<!-- ================== ABOUT ME ================== -->
+<section id="about" class="about-me-section">
     <h2>About Me</h2>
     <div class="about-me-layout">
-        <!-- LEFT MENU -->
         <div class="about-me-menu">
             <ul>
                 <li onclick="showContent('place')">My Birth Place</li>
@@ -117,127 +74,130 @@
                 <li onclick="showContent('character')">My Fav Character</li>
             </ul>
         </div>
-
-        <!-- RIGHT CONTENT -->
         <div class="about-me-content">
             <div id="place" class="about-content-item">
-                <p>i was born in a small city called Central Pangkalanbun, located in indonesia central kalimantan, the town is known as just transitition city due to people simply migrate from 1 city to another and it just so happen Pangkalan Bun is on the way</p>
-                    <b></b>
-                    <p>Small as it is, it's citizen is quite packed with diverse tribe origin, mainly dayak and madura tribe, as well as java. Due to this, the culture combination is one of best i ever experience.</p>
-                
+                <p>I was born in Central Pangkalanbun, Indonesia — a culturally diverse transit city.</p>
             </div>
             <div id="hobby" class="about-content-item" style="display:none;">
-                <p>My favorites hobby is none other than gaming, of course, i am pretty sure you can deduct my interest by seeing how i designed the creative asset of this website. However it is not my only interest : </p>
-                <b></b>
                 <ul>
-                    <li>Gaming : my all time favorite hobby, i usually played alot of gacha game as of now</li>
-                    <li>Music : i like to listen to music while coding, i dont have favorite genre, if it sounds good, it is good to me.</li>
-                    <li>Coding : Coding helps me giving tribute to anything i created, one way its how i use the creative asset i gathered, coding became one of my interest due to that</li>
+                    <li>Gaming</li>
+                    <li>Music</li>
+                    <li>Coding</li>
+                </ul>
             </div>
             <div id="character" class="about-content-item" style="display:none;">
-                <p>My favorite character is Adit from our dev team for his dedication to clean code.</p>
+                <p>My favorite character is Adit from our dev team.</p>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ================== MY PASTS PROJECT ================== -->
-<section class="past-projects">
-    <h2>My Pasts Project</h2>
+<!-- ================== PROJECTS ================== -->
+<section id="projects" class="past-projects">
+    <h2>My Past Projects</h2>
 
     <div class="projects-grid">
-        <article class="project-card">
+
+        <article class="project-card"
+          onclick="showProjectDetail(this)"
+          data-title="Eduverse"
+          data-image="../etta/mediaPage/1738956495182.jpg"
+          data-description="Eduverse is a conceptual AI-driven education platform focused on adaptive learning paths, ethical AI usage, and scalable system architecture. The project remained theoretical and was developed as an academic assignment.">
+
+            <img src="../etta/mediaPage/1738956495182.jpg" alt="Eduverse screenshot">
             <div class="project-info">
                 <h3 class="project-title">Eduverse</h3>
-                <p class="project-desc">A project about learning education using AI, though this is a concept assigment so it doesn't actualized.</p>
+                <p class="project-desc">Concept AI education project.</p>
             </div>
         </article>
 
-        <article class="project-card">
-            <img src="../etta/mediaPage/urbino.png" alt="Project Two screenshot">
+        <article class="project-card"
+          onclick="showProjectDetail(this)"
+          data-title="Urbino"
+          data-image="../etta/mediaPage/urbino.png"
+          data-description="Urbino is a fully implemented education platform inspired by Eduverse. I served as Scrum Master and Back-End Engineer, handling sprint planning, database design, and API development.">
+
+            <img src="../etta/mediaPage/urbino.png" alt="Urbino screenshot">
             <div class="project-info">
                 <h3 class="project-title">Urbino</h3>
-                <p class="project-desc">a smiliar project by Eduverse, only difference is that it has been actualized with code as an assigment, taking the role as scrum master and back-end enginner</p>
+                <p class="project-desc">Scrum Master & Back-End Engineer.</p>
             </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card"
+          onclick="showProjectDetail(this)"
+          data-title="CSV Blog System"
+          data-image="../etta/mediaPage/images.jpg"
+          data-description="A personal PHP-based blogging system designed around CSV storage instead of traditional databases. Built to explore lightweight data handling and minimal server overhead.">
+
+            <img src="../etta/mediaPage/images.jpg" alt="CSV Blog System screenshot">
             <div class="project-info">
                 <h3 class="project-title">CSV</h3>
-                <p class="project-desc">a personal project when i first started coding, using phph and testing backend with it to create blog-focused web</p>
+                <p class="project-desc">PHP CSV-based blog system.</p>
             </div>
         </article>
+
     </div>
 </section>
 
+<!-- ================== PROJECT DETAIL PANEL ================== -->
+<section id="project-detail" class="project-detail hidden">
+    <figure class="project-figure">
+        <img id="detail-image" src="" alt="">
+    </figure>
+    <div class="project-detail-info">
+        <h2 id="detail-title"></h2>
+        <p id="detail-description"></p>
+    </div>
+</section>
 
-<!-- ================== MY Past Education ================== -->
-<section class="past-projects">
-    <h2>My  Education</h2>
+<!-- ================== EDUCATION ================== -->
+<section id="education" class="past-projects">
+    <h2>My Education</h2>
 
     <div class="projects-grid">
         <article class="project-card">
-            <img src="../etta/mediaPage/Education/Alhasyimiyyah.jpg" alt="Project one screenshot">
+            <img src="../etta/mediaPage/Education/Alhasyimiyyah.jpg" alt="">
             <div class="project-info">
-                <h3 class="project-title">Elementary - Junior School of Alhasyimiyyah</h3>
-                <p class="project-desc">A project about learning education using AI, though this is a concept assigment so it doesn't actualized.</p>
+                <h3 class="project-title">Alhasyimiyyah</h3>
+                <p class="project-desc">Elementary & Junior School</p>
             </div>
         </article>
 
         <article class="project-card">
-            <img src="../etta/mediaPage/Education/SMAN3.jpg" alt="Project Two screenshot">
+            <img src="../etta/mediaPage/Education/SMAN3.jpg" alt="">
             <div class="project-info">
-                <h3 class="project-title">Senior Highschool of Arut Selatan 3  </h3>
-                <p class="project-desc">a smiliar project by Eduverse, only difference is that it has been actualized with code as an assigment, taking the role as scrum master and back-end enginner</p>
+                <h3 class="project-title">SMAN 3 Arut Selatan</h3>
+                <p class="project-desc">Senior High School</p>
             </div>
         </article>
 
         <article class="project-card">
-            <img src="../etta/mediaPage/Education/UII.jpg" alt="Project Two screenshot">
+            <img src="../etta/mediaPage/Education/UII.jpg" alt="">
             <div class="project-info">
                 <h3 class="project-title">Universitas Islam Indonesia</h3>
-                <p class="project-desc">a personal project when i first started coding, using phph and testing backend with it to create blog-focused web</p>
+                <p class="project-desc">Higher Education</p>
             </div>
         </article>
     </div>
 </section>
 
-<!-- ================== FOOTER / CONTACT ================== -->
-<footer class="site-footer">
+<!-- ================== FOOTER ================== -->
+<footer id="contact" class="site-footer">
   <div class="footer-inner">
     <h3>Contact Me</h3>
-
     <div class="contact-buttons">
-      <!-- Gmail compose (opens Gmail web compose with recipient pre-filled) -->
-      <a class="contact-btn email" id="email-link"
-         href="https://mail.google.com/mail/?view=cm&fs=1&to=ettabego@gmail.com"
-         target="_blank" rel="noopener">
-        ✉️ Email
-      </a>
-
-      <!-- WeChat: opens QR image in new tab so user can scan with WeChat app -->
-      <a class="contact-btn wechat" href="../etta/image/wechat-qr.png" target="_blank" rel="noopener">
-        🟩 WeChat (scan QR)
-      </a>
-
-      <!-- WhatsApp: opens chat to phone number (use international format without + or with +) -->
-      <a class="contact-btn whatsapp" id="wa-link"
-         href="https://wa.me/6282353106606" target="_blank" rel="noopener">
-        💬 WhatsApp
-      </a>
+      <a class="contact-btn email" href="https://mail.google.com/mail/?view=cm&to=ettabego@gmail.com" target="_blank">✉️ Email</a>
+      <a class="contact-btn wechat" href="../etta/image/wechat-qr.png" target="_blank">🟩 WeChat</a>
+      <a class="contact-btn whatsapp" href="https://wa.me/6282353106606" target="_blank">💬 WhatsApp</a>
     </div>
-
-    <p class="footer-note">
-      Replace the placeholders in the links with your real email, QR image, and WhatsApp number.
-    </p>
   </div>
 </footer>
 
-
-<!-- CLICK SOUND -->
 <audio id="click-sound" src="../etta/mediaPage/Wuthering Waves/background.mp3" preload="auto"></audio>
 
 <script src="../etta/script/intro3Script.js"></script>
+
 
 
 </body>

@@ -1,327 +1,227 @@
-// ====== DISABLE/ENABLE VIDEO ======
+/* =========================================================
+   VIDEO BACKGROUND CONTROL
+   ========================================================= */
 const bgVideo = document.getElementById('bg-video');
 let videoEnabled = true;
 
 function toggleVideo() {
-    if (!bgVideo) return;
-    if (videoEnabled) {
-        bgVideo.pause();
-        videoEnabled = false;
-    } else {
-        bgVideo.play().catch(()=>{}); // ignore autoplay errors
-        videoEnabled = true;
-    }
+  if (!bgVideo) return;
+
+  if (videoEnabled) {
+    bgVideo.pause();
+  } else {
+    bgVideo.play().catch(() => {});
+  }
+  videoEnabled = !videoEnabled;
 }
 
-// ====== CLICK SOUND (UI) ======
-// Uses existing audio element with id="click-sound" for UI clicks.
-// Ensure your HTML contains: <audio id="click-sound" src="../etta/mediaPage/background.mp3" preload="auto"></audio>
+/* =========================================================
+   UI CLICK SOUND
+   ========================================================= */
 function playClickSound() {
-    const sound = document.getElementById('click-sound');
-    if (!sound) return;
-    try {
-        sound.currentTime = 0;
-        sound.play().catch(()=>{ /* user gesture required */ });
-    } catch (e) { /* ignore */ }
+  const sound = document.getElementById('click-sound');
+  if (!sound) return;
+
+  try {
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
+  } catch (_) {}
 }
 
-// ====== ABOUT ME MENU ======
-const menuItems = document.querySelectorAll('.about-me-menu li');
-const contentItems = document.querySelectorAll('.about-content-item');
+/* =========================================================
+   ABOUT ME MENU
+   ========================================================= */
+(() => {
+  const menuItems = document.querySelectorAll('.about-me-menu li');
+  const contentItems = document.querySelectorAll('.about-content-item');
 
-// Initialize: show first item, hide others
-contentItems.forEach((item, idx) => {
-    item.style.display = idx === 0 ? 'block' : 'none';
-});
-menuItems.forEach((item, idx) => {
+  if (!menuItems.length || !contentItems.length) return;
+
+  contentItems.forEach((item, i) => {
+    item.style.display = i === 0 ? 'block' : 'none';
+  });
+
+  menuItems.forEach((item, i) => {
     item.addEventListener('click', () => {
-        // Hide all content
-        contentItems.forEach(c => c.style.display = 'none');
-        // Show selected content
-        if (contentItems[idx]) contentItems[idx].style.display = 'block';
-        
-        // play UI click sound (this uses the click-sound element only)
-        playClickSound();
+      contentItems.forEach(c => (c.style.display = 'none'));
+      if (contentItems[i]) contentItems[i].style.display = 'block';
+      playClickSound();
     });
-});
+  });
+})();
 
-// ====== THEME MUSIC: separate audio element ======
-// We'll either find an existing <audio id="theme-music"> or create one dynamically.
-// This keeps theme music isolated from UI sound effects.
+/* =========================================================
+   THEME AUDIO (SEPARATE FROM UI SOUNDS)
+   ========================================================= */
 let themeAudio = document.getElementById('theme-music');
 if (!themeAudio) {
-    themeAudio = document.createElement('audio');
-    themeAudio.id = 'theme-music';
-    themeAudio.preload = 'auto';
-    themeAudio.loop = true;
-    themeAudio.volume = 0.55;
-    // don't append children <source> here; we'll set .src directly when applying theme
-    document.body.appendChild(themeAudio);
+  themeAudio = document.createElement('audio');
+  themeAudio.id = 'theme-music';
+  themeAudio.preload = 'auto';
+  themeAudio.loop = true;
+  themeAudio.volume = 0.55;
+  document.body.appendChild(themeAudio);
 }
 
-// Theme switching for video / audio / color scheme
+/* =========================================================
+   THEME SWITCHING (VIDEO + MUSIC + CSS VARIABLES)
+   ========================================================= */
 (() => {
   const themeSelect = document.getElementById('theme-select');
   const videoEl = document.getElementById('bg-video');
-  // Use the newly created/selected themeAudio for background music
   const audioEl = themeAudio;
 
-  // Map themes -> media paths + CSS variables
   const themeConfig = {
-  'wuthering-wave': {
-    video: '../etta/mediaPage/Wuthering Waves/WUWA.mp4',
-    audio: '../etta/mediaPage/Wuthering Waves/WUWA.mp3',
-    vars: {
-      '--accent': '#c77aff',
-      '--panel-bg': 'rgba(0,0,0,0.35)',
-      '--muted-panel': 'rgba(50,0,50,0.25)',
-      '--text': '#d8bfff',
-      '--btn-bg': 'rgba(199,122,255,0.35)',
-      '--btn-bg-hover': 'rgba(199,122,255,0.55)',
-      '--btn-border': 'rgba(199,122,255,0.5)',
-      '--select-bg': 'rgba(50,0,50,0.35)',
-      '--select-text': '#e0c8ff',
-      '--about-p-color': '#d8bfff',
-      '--project-box-bg': 'rgba(0,0,0,0.35)',
-      '--project-info-border': 'rgba(199,122,255,0.12)',
-      '--project-border': 'rgba(199,122,255,0.15)',
-      '--project-title': '#f3d8ff',
-      '--project-desc': '#d8bfff'
-    }
-  },
+    'wuthering-wave': {
+      video: '../etta/mediaPage/Wuthering Waves/WUWA.mp4',
+      audio: '../etta/mediaPage/Wuthering Waves/WUWA.mp3',
+      vars: {
+        '--accent': '#c77aff',
+        '--panel-bg': 'rgba(0,0,0,0.35)',
+        '--muted-panel': 'rgba(50,0,50,0.25)',
+        '--text': '#d8bfff',
+        '--btn-bg': 'rgba(199,122,255,0.35)',
+        '--btn-bg-hover': 'rgba(199,122,255,0.55)',
+        '--btn-border': 'rgba(199,122,255,0.5)',
+        '--project-border': 'rgba(199,122,255,0.15)',
+        '--project-info-border': 'rgba(199,122,255,0.12)',
+        '--project-title': '#f3d8ff',
+        '--project-desc': '#d8bfff'
+      }
+    },
 
-  'punishing-gray-raven': {
-    video: '../etta/mediaPage/PGR/PGR.mp4',
-    audio: '../etta/mediaPage/PGR/PGR.mp3',
-    vars: {
-      '--accent': '#8fb6d6',
-      '--panel-bg': 'rgba(6,10,18,0.6)',
-      '--muted-panel': 'rgba(20,30,40,0.35)',
-      '--text': '#dceefc',
-      '--btn-bg': 'rgba(143,182,214,0.12)',
-      '--btn-bg-hover': 'rgba(143,182,214,0.24)',
-      '--btn-border': 'rgba(143,182,214,0.35)',
-      '--select-bg': 'rgba(20,30,40,0.35)',
-      '--select-text': '#dceefc',
-      '--about-p-color': '#dceefc',
-      '--project-box-bg': 'rgba(6,10,18,0.5)',
-      '--project-info-border': 'rgba(143,182,214,0.08)',
-      '--project-border': 'rgba(143,182,214,0.08)',
-      '--project-title': '#bfe0f4',
-      '--project-desc': '#dceefc'
-    }
-  },
+    'punishing-gray-raven': {
+      video: '../etta/mediaPage/PGR/PGR.mp4',
+      audio: '../etta/mediaPage/PGR/PGR.mp3',
+      vars: {
+        '--accent': '#8fb6d6',
+        '--panel-bg': 'rgba(6,10,18,0.6)',
+        '--muted-panel': 'rgba(20,30,40,0.35)',
+        '--text': '#dceefc',
+        '--btn-bg': 'rgba(143,182,214,0.12)',
+        '--btn-bg-hover': 'rgba(143,182,214,0.24)',
+        '--btn-border': 'rgba(143,182,214,0.35)',
+        '--project-border': 'rgba(143,182,214,0.08)',
+        '--project-info-border': 'rgba(143,182,214,0.08)',
+        '--project-title': '#bfe0f4',
+        '--project-desc': '#dceefc'
+      }
+    },
 
-  'honkai-star-rail': {
-    video: '../etta/mediaPage/HSR/HSR.mp4',
-    audio: '../etta/mediaPage/HSR/TTW.mp3',
-    vars: {
-      '--accent': '#ffd27a',
-      '--panel-bg': 'rgba(8,6,18,0.55)',
-      '--muted-panel': 'rgba(40,20,60,0.25)',
-      '--text': '#fff3d9',
-      '--btn-bg': 'rgba(255,210,122,0.14)',
-      '--btn-bg-hover': 'rgba(255,210,122,0.30)',
-      '--btn-border': 'rgba(255,210,122,0.28)',
-      '--select-bg': 'rgba(40,20,60,0.28)',
-      '--select-text': '#fff3d9',
-      '--about-p-color': '#fff3d9',
-      '--project-box-bg': 'rgba(8,6,18,0.45)',
-      '--project-info-border': 'rgba(255,210,122,0.08)',
-      '--project-border': 'rgba(255,210,122,0.08)',
-      '--project-title': '#fff1c8',
-      '--project-desc': '#fff3d9'
-    }
-  },
+    'honkai-star-rail': {
+      video: '../etta/mediaPage/HSR/HSR.mp4',
+      audio: '../etta/mediaPage/HSR/TTW.mp3',
+      vars: {
+        '--accent': '#ffd27a',
+        '--panel-bg': 'rgba(8,6,18,0.55)',
+        '--muted-panel': 'rgba(40,20,60,0.25)',
+        '--text': '#fff3d9',
+        '--btn-bg': 'rgba(255,210,122,0.14)',
+        '--btn-bg-hover': 'rgba(255,210,122,0.30)',
+        '--btn-border': 'rgba(255,210,122,0.28)',
+        '--project-border': 'rgba(255,210,122,0.08)',
+        '--project-info-border': 'rgba(255,210,122,0.08)',
+        '--project-title': '#fff1c8',
+        '--project-desc': '#fff3d9'
+      }
+    },
 
-  'where-winds-meet': {
-    video: '../etta/mediaPage/WWM/WWM.mp4',
-    audio: '../etta/mediaPage/WWM/WWM.mp3',
-    vars: {
-      '--accent': '#3c8dff',
-      '--panel-bg': 'rgba(5,15,35,0.55)',
-      '--muted-panel': 'rgba(10,20,40,0.35)',
-      '--text': '#d6e6ff',
-      '--btn-bg': 'rgba(60,141,255,0.14)',
-      '--btn-bg-hover': 'rgba(60,141,255,0.32)',
-      '--btn-border': 'rgba(60,141,255,0.28)',
-      '--select-bg': 'rgba(10,20,40,0.28)',
-      '--select-text': '#d6e6ff',
-      '--about-p-color': '#d6e6ff',
-      '--project-box-bg': 'rgba(5,15,35,0.45)',
-      '--project-info-border': 'rgba(60,141,255,0.08)',
-      '--project-border': 'rgba(60,141,255,0.08)',
-      '--project-title': '#e6f1ff',
-      '--project-desc': '#d6e6ff'
+    'where-winds-meet': {
+      video: '../etta/mediaPage/WWM/WWM.mp4',
+      audio: '../etta/mediaPage/WWM/WWM.mp3',
+      vars: {
+        '--accent': '#3c8dff',
+        '--panel-bg': 'rgba(5,15,35,0.55)',
+        '--muted-panel': 'rgba(10,20,40,0.35)',
+        '--text': '#d6e6ff',
+        '--btn-bg': 'rgba(60,141,255,0.14)',
+        '--btn-bg-hover': 'rgba(60,141,255,0.32)',
+        '--btn-border': 'rgba(60,141,255,0.28)',
+        '--project-border': 'rgba(60,141,255,0.08)',
+        '--project-info-border': 'rgba(60,141,255,0.08)',
+        '--project-title': '#e6f1ff',
+        '--project-desc': '#d6e6ff'
+      }
     }
-}
-};
+  };
 
-  // Helper: set CSS variables
-  function applyCSSVars(vars = {}) {
+  function applyCSSVars(vars) {
     const root = document.documentElement;
-    Object.keys(vars).forEach(k => {
-      root.style.setProperty(k, vars[k]);
-    });
+    Object.entries(vars).forEach(([k, v]) => root.style.setProperty(k, v));
   }
 
-  // Helper: change video source and restart
   function changeVideo(src) {
     if (!videoEl) return;
-    const firstSource = videoEl.querySelector('source');
-    if (firstSource) {
-      firstSource.src = src;
-      videoEl.pause();
-      videoEl.load();
-      videoEl.play().catch(()=>{ /* autoplay blocked */ });
-    } else {
-      videoEl.pause();
-      videoEl.src = src;
-      videoEl.load();
-      videoEl.play().catch(()=>{});
-    }
+    const source = videoEl.querySelector('source');
+    if (source) source.src = src;
+    videoEl.load();
+    videoEl.play().catch(() => {});
   }
 
-  // Helper: change theme music source (uses themeAudio element)
   function changeAudio(src) {
-    if (!audioEl) return;
-    // If the same src is already playing, don't reset (avoids jumps)
-    if (audioEl.src && audioEl.src.includes(src)) {
-      // If it's paused, try to play; otherwise leave it running
-      if (audioEl.paused) {
-        audioEl.play().catch(()=>{ /* user gesture may be required */ });
-      }
-      return;
-    }
-
+    if (!audioEl || audioEl.src.includes(src)) return;
     audioEl.pause();
     audioEl.src = src;
     audioEl.load();
-    audioEl.loop = true;
-    audioEl.volume = 0.55;
-    audioEl.play().catch(() => {
-      // Autoplay likely blocked. The audio element will be ready to play on user gesture.
-      console.info('Autoplay blocked for theme audio — user interaction required to play.');
-    });
+    audioEl.play().catch(() => {});
   }
 
-  // Apply a theme by key
   function applyTheme(key) {
     const cfg = themeConfig[key];
     if (!cfg) return;
-    // 1) update CSS variables
+
     applyCSSVars(cfg.vars);
-    // 2) update video
-    if (cfg.video) changeVideo(cfg.video);
-    // 3) update theme music (separate element)
-    if (cfg.audio) changeAudio(cfg.audio);
+    changeVideo(cfg.video);
+    changeAudio(cfg.audio);
 
-    // update select UI if necessary
-    if (themeSelect && themeSelect.value !== key) themeSelect.value = key;
-    // Save preference to localStorage so reload keeps theme
-    try { localStorage.setItem('siteTheme', key); } catch (e) {}
+    try {
+      localStorage.setItem('siteTheme', key);
+    } catch (_) {}
   }
 
-  // Event listener for the select element
   if (themeSelect) {
-    themeSelect.addEventListener('change', (e) => {
-      applyTheme(e.target.value);
-    });
+    themeSelect.addEventListener('change', e => applyTheme(e.target.value));
   }
 
-  // Initialize on DOM loaded: default to wuthering-wave unless saved in localStorage
   document.addEventListener('DOMContentLoaded', () => {
-    const saved = (function() {
-      try { return localStorage.getItem('siteTheme'); } catch (e) { return null; }
-    })();
-    const start = saved || 'wuthering-wave';
-    if (themeSelect) themeSelect.value = start;
-    applyTheme(start);
+    const saved = localStorage.getItem('siteTheme') || 'wuthering-wave';
+    if (themeSelect) themeSelect.value = saved;
+    applyTheme(saved);
   });
 
-  // Expose function globally if you need to call it elsewhere:
   window.applySiteTheme = applyTheme;
 })();
 
-/* ===== Header Slider Initialization ===== */
-(function initHeaderSlider() {
-  const slider = document.querySelector('.header.slider');
-  if (!slider) return;
+/* =========================================================
+   PROJECT DETAIL PANEL (NO AUTO SCROLL)
+   ========================================================= */
+let currentProject = null;
 
-  const slidesContainer = slider.querySelector('.slides');
-  const slides = Array.from(slidesContainer.querySelectorAll('.slide'));
-  const dotsContainer = document.getElementById('headerDots');
-  const prevBtn = document.getElementById('headerPrev');
-  const nextBtn = document.getElementById('headerNext');
+function showProjectDetail(card) {
+  const panel = document.getElementById('project-detail');
+  if (!panel || !card) return;
 
-  let current = slides.findIndex(s => s.classList.contains('active'));
-  if (current === -1) current = 0;
-
-  // Create dots based on number of slides
-  slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.setAttribute('aria-label', `Go to slide ${i+1}`);
-    btn.dataset.index = i;
-    if (i === current) btn.classList.add('active');
-    btn.addEventListener('click', (e) => {
-      goToSlide(i);
-      resetAutoplay(); // user interaction resets timer
-    });
-    dotsContainer.appendChild(btn);
-  });
-
-  function updateUI() {
-    slides.forEach((s, idx) => {
-      s.classList.toggle('active', idx === current);
-    });
-    const dotButtons = Array.from(dotsContainer.children);
-    dotButtons.forEach((d, idx) => d.classList.toggle('active', idx === current));
+  if (currentProject === card) {
+    panel.classList.add('hidden');
+    currentProject = null;
+    return;
   }
 
-  function goToSlide(index) {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    if (index === current) return;
-    current = index;
-    updateUI();
+  currentProject = card;
+
+  document.getElementById('detail-title').textContent =
+    card.dataset.title || '';
+
+  document.getElementById('detail-description').textContent =
+    card.dataset.description || '';
+
+  const img = document.getElementById('detail-image');
+  if (card.dataset.image) {
+    img.src = card.dataset.image;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
   }
 
-  function prevSlide() { goToSlide(current - 1); }
-  function nextSlide() { goToSlide(current + 1); }
-
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
-
-  // Autoplay
-  const INTERVAL = 5000; // milliseconds
-  let autoplayTimer = null;
-  function startAutoplay() {
-    if (autoplayTimer) return;
-    autoplayTimer = setInterval(() => { nextSlide(); }, INTERVAL);
-  }
-  function stopAutoplay() {
-    if (!autoplayTimer) return;
-    clearInterval(autoplayTimer);
-    autoplayTimer = null;
-  }
-  function resetAutoplay() {
-    stopAutoplay();
-    // restart after small delay so user sees result
-    setTimeout(startAutoplay, 2500);
-  }
-
-  // Pause on hover/focus to improve UX
-  slider.addEventListener('mouseenter', stopAutoplay);
-  slider.addEventListener('mouseleave', startAutoplay);
-  // Pause while focusing controls
-  dotsContainer.addEventListener('focusin', stopAutoplay);
-  dotsContainer.addEventListener('focusout', startAutoplay);
-  if (prevBtn) prevBtn.addEventListener('focusin', stopAutoplay);
-  if (nextBtn) nextBtn.addEventListener('focusin', stopAutoplay);
-
-  // Kick off
-  updateUI();
-  startAutoplay();
-})();
-
+  panel.classList.remove('hidden');
+}
