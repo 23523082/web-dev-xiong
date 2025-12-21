@@ -1,26 +1,26 @@
-/* --- 1. GENERAL --- */
+/* ============================================
+   PORTFOLIO - CLEAN STYLESHEET
+   Author: Raihan Aditito
+============================================ */
+
+/* --- 1. VARIABLES & RESET --- */
 :root {
-  --primary-color: #12d640;
-  --bg-color: #040b14;
-  --text-color: #fff;
-  --secondary-bg: #09203a;
-  --nav-bg: rgba(0, 0, 0, 0.9);
+  --primary: #12d640;
+  --bg: #040b14;
+  --text: #fff;
+  --card: rgba(255,255,255,0.08);
+  --border: #1c2938;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  margin: 0;
-}
-
-a { text-decoration: none; color: var(--primary-color); transition: 0.3s; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Open Sans", sans-serif; color: var(--text); background: var(--bg); }
+a { text-decoration: none; color: var(--primary); transition: 0.3s; }
 a:hover { color: #fff; }
-ul { list-style: none; padding: 0; margin: 0; }
+ul { list-style: none; }
 img { max-width: 100%; height: auto; }
-html {scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-/* Utilities */
+/* --- 2. UTILITIES --- */
 .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 .d-flex { display: flex; }
 .align-items-center { align-items: center; }
@@ -28,214 +28,223 @@ html {scroll-behavior: smooth; }
 .justify-content-center { justify-content: center; }
 .flex-column { flex-direction: column; }
 
-/* --- 2. HEADER / NAVBAR (TOP) --- */
+/* --- 3. HEADER & NAVBAR --- */
 #header {
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 15px 0;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: var(--nav-bg); /* Background Navbar Gelap */
-  border-bottom: 1px solid #1c2938;
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 15px 0; z-index: 997;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid var(--border);
 }
-
-#header .logo {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-}
+#header .logo { font: 700 28px "Poppins", sans-serif; }
 #header .logo a { color: #fff; }
 
-/* Desktop Navigation */
-.navbar { padding: 0; }
 .navbar ul { display: flex; gap: 30px; }
 .navbar a {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  padding: 10px 0 10px 0;
-  position: relative;
+  color: #fff; font: 500 16px "Poppins", sans-serif;
+  padding: 10px 0; position: relative;
 }
-.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: var(--primary-color);
-}
-/* Garis bawah animasi saat hover */
+.navbar a:hover, .navbar .active { color: var(--primary); }
 .navbar a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: 0.3s;
+  content: ""; position: absolute;
+  width: 0; height: 2px; bottom: 0; left: 0;
+  background: var(--primary); transition: 0.3s;
 }
-.navbar a:hover::after, .navbar .active::after {
-  width: 100%;
-}
+.navbar a:hover::after, .navbar .active::after { width: 100%; }
 
-/* Mobile Navigation Toggle */
 .mobile-nav-toggle {
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  z-index: 9998;
-  border: 0;
-  font-size: 32px;
-  transition: all 0.4s;
-  outline: none !important;
-  background: none;
-  color: #fff;
-  display: none; /* Hidden on desktop */
-  cursor: pointer;
+  display: none; position: fixed; right: 15px; top: 15px;
+  font-size: 32px; color: #fff; background: none;
+  border: 0; cursor: pointer; z-index: 9998;
 }
 
-/* --- 3. MAIN LAYOUT --- */
-/* Reset margin karena navbar sekarang di atas, bukan di samping */
-main { margin-left: 0; margin-top: 70px; } 
-
-section { padding: 60px 0; overflow: hidden; scroll-margin-top: 80px; }
+/* --- 4. LAYOUT --- */
+main { margin-top: 70px; }
+section { padding: 60px 0; scroll-margin-top: 80px; }
 
 .section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  font: bold 32px "Raleway", sans-serif;
+  margin-bottom: 20px; padding-bottom: 20px;
   position: relative;
-  color: #fff;
-  font-family: "Raleway", sans-serif;
 }
 .section-title h2::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--primary-color);
-  bottom: 0; left: 0;
+  content: ''; position: absolute;
+  width: 50px; height: 3px; bottom: 0; left: 0;
+  background: var(--primary);
 }
 
-/* --- 4. HERO SECTION --- */
+/* --- 5. HERO --- */
 #hero {
-  width: 100%;
-  height: 100vh;
-  background: url("assets/img/hero-bg.jpg") top center;
-  background-size: cover;
-  position: relative;
-  /* Override margin-top main untuk hero agar full screen */
-  margin-top: 0 !important; 
+  width: 100%; height: 100vh;
+  background: url("https://cdn.prod.website-files.com/68bf79edad2ad780db739c46/68bf79edad2ad780db739ce9_AI%20Dot%20Grid.webp") center/cover;
+  position: relative; margin-top: 0 !important;
 }
-#hero::before {
-  content: "";
-  background: rgba(5, 13, 24, 0.7);
-  position: absolute;
-  bottom: 0; top: 0; left: 0; right: 0;
-}
-.hero-container {
-  position: relative;
-  text-align: center;
-}
-.hero-container h1 {
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
-  margin-bottom: 20px;
-}
-.hero-container p {
-  color: #fff;
-  font-size: 26px;
-  font-family: "Poppins", sans-serif;
-}
-.hero-container p span {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-}
+#hero::before { content: ""; position: absolute; inset: 0; background: rgba(5,13,24,0.7); }
 
-.hero-container .social-links { margin-top: 20px; }
-.hero-container .social-links a {
-  font-size: 24px;
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 38px;
-  height: 24px;
-  transition: 0.3s;
-}
-.hero-container .social-links a:hover {
-  background: var(--primary-color);
-  text-decoration: none;
-}
+.hero-container { position: relative; text-align: center; }
+.hero-container h1 { font-size: 64px; font-weight: 700; margin-bottom: 20px; }
+.hero-container p { font: 26px "Poppins", sans-serif; }
+.hero-container p span { color: var(--primary); border-bottom: 2px solid var(--primary); }
 
-/* --- 5. ABOUT, RESUME, PROJECTS, ETC --- */
-/* Layout Grid & Styles tetap mirip */
+.social-links { margin-top: 20px; }
+.social-links a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin: 0 4px;
+  background: rgba(255,255,255,0.1); border-radius: 50%;
+  font-size: 20px; color: #fff;
+}
+.social-links a:hover { background: var(--primary); }
+
+/* --- 6. ABOUT --- */
 .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
 .about-img img { border-radius: 10px; border: 4px solid #2c2f3f; }
 .about-info ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .about-info li { display: flex; align-items: center; }
-.about-info i { color: var(--primary-color); font-size: 20px; margin-right: 5px; }
+.about-info i { color: var(--primary); font-size: 20px; margin-right: 5px; }
+.about-info strong { margin-right: 10px;}
 
-.grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.resume-item {
-  padding-left: 20px;
-  border-left: 2px solid #1c2938;
+
+.interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
+.icon-box { background: var(--card); padding: 20px; border: 1px solid transparent; transition: 0.3s; }
+.icon-box:hover { border-color: var(--primary); }
+.icon-box i { font-size: 32px; color: var(--primary); margin-bottom: 10px; display: block; }
+.icon-box h3 { font-size: 16px; font-weight: 700; }
+
+.content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 10px; 
+}
+
+.content p {
+  margin-bottom: 30px; 
+  line-height: 1.6;    
+}
+
+/* --- 7. EDUCATION TIMELINE --- */
+.timeline-zigzag {
   position: relative;
-  margin-bottom: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+.timeline-zigzag::before {
+  content: ''; position: absolute;
+  width: 3px; background: var(--border);
+  top: 0; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-item { position: relative; width: 50%; padding: 10px 50px; }
+.timeline-item.left { text-align: right; padding-right: 50px; }
+.timeline-item.right { left: 50%; padding-left: 50px; }
+
+.timeline-content {
+  background: var(--card);
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+.timeline-content:hover { transform: translateY(-3px); border-color: var(--primary); }
+.timeline-content h4 { color: var(--primary); font-size: 18px; margin-bottom: 8px; }
+.timeline-content h5 {
+  display: inline-block;
+  background: rgba(18,214,64,0.15); color: var(--primary);
+  padding: 4px 12px; border-radius: 15px;
+  font-size: 12px; margin-bottom: 10px;
+}
+.timeline-content p { color: #ccc; font-size: 14px; margin: 5px 0; }
+.timeline-content .timeline-desc { color: #888; font-size: 13px; }
+
+/* Icon Timeline - z-index tinggi agar tidak tertutup garis */
+.timeline-icon {
+  position: absolute; top: 15px;
+  width: 44px; height: 44px;
+  background: var(--bg);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.timeline-item.left .timeline-icon { right: -22px; }
+.timeline-item.right .timeline-icon { left: -22px; }
+.timeline-icon i { font-size: 20px; color: var(--primary); }
+
+/* --- 8. EXPERIENCE --- */
+.resume-item {
+  padding: 0 0 20px 25px;
+  border-left: 2px solid var(--border);
+  position: relative;
 }
 .resume-item::before {
-  content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%;
-  left: -10.5px; top: 0; background: var(--bg-color); border: 2px solid var(--primary-color);
+  content: ""; position: absolute;
+  width: 12px; height: 12px;
+  left: -7px; top: 0;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
 }
-.resume-item h4 { color: var(--primary-color); font-size: 18px; font-weight: 600; margin-bottom: 10px; }
-.resume-item h5 { background: rgba(255,255,255,0.15); padding: 5px 15px; display: inline-block; font-weight: 600; margin-bottom: 10px; }
+.resume-item h4 { color: var(--primary); font-size: 18px; margin-bottom: 8px; }
+.resume-item h5 {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 4px 12px; font-size: 13px; margin-bottom: 8px;
+}
+.resume-item ul { padding-left: 20px; margin-top: 10px; }
+.resume-item li { list-style: disc; color: #ccc; }
 
-.interests-grid, .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;}
-.icon-box, .skill-box { background: rgba(255,255,255,0.08); padding: 20px; transition: 0.3s; }
-.icon-box:hover, .skill-box:hover { background: var(--secondary-bg); border: 1px solid var(--primary-color); }
-.icon-box i { font-size: 32px; color: var(--primary-color); margin-bottom: 10px; display: block; }
-.icon-box h3 { color: #fff; font-size: 16px; font-weight: 700; margin: 0; }
+/* --- 9. SKILLS --- */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
+.skill-box { background: var(--card); padding: 15px; border: 1px solid transparent; transition: 0.3s; }
+.skill-box:hover { border-color: var(--primary); }
 
+/* --- 10. PORTFOLIO --- */
+.portfolio-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.portfolio-item { position: relative; overflow: hidden; border-radius: 8px; display: block; }
+.portfolio-item img { width: 100%; display: block; transition: 0.3s; }
+.portfolio-info {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  opacity: 0; transition: 0.3s;
+  color: #fff;
+}
+.portfolio-info h4 { color: var(--primary); margin-bottom: 5px; }
+.portfolio-link { color: #fff; font-size: 14px; margin-top: 10px; }
+.portfolio-link i { margin-right: 5px; }
+.portfolio-item:hover .portfolio-info { opacity: 1; }
+
+/* --- 11. CONTACT --- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+a.info-box { display: block; text-decoration: none; color: inherit; }
+.info-box { background: var(--card); padding: 25px; text-align: center; border: 1px solid transparent; border-radius: 8px; transition: 0.3s; }
+.info-box:hover { border-color: var(--primary); transform: translateY(-3px); }
+.info-box i { font-size: 32px; color: var(--primary); margin-bottom: 10px; display: block; }
+.info-box h3 { margin-bottom: 5px; color: #fff; }
+.info-box p { color: #ccc; }
 
-.portfolio-filters { display: flex; justify-content: center; margin-bottom: 30px; gap: 15px; }
-.portfolio-filters li { cursor: pointer; padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 4px; font-weight: 600; }
-.portfolio-filters li:hover, .portfolio-filters li.filter-active { background: var(--primary-color); color: #fff; }
-
-.portfolio-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-.portfolio-item { position: relative; overflow: hidden; border-radius: 5px; }
-.portfolio-item img { width: 100%; transition: 0.3s; display: block; }
-.portfolio-info { position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7); opacity:0; display:flex; flex-direction:column; justify-content:center; align-items:center; transition:0.3s; }
-.portfolio-item:hover .portfolio-info { opacity:1; }
-.portfolio-item:hover img { transform: scale(1.1); }
-
-/* --- RESPONSIVE (MOBILE) --- */
+/* --- 12. RESPONSIVE --- */
 @media (max-width: 992px) {
   .mobile-nav-toggle { display: block; }
-
-  /* Hide default navbar on mobile, show via JS toggle class */
-  #header { overflow-y: hidden; }
-  .navbar ul { 
-    display: none; /* Hidden by default */
-    flex-direction: column; 
-    position: absolute; 
-    top: 60px; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.95);
-    padding: 20px;
-    height: 100vh;
-  }
   
-  /* Class to show menu on mobile */
+  .navbar ul {
+    display: none; flex-direction: column;
+    position: absolute; top: 60px; left: 0; right: 0;
+    background: rgba(0,0,0,0.95); padding: 20px; height: 100vh;
+  }
   .navbar-mobile ul { display: flex; }
   
   .hero-container h1 { font-size: 32px; }
-  .about-grid, .grid-2-col, .contact-grid { grid-template-columns: 1fr; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  
+  /* Timeline Mobile - semua ke kiri */
+  .timeline-zigzag::before { left: 20px; }
+  .timeline-item, .timeline-item.left, .timeline-item.right {
+    width: 100%; left: 0; text-align: left;
+    padding-left: 60px; padding-right: 15px;
+  }
+  .timeline-item.left .timeline-icon,
+  .timeline-item.right .timeline-icon { left: -2px; right: auto; }
 }

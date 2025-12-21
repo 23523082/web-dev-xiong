@@ -6,17 +6,23 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Raihan Aditito Bagastama - Portfolio</title>
   
+  <!-- ==================== FONTS ==================== -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+  <!-- ==================== ICONS ==================== -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+  <!-- ==================== MAIN STYLESHEET ==================== -->
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 
+  <!-- ==================== MOBILE NAV TOGGLE ==================== -->
   <i class="bx bx-menu mobile-nav-toggle"></i>
 
+  <!-- ==================== HEADER / NAVBAR ==================== -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -37,11 +43,13 @@
     </div>
   </header>
 
+  <!-- ==================== HERO SECTION ==================== -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container">
       <h1>Raihan Aditito Bagastama</h1>
       <p>I'm <span class="typing-effect"></span></p>
       
+      <!-- Social Links -->
       <div class="social-links">
         <a href="https://www.linkedin.com/in/raihan-aditito" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         <a href="https://www.github.com/rizmastah" target="_blank" class="github"><i class="bx bxl-github"></i></a>
@@ -50,134 +58,260 @@
     </div>
   </section>
 
+  <!-- ==================== MAIN CONTENT ==================== -->
   <main id="main">
 
+    <!-- ==================== ABOUT SECTION ==================== -->
     <section id="about" class="about">
       <div class="container">
+
+        <!-- About Title -->
         <div class="section-title">
           <h2>About</h2>
         </div>
+
+        <!-- About Grid: Image + Info -->
         <div class="about-grid">
           <div class="about-img">
-            <img src="./assets/images/profile.jpg" alt="" class="img-fluid">
+            <img src="./assets/images/profile.jpg" alt="Profile Photo" class="img-fluid">
           </div>
           <div class="content">
-            <h3>Software & AI Enthusiast</h3>
+            <h3>Raihan Aditito Bagastama</h3>
             <p class="fst-italic">
-              Focused and enthusiastic developer with a keen interest in software development and artificial intelligence.
+              I am focused on software development and machine learning, continuously learning and exploring new technologies to improve my skills.
             </p>
-            <div class="row">
-              <div class="about-info">
-                <ul>
-                  <li><i class="bx bx-chevron-right"></i> <strong>Birthday:</strong> <span>29 Oct 2005</span></li>
-                  <li><i class="bx bx-chevron-right"></i> <strong>Phone:</strong> <span>+62 82298873765</span></li>
-                  <li><i class="bx bx-chevron-right"></i> <strong>City:</strong> <span>Tangerang, Indonesia</span></li>
-                  <li><i class="bx bx-chevron-right"></i> <strong>Email:</strong> <span>raihanaditito@gmail.com</span></li>
-                </ul>
-              </div>
+            <div class="about-info">
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <strong>Birthday:</strong>
+                  <span>29 Oct 2005</span>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <strong>Phone:</strong>
+                  <span>+62 82298873765</span>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <strong>City:</strong>
+                  <span>Tangerang, Indonesia</span>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <strong>Email:</strong>
+                  <span>raihanaditito@gmail.com</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         
+        <!-- Interests Subsection -->
         <div class="section-title" style="margin-top: 50px;">
           <h2>Interests</h2>
         </div>
         <div class="interests-grid">
-          <div class="icon-box"><i class="ri-global-line"></i><h3>Software Dev</h3></div>
-          <div class="icon-box"><i class="ri-database-2-line"></i><h3>Machine Learning</h3></div>
-          <div class="icon-box"><i class="ri-camera-3-line"></i><h3>Computer Vision</h3></div>
-          <div class="icon-box"><i class="ri-english-input"></i><h3>NLP</h3></div>
+          <div class="icon-box">
+            <i class="ri-global-line"></i>
+            <h3>Software Dev</h3>
+          </div>
+          <div class="icon-box">
+            <i class="ri-database-2-line"></i>
+            <h3>Machine Learning</h3>
+          </div>
+          <div class="icon-box">
+            <i class="ri-camera-3-line"></i>
+            <h3>Computer Vision</h3>
+          </div>
+          <div class="icon-box">
+            <i class="ri-english-input"></i>
+            <h3>NLP</h3>
+          </div>
         </div>
+
       </div>
     </section>
 
+    <!-- ==================== EDUCATION SECTION ==================== -->
     <section id="education">
       <div class="container">
+
+        <!-- Education Title -->
         <div class="section-title">
           <h2>Education</h2>
         </div>
-        <div class="grid-2-col">
-          <div class="resume-item">
-            <h4>Bachelor in Software Engineering</h4>
-            <h5>Sep 2025 - Present</h5>
-            <p><em>Nanjing Xiaozhuang University</em></p>
+
+        <!-- Timeline Zigzag Layout -->
+        <div class="timeline-zigzag">
+          <!-- Timeline Item 1 - LEFT -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="bx bxs-graduation"></i>
+              </div>
+              <h4>Bachelor in Informatics</h4>
+              <h5>Sep 2023 - Present</h5>
+              <p><em>Universitas Islam Indonesia</em></p>
+              <p class="timeline-desc">Major in Informatics with focus on AI and software development.</p>
+            </div>
           </div>
-          <div class="resume-item">
-            <h4>Bachelor in Informatics</h4>
-            <h5>Sep 2023 - Present</h5>
-            <p><em>Universitas Islam Indonesia</em></p>
+
+          <!-- Timeline Item 2 - Right -->
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-icon">
+                <i class="bx bxs-graduation"></i>
+              </div>
+              <h4>Bachelor in Software Engineering</h4>
+              <h5>Sep 2025 - Present</h5>
+              <p><em>Nanjing Xiaozhuang University, China</em></p>
+              <p class="timeline-desc">Dual degree program focusing on software engineering and development.</p>
+            </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
     <section id="experience">
       <div class="container">
+
+        <!-- Experience Title -->
         <div class="section-title">
-            <h2>Experience</h2>
+          <h2>Experience</h2>
         </div>
-        <div class="resume-item">
+
+        <!-- Experience Items -->
+        <div class="experience-list">
+
+          <div class="resume-item">
             <h4>Software Engineer</h4>
             <h5>MM YYYY - Present</h5>
             <p><em>University</em></p>
             <ul>
-                <li>Create community website campusconnect</li>
+              <li>Create community website campusconnect</li>
             </ul>
-        </div>
-        <div class="resume-item">
+          </div>
+
+          <div class="resume-item">
             <h4>Software Engineer</h4>
             <h5>MM YYYY - Present</h5>
             <p><em>University</em></p>
             <ul>
-                <li>Create community website campusconnect</li>
+              <li>Create community website campusconnect</li>
             </ul>
+          </div>
+
         </div>
+
       </div>
     </section>
 
+    <!-- ==================== PORTFOLIO / PROJECTS SECTION ==================== -->
     <section id="portfolio">
       <div class="container">
+
+        <!-- Portfolio Title -->
         <div class="section-title">
           <h2>Projects</h2>
         </div>
-        <ul class="portfolio-filters">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter="web-app">Web-App</li>
-          <li data-filter="project">Project</li>
-        </ul>
+
+        <!-- Portfolio Grid -->
         <div class="portfolio-container">
-          <div class="portfolio-item" data-category="web-app">
-            <img src="assets/img/project/twitteranalysis.jpg" alt="">
-            <div class="portfolio-info"><h4>Twitter Analysis</h4><p>Web App</p></div>
-          </div>
-          </div>
+
+          <a href="https://www.figma.com/proto/H9A4WQdylnMfpIvksfpqIm/Sea-Scope?node-id=7-31&starting-point-node-id=1%3A2&t=dVqay24tsuDm3rpb-1" target="_blank" class="portfolio-item" data-category="web-app">
+            <img src="./assets/images/seascope.png" alt="SeaScope">
+            <div class="portfolio-info">
+              <h4>SeaScope</h4>
+              <span class="portfolio-link"><i class="bx bx-link-external"></i> View Project</span>
+            </div>
+          </a>
+          <a href="https://github.com/amga-d/Edu-Hub" target="_blank" class="portfolio-item" data-category="web-app">
+            <img src="./assets/images/eduhub.jpg" alt="Edu-Hub">
+            <div class="portfolio-info">
+              <h4>Edu-Hub</h4>
+              <span class="portfolio-link"><i class="bx bx-link-external"></i> View Project</span>
+            </div>
+          </a>
+          <a href="https://github.com/amga-d/CampusConnect" target="_blank" class="portfolio-item" data-category="web-app">
+            <img src="./assets/images/campusconnect.jpg" alt="CampusConnect">
+            <div class="portfolio-info">
+              <h4>CampusConnect</h4>
+              <span class="portfolio-link"><i class="bx bx-link-external"></i> View Project</span>
+            </div>
+          </a>
+          <a href="http://github.com/akramsu/E-Tourism" target="_blank" class="portfolio-item" data-category="web-app">
+            <img src="./assets/images/tourease.jpg" alt="SeaScope">
+            <div class="portfolio-info">
+              <h4>TourEase</h4>
+              <span class="portfolio-link"><i class="bx bx-link-external"></i> View Project</span>
+            </div>
+          </a>
+          <a href="https://youtu.be/2N7p4n-RD9w?si=ABe3_tHH39FYZmhI" target="_blank" class="portfolio-item" data-category="web-app">
+            <img src="./assets/images/sangkuriang.jpg" alt="SeaScope">
+            <div class="portfolio-info">
+              <h4>Sangkuriang</h4>
+              <span class="portfolio-link"><i class="bx bx-link-external"></i> View Project</span>
+            </div>
+          </a>
+
+        </div>
+
       </div>
     </section>
 
+    <!-- ==================== SKILLS SECTION ==================== -->
     <section id="skills">
-        <div class="container">
-          <div class="section-title"><h2>Skills</h2></div>
-          <div class="skills-grid">
-              <div class="skill-box">Python</div>
-              <div class="skill-box">Java</div>
-              <div class="skill-box">HTML/CSS</div>
-              <div class="skill-box">SQL</div>
-          </div>
+      <div class="container">
+
+        <!-- Skills Title -->
+        <div class="section-title">
+          <h2>Skills</h2>
         </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid">
+          <div class="skill-box">Python</div>
+          <div class="skill-box">Java</div>
+          <div class="skill-box">HTML/CSS</div>
+          <div class="skill-box">SQL</div>
+        </div>
+
+      </div>
     </section>
 
+    <!-- ==================== CONTACT SECTION ==================== -->
     <section id="contact">
       <div class="container">
-        <div class="section-title"><h2>Contact</h2></div>
-        <div class="contact-grid">
-          <div class="info-box"><i class="bx bx-envelope"></i><h3>Email</h3><p>raihanaditito@gmail.com</p></div>
-          <div class="info-box"><i class="bx bx-phone-call"></i><h3>Call</h3><p>+62 82298873765</p></div>
+
+        <!-- Contact Title -->
+        <div class="section-title">
+          <h2>Contact</h2>
         </div>
+
+        <!-- Contact Grid -->
+        <div class="contact-grid">
+          <a href="mailto:raihanaditito@gmail.com" class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email</h3>
+            <p>raihanaditito@gmail.com</p>
+          </a>
+          <a href="tel:+6282298873765" class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Call</h3>
+            <p>+62 82298873765</p>
+          </a>
+        </div>
+
       </div>
     </section>
 
   </main>
 
+  <!-- ==================== JAVASCRIPT ==================== -->
   <script src="./assets/main.js"></script>
 
 </body>
