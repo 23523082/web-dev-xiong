@@ -2,12 +2,376 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Intro 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cindi - Personal Website</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style/intro2.css">
 </head>
 <body>
-    <h1>This is Intro 2 (Cindi)</h1>
-    <p>Intro page is working!</p>
 
-    <a href="../index.html">Back to Home</a>
+    <!-- navigation bar begin -->
+    <div id="nav">
+        <a href="../index.html" class="nav-home"><i class="fas fa-home"></i></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Past Projects</a></li>
+            <li><a href="#beyond-academics">Beyond Academics</a></li>
+            <li><a href="#footer">Contact Me</a></li>
+        </ul>
+        <!-- toggle button begin -->
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- navigation bar end -->
+
+    <!-- about me begin -->
+    <div id="about">
+        <div class="about-container">
+            <div class="about-photo">
+                <img src="images/aboutmecindi.jpg" alt="Profile Photo">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p class="about-text">
+                    I am an Informatics student who is currently learning and exploring software development and artificial intelligence through academic, personal, and team-based projects. Through these experiences, I am developing an understanding of how data, systems, and algorithms can be applied to solve real-world problems. I am curious, motivated to learn, and interested in building practical and meaningful digital solutions.
+                </p>
+                <div class="about-identity">
+                    <div class="identity-item">
+                        <span class="identity-label">Name:</span>
+                        <span class="identity-value">Cindi Aryani Kisworo</span>
+                    </div>
+                    <div class="identity-item">
+                        <span class="identity-label">Chinese Name:</span>
+                        <span class="identity-value">陈欣迪</span>
+                    </div>
+                    <div class="identity-item">
+                        <span class="identity-label">Birthday:</span>
+                        <span class="identity-value">09 March 2005</span>
+                    </div>
+                    <div class="identity-item">
+                        <span class="identity-label">City:</span>
+                        <span class="identity-value">Jakarta, Indonesia</span>
+                    </div>
+                    <div class="identity-item">
+                        <span class="identity-label">Phone:</span>
+                        <span class="identity-value">+86 15851865636</span>
+                    </div>
+                    <div class="identity-item">
+                        <span class="identity-label">Email:</span>
+                        <span class="identity-value">aryanicindi@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about me end -->
+
+    <!-- education journey begin -->
+    <div id="education">
+        <h2 class="timeline-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-photo">
+                        <img src="images/muhammadiyah1.jpg" alt="SMA Muhammadiyah 1 Yogyakarta">
+                    </div>
+                    <div class="timeline-info">
+                        <div class="timeline-year">2020 - 2023</div>
+                        <h3 class="timeline-institution">SMA Muhammadiyah 1 Yogyakarta</h3>
+                        <p class="timeline-description">High School - Started my journey in science</p>
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-photo">
+                        <img src="images/UII.jpg" alt="Universitas Islam Indonesia">
+                    </div>
+                    <div class="timeline-info">
+                        <div class="timeline-year">2023 - 2025</div>
+                        <h3 class="timeline-institution">Universitas Islam Indonesia (UII)</h3>
+                        <p class="timeline-description">Bachelor's Degree - First 2 years of university, exploring design and development</p>
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+           
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-photo">
+                        <img src="images/NXU.jpg" alt="Nanjing Xiaozhuang University">
+                    </div>
+                    <div class="timeline-info">
+                        <div class="timeline-year">2025 - 2027</div>
+                        <h3 class="timeline-institution">Nanjing Xiaozhuang University</h3>
+                        <p class="timeline-description">Bachelor's Degree - Continuing my studies in China, expanding global perspective</p>
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </div>
+    <!-- education journey end -->
+
+    <!-- past projects begin -->
+    <div id="projects">
+        <div class="portfolio-header">
+            <h2 class="portfolio-title">My Past Projects</h2>
+            <p class="portfolio-subtitle">Featured Work</p>
+            <p class="portfolio-description">A selection of projects that showcase my passion for creating meaningful digital experiences.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <span class="portfolio-number">01</span>
+                    <img src="images/TaTy.png" alt="TaTy!">
+                </div>
+                <div class="portfolio-info">
+                    <span class="portfolio-category">UI/UX DESIGN</span>
+                    <h3 class="portfolio-project-title">TaTy!</h3>
+                    <p class="portfolio-project-desc">A prototype job-search platform designed to prioritize women by promoting inclusivity and safer employment opportunities.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Prototyping</span>
+                        <span class="tag">User Testing</span>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <span class="portfolio-number">02</span>
+                    <img src="images/ScamBlock.png" alt="ScamBlock">
+                </div>
+                <div class="portfolio-info">
+                    <span class="portfolio-category">SOFTWARE DEVELOPMENT</span>
+                    <h3 class="portfolio-project-title">ScamBlock</h3>
+                    <p class="portfolio-project-desc">An application that allows users to report and track online scams or phishing attempts, helping to create a safer digital environment.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">SceneBuilder</span>
+                        <span class="tag">Reporting System</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <span class="portfolio-number">03</span>
+                    <img src="images/YoXplore.png" alt="YoXplore">
+                </div>
+                <div class="portfolio-info">
+                    <span class="portfolio-category">WEB DEVELOPMENT</span>
+                    <h3 class="portfolio-project-title">YoXplore</h3>
+                    <p class="portfolio-project-desc">Recommendation system that helps tourists explore Yogyakarta by suggesting attractions, culinary spots, accommodations, and events, with integrated booking features.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <span class="portfolio-number">04</span>
+                    <img src="images/RuangKu.png" alt="RuangKu">
+                </div>
+                <div class="portfolio-info">
+                    <span class="portfolio-category">SOFTWARE DEVELOPMENT</span>
+                    <h3 class="portfolio-project-title">RuangKu</h3>
+                    <p class="portfolio-project-desc">An AI-powered Management Information System for a furniture company, to optimize operations and provide actionable insights without a full transaction processing system.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- past projects end -->
+
+    <!-- beyond academics begin -->
+    <div id="beyond-academics">
+        <div class="section-header">
+            <h2 class="section-title">Beyond Academics</h2>
+            <p class="section-subtitle">More About Me</p>
+        </div>
+
+        <!-- tab navigation buttons begin -->
+        <div class="tab-menu">
+            <button class="tab-btn active" data-tab="growth">Growth Journey</button>
+            <button class="tab-btn" data-tab="personality">Personality</button>
+            <button class="tab-btn" data-tab="hobbies">Hobby & Interest</button>
+        </div>
+
+        <div class="tab-content-wrapper">
+
+            <!-- growth journey begin -->
+            <div class="tab-content active" id="growth">
+                <div class="growth-grid">
+                    <div class="growth-card">
+                        <div class="growth-number">2023</div>
+                        <h3 class="growth-title">Starting Point</h3>
+                        <p class="growth-text">Entered Informatics with curiosity and openness to learn.</p>
+                    </div>
+                    
+                    <div class="growth-card">
+                        <div class="growth-number">2024</div>
+                        <h3 class="growth-title">Exploration</h3>
+                        <p class="growth-text">Worked on UI/UX, web, and software development projects.</p>
+                    </div>
+                    
+                    <div class="growth-card">
+                        <div class="growth-number">2025</div>
+                        <h3 class="growth-title">Growth</h3>
+                        <p class="growth-text">Learning through real-world system building, with a growing interest in global exposure.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- growth journey end -->
+
+            <!-- personality begin -->
+            <div class="tab-content" id="personality">
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/cappuccino.webp" alt="Coffee Enthusiast">
+                        </div>
+                        <h3 class="personality-title">Coffee Enthusiast</h3>
+                        <p class="personality-text">Fueled by oat milk cappuccino</p>
+                    </div>
+                    
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/curious.jpg" alt="Curious Explorer">
+                        </div>
+                        <h3 class="personality-title">Curious Explorer</h3>
+                        <p class="personality-text">Always learning, trying, and experimenting</p>
+                    </div>
+                    
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/energetic.jpeg" alt="Energetic Socializer">
+                        </div>
+                        <h3 class="personality-title">Energetic Socializer</h3>
+                        <p class="personality-text">Meeting new people is my jam</p>
+                    </div>
+                    
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/sweet.jpeg" alt="Sweet Tooth">
+                        </div>
+                        <h3 class="personality-title">Sweet Tooth</h3>
+                        <p class="personality-text">Always hunting for the next tasty treat</p>
+                    </div>
+                    
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/dreamchaser.jpg" alt="Dream Chaser">
+                        </div>
+                        <h3 class="personality-title">Dream Chaser</h3>
+                        <p class="personality-text">Chasing dreams, giving my best</p>
+                    </div>
+                   
+                    <div class="personality-card">
+                        <div class="personality-icon">
+                            <img src="images/listening.jpeg" alt="Music Addict">
+                        </div>
+                        <h3 class="personality-title">Music Addict</h3>
+                        <p class="personality-text">Can't code without a good playlist</p>
+                    </div>
+                </div>
+            </div>
+            <!-- personality end -->
+
+            <!-- hobby & interest begin -->
+            <div class="tab-content" id="hobbies">
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon-wrapper">
+                            <img src="images/books.webp" alt="Favourite Books">
+                        </div>
+                        <h3 class="interest-title">Favourite Books</h3>
+                        <ul class="interest-list">
+                            <li>Filosofi Teras</li>
+                            <li>Why? The Sea Edition</li>
+                            <li>The Alpha Girl's Guide</li>
+                        </ul>
+                    </div>
+                   
+                    <div class="interest-card">
+                        <div class="interest-icon-wrapper">
+                            <img src="images/watching.jpg" alt="Watching">
+                        </div>
+                        <h3 class="interest-title">Watching</h3>
+                        <ul class="interest-list">
+                            <li>Hidden Love C-Drama</li>
+                            <li>Partner for Justice K-Drama</li>
+                            <li>The Magic of Ordinary Days</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interest-card">
+                        <div class="interest-icon-wrapper">
+                            <img src="images/paris.jpg" alt="Dream Destinations">
+                        </div>
+                        <h3 class="interest-title">Dream Destinations</h3>
+                        <ul class="interest-list">
+                            <li>Paris, France</li>
+                            <li>Tromso, Norway</li>
+                            <li>Queenstown, New Zealand</li>
+                        </ul>
+                    </div>
+                   
+                    <div class="interest-card">
+                        <div class="interest-icon-wrapper">
+                            <img src="images/music.webp" alt="Listening">
+                        </div>
+                        <h3 class="interest-title">Listening</h3>
+                        <ul class="interest-list">
+                            <li>Pop Ballad</li>
+                            <li>R&B Pop</li>
+                            <li>Pop-Rock</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- hobby & interest end -->
+
+        </div>
+    </div>
+    <!-- beyond academics end -->
+
+    <!-- footer begin -->
+    <footer id="footer">
+        <div class="footer-content">
+            <h2>Contact Me</h2>
+            <div class="social-links">
+                <a href="https://instagram.com/cindiaryanii" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/cintingblossom" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/cindiaryani" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/cindiaryani" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="mailto:aryanicindi@gmail.com" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/6281292394939" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+    <script src="script/intro2.js"></script>
 </body>
 </html>
