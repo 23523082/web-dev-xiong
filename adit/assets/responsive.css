@@ -1,0 +1,455 @@
+/* ============================================
+   RESPONSIVE CSS - MOBILE
+============================================ */
+
+/* --- TABLET (max-width: 992px) --- */
+@media (max-width: 992px) {
+  /* Hero */
+  .hero-container h1 {
+    font-size: 48px;
+  }
+  .hero-container p {
+    font-size: 22px;
+  }
+
+  /* About Grid */
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .about-img {
+    max-width: 280px;
+    margin: 0 auto 30px;
+  }
+  .about-info ul {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  /* Contact Grid */
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+  /* Hide Mobile Toggle - Show logo only */
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+
+  /* Header - Logo centered, no nav */
+  #header {
+    padding: 12px 0;
+  }
+  #header .container {
+    justify-content: center;
+  }
+  #header .logo {
+    font-size: 24px;
+  }
+
+  /* Hide Navigation completely */
+  .navbar {
+    display: none;
+  }
+
+  /* Hero */
+  #hero {
+    padding: 0 15px;
+  }
+  .hero-container h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  .hero-container p {
+    font-size: 18px;
+  }
+  .social-links a {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  /* Sections - fix overflow */
+  section {
+    padding: 40px 0;
+    overflow-x: hidden;
+  }
+  .section-title h2 {
+    font-size: 24px;
+  }
+  .container {
+    padding: 0 15px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* About Section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-img {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto 20px;
+  }
+  .about-img img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  .content h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .content p {
+    text-align: center;
+    font-size: 14px;
+  }
+  .about-info ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .about-info li {
+    font-size: 13px;
+  }
+  .about-info i {
+    font-size: 16px;
+  }
+  .about-info strong {
+    margin-right: 5px;
+  }
+
+  /* Interests Grid */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+  .icon-box {
+    padding: 15px 10px;
+  }
+  .icon-box i {
+    font-size: 26px;
+  }
+  .icon-box h3 {
+    font-size: 13px;
+  }
+
+  /* Timeline - Left aligned */
+  .timeline-zigzag {
+    margin: 20px 0;
+  }
+  .timeline-zigzag::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding: 10px 15px 10px 55px !important;
+  }
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+  .timeline-item.left .timeline-icon,
+  .timeline-item.right .timeline-icon {
+    left: -2px !important;
+    right: auto !important;
+  }
+  .timeline-content {
+    padding: 15px;
+  }
+  .timeline-content h4 {
+    font-size: 16px;
+  }
+
+  /* Portfolio - fix width */
+  .portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+  }
+  .portfolio-item {
+    border-radius: 10px;
+    width: 100%;
+  }
+  .portfolio-info {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    justify-content: flex-end;
+    padding-bottom: 20px;
+  }
+
+  /* Skills - fix width */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+  .skill-box {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  /* Contact - fix width */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+  .info-box {
+    padding: 18px 10px;
+  }
+  .info-box i {
+    font-size: 26px;
+  }
+  .info-box h3 {
+    font-size: 15px;
+  }
+  .info-box p {
+    font-size: 12px;
+    word-break: break-word;
+  }
+
+  /* Experience */
+  .resume-item {
+    padding-left: 20px;
+  }
+  .resume-item h4 {
+    font-size: 16px;
+  }
+}
+
+/* --- SMALL MOBILE (max-width: 480px) --- */
+@media (max-width: 480px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero-container h1 {
+    font-size: 26px;
+    padding: 0 10px;
+  }
+  .hero-container p {
+    font-size: 15px;
+  }
+
+  /* Logo */
+  #header .logo {
+    font-size: 20px;
+  }
+
+  /* Section Title */
+  .section-title h2 {
+    font-size: 20px;
+  }
+
+  /* Container fix */
+  .container {
+    padding: 0 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* About - stack info vertically */
+  .about-img {
+    max-width: 150px;
+  }
+  .about-info ul {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .about-info li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .about-info li:last-child {
+    border-bottom: none;
+  }
+
+  /* Interests - 2 columns, no gap issues */
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .icon-box {
+    padding: 12px 8px;
+  }
+  .icon-box i {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .icon-box h3 {
+    font-size: 12px;
+  }
+
+  /* Timeline - compact left layout */
+  .timeline-zigzag::before {
+    left: 15px;
+  }
+  .timeline-item {
+    padding: 8px 10px 8px 45px !important;
+  }
+  .timeline-icon {
+    width: 32px;
+    height: 32px;
+    left: -1px !important;
+  }
+  .timeline-icon i {
+    font-size: 14px;
+  }
+  .timeline-content {
+    padding: 12px;
+  }
+  .timeline-content h4 {
+    font-size: 14px;
+  }
+  .timeline-content h5 {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  .timeline-content p {
+    font-size: 12px;
+  }
+  .timeline-content .timeline-desc {
+    font-size: 11px;
+  }
+
+  /* Portfolio - full width fix */
+  .portfolio-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Skills - full width fix */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .skill-box {
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+
+  /* Contact - stack if needed */
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .info-box {
+    padding: 15px 8px;
+  }
+  .info-box i {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .info-box h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .info-box p {
+    font-size: 11px;
+  }
+
+  /* Experience */
+  .resume-item h4 {
+    font-size: 14px;
+  }
+  .resume-item h5 {
+    font-size: 12px;
+  }
+}
+
+/* --- EXTRA SMALL MOBILE (max-width: 375px) --- */
+@media (max-width: 375px) {
+  .hero-container h1 {
+    font-size: 22px;
+  }
+  .hero-container p {
+    font-size: 14px;
+  }
+  
+  .section-title h2 {
+    font-size: 18px;
+  }
+
+  .about-img {
+    max-width: 120px;
+  }
+  
+  .content h3 {
+    font-size: 18px;
+  }
+  .content p {
+    font-size: 13px;
+  }
+
+  .icon-box h3 {
+    font-size: 11px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* --- SMOOTH SCROLL & TOUCH ENHANCEMENTS --- */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Better tap targets */
+.social-links a,
+.info-box,
+.portfolio-item,
+.icon-box,
+.skill-box {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Active states for touch */
+@media (max-width: 768px) {
+  .portfolio-item:active .portfolio-info {
+    opacity: 1;
+  }
+  .info-box:active {
+    transform: scale(0.98);
+  }
+  .icon-box:active,
+  .skill-box:active {
+    border-color: var(--primary);
+  }
+}
+
+/* --- LANDSCAPE MOBILE FIX --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  #hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+  }
+  .hero-container h1 {
+    font-size: 28px;
+  }
+}
