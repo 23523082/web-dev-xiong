@@ -69,23 +69,3 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
-// 4. FILTER PORTFOLIO (Sama seperti sebelumnya)
-const filters = document.querySelectorAll('.portfolio-filters li');
-const items = document.querySelectorAll('.portfolio-item');
-
-filters.forEach(filter => {
-  filter.addEventListener('click', function() {
-    filters.forEach(f => f.classList.remove('filter-active'));
-    this.classList.add('filter-active');
-    const category = this.getAttribute('data-filter');
-
-    items.forEach(item => {
-      if (category === '*' || item.getAttribute('data-category') === category) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
