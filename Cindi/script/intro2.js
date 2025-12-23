@@ -68,10 +68,38 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
 
-    /* console log */
-    console.log('Personal Website loaded successfully! ✨');
-    console.log('Tab system initialized');
-    console.log('Mobile menu ready');
-    console.log('Scroll animations active');
-
+    /* photo journey auto-scroll */
+    function photoJourney() {
+        // define scrolling speed (lower = faster)
+        var speed = 30;  
+        // get carousel element
+        var carousel = document.getElementById("photoCarousel");
+        if (!carousel) return; // exit if element not found 
+        // duplicate content for seamless scrolling
+        carousel.innerHTML += carousel.innerHTML; 
+        // get spans
+        var spans = carousel.getElementsByTagName("span");
+        // start timer for scrolling
+        var timer = window.setInterval(scroll, speed);
+        // pause when mouse over
+        carousel.onmouseover = function() {
+            clearInterval(timer);
+        };
+        // resume when mouse out
+        carousel.onmouseout = function() {
+            timer = setInterval(scroll, speed);
+        };
+        // scrolling function
+        function scroll() {
+            // when first span is completely scrolled out
+            if (carousel.scrollLeft >= spans[0].offsetWidth) {
+                // reset to beginning
+                carousel.scrollLeft = 0;
+            } else {
+                // otherwise, scroll left
+                ++carousel.scrollLeft;
+            }
+        }
+    }
+    photoJourney();
 });

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cindi - Personal Website</title>
+    <title>Cindi Aryani Kisworo</title>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style/intro2.css">
+    <link rel="stylesheet" href="../Cindi/style/intro2.css">
+    <script src="../Cindi/script/intro2.js" defer></script>
 </head>
 <body>
 
@@ -21,14 +22,16 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#projects">Past Projects</a></li>
             <li><a href="#beyond-academics">Beyond Academics</a></li>
+            <li><a href="#photo-journey">Photo Journey</a></li>
             <li><a href="#footer">Contact Me</a></li>
         </ul>
-        <!-- toggle button begin -->
+    <!-- toggle button begin -->
         <div class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
+    <!-- toggle button end -->
     </div>
     <!-- navigation bar end -->
 
@@ -41,7 +44,7 @@
             <div class="about-content">
                 <h2>About Me</h2>
                 <p class="about-text">
-                    I am an Informatics student who is currently learning and exploring software development and artificial intelligence through academic, personal, and team-based projects. Through these experiences, I am developing an understanding of how data, systems, and algorithms can be applied to solve real-world problems. I am curious, motivated to learn, and interested in building practical and meaningful digital solutions.
+                    I am an Informatics student exploring software development and artificial intelligence through academic, personal, and team-based projects. I am curious, motivated to learn, and interested in building practical and meaningful digital solutions to real-world problems.
                 </p>
                 <div class="about-identity">
                     <div class="identity-item">
@@ -355,6 +358,27 @@
     </div>
     <!-- beyond academics end -->
 
+    <!-- photo journey begin -->
+    <div id="photo-journey">
+        <div class="photo-journey-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Photo Journey</h2>
+                <p class="section-subtitle">Moments That Matter</p>
+            </div>
+            
+            <div class="photo-carousel" id="photoCarousel">
+                <span class="photo-track">
+                    <img src="images/journey1.jpeg" alt="Moment 1">
+                    <img src="images/journey2.jpeg" alt="Moment 2">
+                    <img src="images/journey3.jpeg" alt="Moment 3">
+                    <img src="images/journey4.jpeg" alt="Moment 4">
+                    <img src="images/journey5.jpeg" alt="Moment 5">
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- photo journey end -->
+
     <!-- footer begin -->
     <footer id="footer">
         <div class="footer-content">
@@ -371,7 +395,5 @@
         </div>
     </footer>
     <!-- footer end -->
-
-    <script src="script/intro2.js"></script>
 </body>
 </html>

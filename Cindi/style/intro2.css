@@ -4,11 +4,15 @@
     --font-sans: 'DM Sans', system-ui, sans-serif;
 }
 
-/* global styles */
+/* Global styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,11 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* navigation bar */
+/* Navigation bar */
 #nav {
     position: fixed;
     top: 0;
@@ -84,7 +84,6 @@ html {
     width: 100%;
 }
 
-/* toggle button */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -101,7 +100,7 @@ html {
 
 /* about me */
 #about {
-    background: linear-gradient(135deg, #8b9380 0%, #9ca089 100%);
+    background: none;
     padding: 100px 30px;
     margin: 0;
 }
@@ -120,6 +119,14 @@ html {
     height: 450px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+.about-content {
+    background: rgba(139, 147, 128, 0.3); 
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    height: 450px;
 }
 
 .about-content h2 {
@@ -159,17 +166,17 @@ html {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* education journey */
+/* education */
 #education {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 30px;
-    scroll-margin-top: 90px;
+    max-width: 100%;
+    background: linear-gradient(135deg, #8b9380 0%, #9ca089 100%);
+    margin: 80px 0;
+    padding: 80px 30px;
 }
 
 .timeline-title {
     font-size: 3rem;
-    color: #2d2d2d;
+    color: white;
     text-align: center;
     margin-bottom: 60px;
 }
@@ -177,6 +184,8 @@ html {
 .timeline {
     position: relative;
     padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .timeline::before {
@@ -186,7 +195,7 @@ html {
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
-    background: linear-gradient(to bottom, #8b9380, #9ca089);
+    background: linear-gradient(to bottom, white, rgba(255,255,255,0.7));
 }
 
 .timeline-item {
@@ -265,15 +274,15 @@ html {
     width: 20px;
     height: 20px;
     background: white;
-    border: 4px solid #8b9380;
+    border: 4px solid white;
     border-radius: 50%;
     z-index: 2;
-    box-shadow: 0 0 0 4px #e0d5cb;
+    box-shadow: 0 0 0 4px rgba(139, 147, 128, 0.3);
 }
 
-/* past projects */
+/* projects */
 #projects {
-    background: linear-gradient(135deg, #8b9380 0%, #9ca089 100%);
+    background: none;
     padding: 100px 0;
     margin-top: 80px;
 }
@@ -283,7 +292,7 @@ html {
     max-width: 800px;
     margin: 0 auto 80px;
     padding: 0 30px;
-    color: white;
+    color: #2d2d2d;
 }
 
 .portfolio-title {
@@ -291,18 +300,21 @@ html {
     font-weight: 700;
     margin-bottom: 15px;
     letter-spacing: -1px;
+    color: #2d2d2d;
 }
 
 .portfolio-subtitle {
     font-size: 1.3rem;
     margin-bottom: 20px;
     opacity: 0.9;
+    color: #8b9380;
 }
 
 .portfolio-description {
     font-size: 1.1rem;
     line-height: 1.8;
     opacity: 0.85;
+    color: #666;
 }
 
 .portfolio-grid {
@@ -401,26 +413,29 @@ html {
 
 /* beyond academics */
 #beyond-academics {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 30px;
-    scroll-margin-top: 90px;
+    max-width: 100%;
+    background: linear-gradient(135deg, #8b9380 0%, #9ca089 100%);
+    margin: 80px 0;
+    padding: 80px 30px;
 }
 
 .section-header {
     text-align: center;
     margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-title {
     font-size: 3rem;
-    color: #2d2d2d;
+    color: white;
     margin-bottom: 15px;
 }
 
 .section-subtitle {
     font-size: 1.3rem;
-    color: #8b9380;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .tab-menu {
@@ -429,12 +444,15 @@ html {
     gap: 20px;
     margin-bottom: 60px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tab-btn {
     padding: 12px 30px;
     background: white;
-    border: 2px solid #8b9380;
+    border: 2px solid white;
     color: #8b9380;
     font-size: 1rem;
     font-weight: 600;
@@ -445,16 +463,22 @@ html {
 
 .tab-btn:hover {
     background: #f5f0eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #8b9380, #9ca089);
-    color: white;
-    border-color: transparent;
+    background: #e0d5cb;
+    color: #8b9380;
+    border-color: #e0d5cb;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .tab-content-wrapper {
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .tab-content {
@@ -477,7 +501,6 @@ html {
     }
 }
 
-/* growth journey */
 .growth-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -517,12 +540,10 @@ html {
     line-height: 1.6;
 }
 
-/* personality */
 .personality-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-bottom: 80px;
 }
 
 .personality-card {
@@ -569,7 +590,6 @@ html {
     color: #999;
 }
 
-/* hobby and interest */
 .interests-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -607,10 +627,6 @@ html {
     object-fit: cover;
 }
 
-.interest-icon {
-    font-size: 2rem;
-}
-
 .interest-title {
     font-size: 1.3rem;
     color: #8b9380;
@@ -630,6 +646,64 @@ html {
 
 .interest-list li:last-child {
     border-bottom: none;
+}
+
+/* photo journey */
+#photo-journey {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 30px;
+    scroll-margin-top: 50px;
+}
+
+.photo-journey-wrapper {
+    background: rgba(139, 147, 128, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 60px 30px 30px;
+}
+
+#photo-journey .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#photo-journey .section-title {
+    font-size: 3rem;
+    color: #2d2d2d;
+    margin-bottom: 15px;
+}
+
+#photo-journey .section-subtitle {
+    font-size: 1.3rem;
+    color: #8b9380;
+}
+
+.photo-carousel {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.photo-track {
+    display: inline-block;
+}
+
+.photo-track img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.photo-track img:hover {
+    transform: scale(1.05);
 }
 
 /* footer */
@@ -667,13 +741,12 @@ html {
     font-size: 1.5rem;
 }
 
-/* responsive */
+/* Responsive styles */
 @media (max-width: 968px) {
     #nav {
         padding: 0 20px;
     }
 
-    /* toggle */
     .nav-links {
         position: fixed;
         top: 70px;
@@ -695,7 +768,6 @@ html {
         display: flex;
     }
 
-    /* about */
     .about-container {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -711,7 +783,6 @@ html {
         grid-template-columns: 1fr;
     }
 
-    /* education */
     .timeline::before {
         left: 30px;
     }
@@ -726,12 +797,10 @@ html {
         left: 30px;
     }
 
-    /* past projects */
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* growth & personality */
     .growth-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -746,7 +815,10 @@ html {
 }
 
 @media (max-width: 768px) {
-    .portfolio-grid, .growth-grid, .personality-grid, .interests-grid {
+    .portfolio-grid, 
+    .growth-grid, 
+    .personality-grid, 
+    .interests-grid {
         grid-template-columns: 1fr;
     }
 
@@ -761,5 +833,26 @@ html {
 
     .tab-btn {
         width: 100%;
+    }
+
+    #photo-journey {
+        padding: 0 20px;
+    }
+    
+    .photo-journey-wrapper {
+        padding: 40px 20px 20px;
+    }
+    
+    #photo-journey .section-title {
+        font-size: 2rem;
+    }
+    
+    #photo-journey .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .photo-track img {
+        width: 200px;
+        height: 280px;
     }
 }
