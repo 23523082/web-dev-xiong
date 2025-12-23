@@ -57,7 +57,26 @@ html { scroll-behavior: smooth; }
   border: 0; cursor: pointer; z-index: 9998;
 }
 
-/* --- 4. LAYOUT --- */
+/* --- 4. BACK BUTTON --- */
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  transition: 0.3s;
+}
+.back-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* --- 5. LAYOUT --- */
 main { margin-top: 70px; }
 section { padding: 60px 0; scroll-margin-top: 80px; }
 
@@ -72,7 +91,7 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
   background: var(--primary);
 }
 
-/* --- 5. HERO --- */
+/* --- 6. HERO --- */
 #hero {
   width: 100%; height: 100vh;
   background: url("https://cdn.prod.website-files.com/68bf79edad2ad780db739c46/68bf79edad2ad780db739ce9_AI%20Dot%20Grid.webp") center/cover;
@@ -94,7 +113,7 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 }
 .social-links a:hover { background: var(--primary); }
 
-/* --- 6. ABOUT --- */
+/* --- 7. ABOUT --- */
 .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
 .about-img img { border-radius: 10px; border: 4px solid #2c2f3f; }
 .about-info ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -112,16 +131,17 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: 10px; 
 }
 
 .content p {
   margin-bottom: 30px; 
-  line-height: 1.6;    
+  line-height: 1.6;
+  color: var(--primary);
 }
 
-/* --- 7. EDUCATION TIMELINE --- */
+/* --- 8. EDUCATION TIMELINE --- */
 .timeline-zigzag {
   position: relative;
   max-width: 900px;
@@ -171,7 +191,7 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .timeline-item.right .timeline-icon { left: -22px; }
 .timeline-icon i { font-size: 20px; color: var(--primary); }
 
-/* --- 8. EXPERIENCE --- */
+/* --- 10. EXPERIENCE --- */
 .resume-item {
   padding: 0 0 20px 25px;
   border-left: 2px solid var(--border);
@@ -194,12 +214,12 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .resume-item ul { padding-left: 20px; margin-top: 10px; }
 .resume-item li { list-style: disc; color: #ccc; }
 
-/* --- 9. SKILLS --- */
+/* --- 11. SKILLS --- */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
 .skill-box { background: var(--card); padding: 15px; border: 1px solid transparent; transition: 0.3s; }
 .skill-box:hover { border-color: var(--primary); }
 
-/* --- 10. PORTFOLIO --- */
+/* --- 12. PORTFOLIO --- */
 .portfolio-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .portfolio-item { position: relative; overflow: hidden; border-radius: 8px; display: block; }
 .portfolio-item img { width: 100%; display: block; transition: 0.3s; }
@@ -216,11 +236,44 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .portfolio-link i { margin-right: 5px; }
 .portfolio-item:hover .portfolio-info { opacity: 1; }
 
-/* --- 11. CONTACT --- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-a.info-box { display: block; text-decoration: none; color: inherit; }
-.info-box { background: var(--card); padding: 25px; text-align: center; border: 1px solid transparent; border-radius: 8px; transition: 0.3s; }
-.info-box:hover { border-color: var(--primary); transform: translateY(-3px); }
-.info-box i { font-size: 32px; color: var(--primary); margin-bottom: 10px; display: block; }
-.info-box h3 { margin-bottom: 5px; color: #fff; }
-.info-box p { color: #ccc; }
+/* --- 13. FOOTER --- */
+#footer {
+  background: rgba(0,0,0,0.9);
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-content {
+  text-align: center;
+}
+.footer-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  transition: 0.3s;
+}
+.footer-social a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+.footer-copyright {
+  color: #888;
+  font-size: 14px;
+}

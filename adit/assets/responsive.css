@@ -30,6 +30,11 @@
   .contact-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Footer */
+  .footer-content h3 {
+    font-size: 20px;
+  }
 }
 
 /* --- MOBILE (max-width: 768px) --- */
@@ -225,6 +230,30 @@
   .resume-item h4 {
     font-size: 16px;
   }
+
+  /* Footer */
+  #footer {
+    padding: 30px 0;
+  }
+  .footer-content h3 {
+    font-size: 18px;
+  }
+  .footer-social a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .footer-copyright {
+    font-size: 12px;
+  }
+
+  /* Back Button */
+  .back-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
 }
 
 /* --- SMALL MOBILE (max-width: 480px) --- */
@@ -415,7 +444,6 @@
 
 /* --- SMOOTH SCROLL & TOUCH ENHANCEMENTS --- */
 html {
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 

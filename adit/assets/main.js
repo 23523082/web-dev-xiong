@@ -1,5 +1,5 @@
 // 1. TYPING EFFECT
-const words = ["Software Engineer", "AI Enthusiast", "Developer"];
+const words = ["Software Engineer", "IT Solution Enabler", "Developer"];
 let i = 0;
 let timer;
 
