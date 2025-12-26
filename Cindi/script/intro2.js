@@ -17,31 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    /* tab switching functionality */
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    // add click event listener to each tab button
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // get the data-tab attribute to know which content to show
-            const targetTab = this.getAttribute('data-tab');
-
-            // remove 'active' class from all buttons and content panels
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // add 'active' class to clicked button
-            this.classList.add('active');
-
-            // show the corresponding content panel
-            const activeContent = document.getElementById(targetTab);
-            if (activeContent) {
-                activeContent.classList.add('active');
-            }
-        });
-    });
-
     /* scroll animations */
     // intersection observer for fade-in animations when scrolling
     const observerOptions = {
@@ -66,6 +41,31 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.transform = 'translateY(30px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(item);
+    });
+
+    /* tab switching functionality */
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // add click event listener to each tab button
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // get the data-tab attribute to know which content to show
+            const targetTab = this.getAttribute('data-tab');
+
+            // remove 'active' class from all buttons and content panels
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // add 'active' class to clicked button
+            this.classList.add('active');
+
+            // show the corresponding content panel
+            const activeContent = document.getElementById(targetTab);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        });
     });
 
     /* photo journey auto-scroll */
