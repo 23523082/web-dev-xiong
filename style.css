@@ -184,7 +184,7 @@ body {
     transform: scale(1.2);
 }
 
-/* --- Info Section (Timeline) --- */
+/* --- about our team --- */
 .info-section {
     padding: 60px 20px;
     background: var(--gray-light);
@@ -568,7 +568,7 @@ body {
     line-height: 1.6;
 }
 
-/* --- Gallery Section --- */
+/* --- photo gallery --- */
 .gallery-section {
     padding: 80px 24px;
     background: var(--gray-light);
