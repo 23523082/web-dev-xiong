@@ -26,4 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.slider-container').addEventListener('mouseleave', () => {
         interval = setInterval(nextSlide, 5000);
     });
+
+    // Quote Slider
+    const quoteSlides = document.querySelectorAll('.quote-slide');
+    const quoteDots = document.querySelectorAll('.quote-dot');
+    let currentQuote = 0;
+
+    function showQuote(index) {
+        quoteSlides.forEach(s => s.classList.remove('active'));
+        quoteDots.forEach(d => d.classList.remove('active'));
+        quoteSlides[index].classList.add('active');
+        quoteDots[index].classList.add('active');
+        currentQuote = index;
+    }
+
+    if (quoteSlides.length > 0) {
+        quoteDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => showQuote(i));
+        });
+
+        let quoteInterval = setInterval(() => {
+            showQuote((currentQuote + 1) % quoteSlides.length);
+        }, 5000);
+
+        document.querySelector('.quote-section')?.addEventListener('mouseenter', () => clearInterval(quoteInterval));
+        document.querySelector('.quote-section')?.addEventListener('mouseleave', () => {
+            quoteInterval = setInterval(() => {
+                showQuote((currentQuote + 1) % quoteSlides.length);
+            }, 5000);
+        });
+    }
 });
