@@ -27,6 +27,30 @@ document.addEventListener('DOMContentLoaded', () => {
         interval = setInterval(nextSlide, 5000);
     });
 
+    /* Scroll animations for info section */
+    const infoObserverOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const infoObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, infoObserverOptions);
+
+    // Observe info CARDS (not the whole item) for animation
+    const infoCards = document.querySelectorAll('.info-card');
+    infoCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        infoObserver.observe(card);
+    });
+
     // Quote Slider
     const quoteSlides = document.querySelectorAll('.quote-slide');
     const quoteDots = document.querySelectorAll('.quote-dot');

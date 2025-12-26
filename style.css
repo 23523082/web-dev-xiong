@@ -280,11 +280,11 @@ body {
 }
 
 .info-item.left:hover .info-dot-container {
-    left: calc(50% - 60px);
+    left: calc(50% - 50px);
 }
 
 .info-item.right:hover .info-dot-container {
-    left: calc(50% + 60px);
+    left: calc(50% + 50px);
 }
 
 .info-card {
@@ -625,6 +625,23 @@ body {
 .collective-section {
     padding: 100px 24px;
     background: var(--white);
+}
+
+.collective-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.collective-title {
+    font-size: 2.2rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.collective-subtitle {
+    color: var(--gray);
+    font-size: 1rem;
 }
 
 .collective-container {
