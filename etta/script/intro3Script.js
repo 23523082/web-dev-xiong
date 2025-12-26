@@ -37,19 +37,69 @@ function playClickSound() {
 
   if (!menuItems.length || !contentItems.length) return;
 
+  // Set initial active state
   contentItems.forEach((item, i) => {
-    item.style.display = i === 0 ? 'block' : 'none';
+    item.classList.toggle('active', i === 0);
   });
 
   menuItems.forEach((item, i) => {
     item.addEventListener('click', () => {
-      contentItems.forEach(c => (c.style.display = 'none'));
-      if (contentItems[i]) contentItems[i].style.display = 'block';
+      // Remove active from all tabs and content
+      menuItems.forEach(tab => tab.classList.remove('active'));
+      contentItems.forEach(content => content.classList.remove('active'));
+      
+      // Add active to clicked tab and corresponding content
+      item.classList.add('active');
+      if (contentItems[i]) contentItems[i].classList.add('active');
+      
       playClickSound();
     });
   });
 })();
 
+
+/* =========================================================
+   WECHAT POPUP MODAL
+   ========================================================= */
+function showWeChatPopup() {
+    const modal = document.getElementById('wechatModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        playClickSound();
+    }
+}
+
+function closeWeChatPopup() {
+    const modal = document.getElementById('wechatModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        playClickSound();
+    }
+}
+
+// Close modal when clicking outside the content
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('wechatModal');
+    if (modal) {
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeWeChatPopup();
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modal = document.getElementById('wechatModal');
+            if (modal && modal.classList.contains('active')) {
+                closeWeChatPopup();
+            }
+        }
+    });
+});
 /* =========================================================
    THEME AUDIO (SEPARATE FROM UI SOUNDS)
    ========================================================= */
@@ -193,14 +243,23 @@ if (!themeAudio) {
 })();
 
 /* =========================================================
-   PROJECT DETAIL PANEL (NO AUTO SCROLL)
+   PROJECT DETAIL PANEL
    ========================================================= */
 let currentProject = null;
+let currentEducation = null;
 
 function showProjectDetail(card) {
   const panel = document.getElementById('project-detail');
   if (!panel || !card) return;
 
+  // Close education detail if open
+  const eduPanel = document.getElementById('education-detail');
+  if (eduPanel && !eduPanel.classList.contains('hidden')) {
+    eduPanel.classList.add('hidden');
+    currentEducation = null;
+  }
+
+  // Toggle project detail
   if (currentProject === card) {
     panel.classList.add('hidden');
     currentProject = null;
@@ -224,4 +283,46 @@ function showProjectDetail(card) {
   }
 
   panel.classList.remove('hidden');
+  playClickSound();
+}
+
+/* =========================================================
+   EDUCATION DETAIL PANEL
+   ========================================================= */
+function showEducationDetail(card) {
+  const panel = document.getElementById('education-detail');
+  if (!panel || !card) return;
+
+  // Close project detail if open
+  const projectPanel = document.getElementById('project-detail');
+  if (projectPanel && !projectPanel.classList.contains('hidden')) {
+    projectPanel.classList.add('hidden');
+    currentProject = null;
+  }
+
+  // Toggle education detail
+  if (currentEducation === card) {
+    panel.classList.add('hidden');
+    currentEducation = null;
+    return;
+  }
+
+  currentEducation = card;
+
+  document.getElementById('edu-detail-title').textContent =
+    card.dataset.title || '';
+
+  document.getElementById('edu-detail-description').textContent =
+    card.dataset.description || '';
+
+  const img = document.getElementById('edu-detail-image');
+  if (card.dataset.image) {
+    img.src = card.dataset.image;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+  }
+
+  panel.classList.remove('hidden');
+  playClickSound();
 }
