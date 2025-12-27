@@ -768,19 +768,43 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
     }
 
+    #about {
+        padding: 60px 20px;
+    }
+    
     .about-container {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-
+    
+    .about-photo {
+        display: flex;
+        justify-content: center;
+    }
+    
     .about-photo img {
         max-width: 300px;
+        width: 100%;
+        height: auto; 
         margin: 0 auto;
-        height: auto;
     }
-
+    
+    .about-content {
+        height: auto; 
+        padding: 30px;
+    }
+    
+    .about-content h2 {
+        font-size: 2rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+    }
+    
     .about-identity {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .timeline::before {
@@ -815,6 +839,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    #about {
+        padding: 40px 15px;
+    }
+    
+    .about-photo img {
+        max-width: 280px;
+    }
+    
+    .about-content {
+        padding: 25px;
+    }
+    
+    .about-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .about-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .identity-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .identity-label,
+    .identity-value {
+        font-size: 0.9rem;
+    }
+
     .portfolio-grid, 
     .growth-grid, 
     .personality-grid, 
