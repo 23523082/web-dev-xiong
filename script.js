@@ -14,17 +14,14 @@ function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
 function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.next-btn').addEventListener('click', nextSlide);
-    document.querySelector('.prev-btn').addEventListener('click', prevSlide);
-    
     indicators.forEach((indicator, i) => {
         indicator.addEventListener('click', () => showSlide(i));
     });
     
-    let interval = setInterval(nextSlide, 5000);
+    let interval = setInterval(nextSlide, 3000);
     document.querySelector('.slider-container').addEventListener('mouseenter', () => clearInterval(interval));
     document.querySelector('.slider-container').addEventListener('mouseleave', () => {
-        interval = setInterval(nextSlide, 5000);
+        interval = setInterval(nextSlide, 3000);
     });
 
     /* Scroll animations for info section */
