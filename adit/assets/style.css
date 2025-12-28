@@ -224,6 +224,14 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .timeline-icon i { font-size: 20px; color: var(--primary); }
 
 /* ============================================
+   9. SKILLS SECTION
+   Technical skills grid
+============================================ */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
+.skill-box { background: var(--card); padding: 15px; border: 1px solid transparent; transition: 0.3s; }
+.skill-box:hover { border-color: var(--primary); }
+
+/* ============================================
    10. EXPERIENCE SECTION
    Work and achievements
 ============================================ */
@@ -248,14 +256,6 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 }
 .resume-item ul { padding-left: 20px; margin-top: 10px; }
 .resume-item li { list-style: disc; color: #ccc; }
-
-/* ============================================
-   9. SKILLS SECTION
-   Technical skills grid
-============================================ */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
-.skill-box { background: var(--card); padding: 15px; border: 1px solid transparent; transition: 0.3s; }
-.skill-box:hover { border-color: var(--primary); }
 
 /* ============================================
    11. PORTFOLIO SECTION
