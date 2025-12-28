@@ -11,7 +11,6 @@ function showSlide(index) {
 }
 
 function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
-function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
 
 document.addEventListener('DOMContentLoaded', () => {
     indicators.forEach((indicator, i) => {
