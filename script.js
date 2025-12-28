@@ -6,8 +6,8 @@
    1. Active Navigation Highlight
    2. Smooth Scroll Navigation
    3. Hero Image Slider
-   4. Quote Slider
-   5. Scroll Animations
+   4. Scroll Animations
+   5. Quote Slider 
    =========================================== */
 
 
@@ -97,29 +97,8 @@ function nextSlide() {
     showSlide((currentSlide + 1) % slides.length);
 }
 
-
 /* ===========================================
-   4. QUOTE SLIDER
-   Rotating inspirational quotes
-   =========================================== */
-const quoteSlides = document.querySelectorAll('.quote-slide');
-const quoteDots = document.querySelectorAll('.quote-dot');
-let currentQuote = 0;
-
-function showQuote(index) {
-    // Remove active class from all quotes
-    quoteSlides.forEach(s => s.classList.remove('active'));
-    quoteDots.forEach(d => d.classList.remove('active'));
-    
-    // Add active class to current quote
-    quoteSlides[index].classList.add('active');
-    quoteDots[index].classList.add('active');
-    currentQuote = index;
-}
-
-
-/* ===========================================
-   5. SCROLL ANIMATIONS
+   4. SCROLL ANIMATIONS
    Fade-in effect for About section cards
    =========================================== */
 const infoObserverOptions = {
@@ -144,6 +123,25 @@ infoCards.forEach(card => {
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     infoObserver.observe(card);
 });
+
+/* ===========================================
+   5. QUOTE SLIDER
+   Rotating inspirational quotes
+   =========================================== */
+const quoteSlides = document.querySelectorAll('.quote-slide');
+const quoteDots = document.querySelectorAll('.quote-dot');
+let currentQuote = 0;
+
+function showQuote(index) {
+    // Remove active class from all quotes
+    quoteSlides.forEach(s => s.classList.remove('active'));
+    quoteDots.forEach(d => d.classList.remove('active'));
+    
+    // Add active class to current quote
+    quoteSlides[index].classList.add('active');
+    quoteDots[index].classList.add('active');
+    currentQuote = index;
+}
 
 
 /* ===========================================
