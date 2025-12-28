@@ -1,9 +1,27 @@
 /* ===========================================
-   UHUY TEAM - Navy Blue Theme
-   Clean & Simple CSS
+   UHUY TEAM - Main Stylesheet
+   Theme: Navy Blue
+   Authors: Adit, Cindi, Etta
+   
+   TABLE OF CONTENTS:
+   1. Variables & Reset
+   2. Navigation Bar
+   3. Hero Slider
+   4. About Section (Timeline)
+   5. School Section
+   6. Team Section
+   7. Quote Section
+   8. News Section
+   9. Gallery Section
+   10. Collective Section
+   11. Footer
+   12. Responsive Design
    =========================================== */
 
-/* --- Color Variables --- */
+
+/* ===========================================
+   1. VARIABLES & RESET
+   =========================================== */
 :root {
     --navy: #1e3a5f;
     --navy-dark: #0f2744;
@@ -17,7 +35,7 @@
     --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
 }
 
-/* --- Reset --- */
+/* Global Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { 
@@ -28,7 +46,11 @@ body {
     padding-top: 70px;
 }
 
-/* --- Navbar --- */
+
+/* ===========================================
+   2. NAVIGATION BAR
+   Fixed navbar with blur effect
+   =========================================== */
 .navbar { 
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -93,7 +115,11 @@ body {
     color: white;
 }
 
-/* --- Hero Slider --- */
+
+/* ===========================================
+   3. HERO SLIDER
+   Auto-rotating image carousel
+   =========================================== */
 .slider-container { 
     height: 500px;
     position: relative; 
@@ -162,7 +188,11 @@ body {
     transform: scale(1.2);
 }
 
-/* --- about our team --- */
+
+/* ===========================================
+   4. ABOUT SECTION (Timeline)
+   Alternating card layout with numbers
+   =========================================== */
 .info-section {
     padding: 60px 20px;
     background: var(--gray-light);
@@ -257,14 +287,7 @@ body {
     font-weight: bold;
 }
 
-.info-item.left:hover .info-dot-container {
-    left: calc(50% - 50px);
-}
-
-.info-item.right:hover .info-dot-container {
-    left: calc(50% + 50px);
-}
-
+/* Info Cards */
 .info-card {
     background: white;
     border-radius: 12px;
@@ -293,7 +316,11 @@ body {
     line-height: 1.7;
 }
 
-/* --- Our School Section --- */
+
+/* ===========================================
+   5. SCHOOL SECTION
+   University cards with logos
+   =========================================== */
 .school-section {
     padding: 60px 24px;
     background: var(--white);
@@ -331,7 +358,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     font-size: 2rem;
     overflow: hidden;
 }
@@ -365,7 +391,11 @@ body {
     line-height: 1.7;
 }
 
-/* --- Team Section --- */
+
+/* ===========================================
+   6. TEAM SECTION
+   Member cards with hover overlay
+   =========================================== */
 .team-section {
     padding: 80px 24px;
     background: var(--navy);
@@ -429,7 +459,11 @@ body {
 .team-card .card-overlay .card-desc { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 12px; }
 .team-card .card-overlay .card-link { color: white; font-weight: 600; }
 
-/* --- Quote / Voice Section --- */
+
+/* ===========================================
+   7. QUOTE SECTION
+   Rotating testimonials/quotes
+   =========================================== */
 .quote-section {
     padding: 100px 24px;
     background: var(--gray-light);
@@ -495,7 +529,11 @@ body {
     background: var(--navy);
 }
 
-/* --- News Section --- */
+
+/* ===========================================
+   8. NEWS SECTION
+   News cards with dates
+   =========================================== */
 .news-section {
     padding: 80px 24px;
     background: var(--white);
@@ -554,7 +592,11 @@ body {
     line-height: 1.6;
 }
 
-/* --- photo gallery --- */
+
+/* ===========================================
+   9. GALLERY SECTION
+   Photo grid with hover overlays
+   =========================================== */
 .gallery-section {
     padding: 80px 24px;
     background: var(--gray-light);
@@ -607,7 +649,11 @@ body {
 .gallery-overlay h3 { color: white; font-size: 1.1rem; margin-bottom: 4px; }
 .gallery-overlay p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
 
-/* --- Collective Identity Section --- */
+
+/* ===========================================
+   10. COLLECTIVE SECTION
+   Team manifesto with image
+   =========================================== */
 .collective-section {
     padding: 100px 24px;
     background: var(--white);
@@ -667,7 +713,11 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* --- Footer --- */
+
+/* ===========================================
+   11. FOOTER
+   Site footer with navigation
+   =========================================== */
 .footer { 
     background: var(--navy-dark); 
     color: white; 
@@ -795,9 +845,14 @@ body {
 .legal-links a:hover {
     color: rgba(255,255,255,0.9);
 }
-/* --- Responsive --- */
 
-/* Prevent accidental horizontal scroll on small devices */
+
+/* ===========================================
+   12. RESPONSIVE DESIGN
+   Breakpoints: 992px, 768px, 480px, 375px
+   =========================================== */
+
+/* Prevent horizontal scroll on mobile */
 @media (max-width: 768px) {
     html, body { overflow-x: hidden; }
 }
@@ -834,19 +889,14 @@ body {
     /* About timeline: collapse to single-left layout */
     .info-section { padding: 64px 20px; }
     .info-section-subtitle { margin-bottom: 40px; }
-    /* Keep dot/line centered on the same x-position */
-    .info-line { left: 18px; transform: translateX(-50%); }
-    .info-dot-container { left: 18px; transform: translateX(-50%); }
+    /* About timeline (responsive): hide the vertical line, keep number dots only */
+    .info-line { display: none; }
+    .info-dot-container { left: 20px; transform: none; margin-left: 0; transition: none; }
 
     .info-item,
     .info-item.left,
     .info-item.right {
         flex-direction: row;
-    }
-
-    .info-item.left:hover .info-dot-container,
-    .info-item.right:hover .info-dot-container {
-        left: 18px;
     }
 
     .info-card,
@@ -903,9 +953,9 @@ body {
     .slide-content p { font-size: 1rem; }
 
     /* About: tighten gutter so card stays wide */
-    /* Ensure dot stays centered on the line */
-    .info-line { left: 14px; transform: translateX(-50%); }
-    .info-dot-container { left: 14px; transform: translateX(-50%); }
+    /* About timeline (responsive): hide the vertical line, keep number dots only */
+    .info-line { display: none; }
+    .info-dot-container { left: 16px; transform: none; margin-left: 0; transition: none; }
     .info-card,
     .info-item.left .info-card,
     .info-item.right .info-card {
