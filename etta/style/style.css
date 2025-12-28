@@ -112,26 +112,6 @@ body {
   color: var(--accent);
 }
 
-/* Home Icon */
-.home-icon {
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(199, 122, 255, 0.1);
-}
-
-.home-icon:hover {
-  color: var(--accent);
-  background: rgba(199, 122, 255, 0.2);
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 12px rgba(199, 122, 255, 0.2);
-}
-
 /* Controls Dropdown */
 .controls-dropdown {
   position: relative;
@@ -202,10 +182,6 @@ body {
 .dropdown-btn:hover {
   background: var(--btn-bg-hover);
   transform: translateY(-2px);
-}
-
-.dropdown-btn span {
-  font-size: 1.1rem;
 }
 
 .dropdown-section {

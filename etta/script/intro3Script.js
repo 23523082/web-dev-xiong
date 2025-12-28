@@ -7,26 +7,42 @@ let videoEnabled = true;
 function toggleVideo() {
   if (!bgVideo) return;
 
+  // Toggle video state
   if (videoEnabled) {
     bgVideo.pause();
   } else {
     bgVideo.play().catch(() => {});
   }
+  
+  // Update state
   videoEnabled = !videoEnabled;
+  
+  // Update button text
+  const videoBtn = document.querySelector('.dropdown-btn[onclick*="toggleVideo"]');
+  if (videoBtn) {
+    if (videoEnabled) {
+      videoBtn.innerHTML = '<span>🎬</span> Disable Video';
+    } else {
+      videoBtn.innerHTML = '<span>⏸️</span> Enable Video';
+    }
+  }
+  
+  // Play click sound
+  playClickSound();
 }
 
-/* =========================================================
-   UI CLICK SOUND
-   ========================================================= */
-function playClickSound() {
-  const sound = document.getElementById('click-sound');
-  if (!sound) return;
+// Initialize button text on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const videoBtn = document.querySelector('.dropdown-btn[onclick*="toggleVideo"]');
+  if (videoBtn) {
+    videoBtn.innerHTML = videoEnabled 
+      ? '<span>🎬</span> Disable Video'
+      : '<span>⏸️</span> Enable Video';
+  }
+});
 
-  try {
-    sound.currentTime = 0;
-    sound.play().catch(() => {});
-  } catch (_) {}
-}
+
+
 
 /* =========================================================
    ABOUT ME MENU
@@ -101,6 +117,91 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 /* =========================================================
+   SOUND CONTROL SYSTEM
+   ========================================================= */
+
+let soundEnabled = true;
+let soundInitialized = false;
+
+function initializeSoundSystem() {
+    if (soundInitialized) return;
+    
+    // Load sound preference from localStorage
+    const savedSound = localStorage.getItem('soundEnabled');
+    if (savedSound !== null) {
+        soundEnabled = JSON.parse(savedSound);
+    }
+    
+    // Apply sound state to all audio elements
+    updateAllAudioElements();
+    
+    // Update button text
+    updateSoundButton();
+    
+    soundInitialized = true;
+    console.log("Sound system initialized. Sound is:", soundEnabled ? "ON" : "OFF");
+}
+
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    
+    // Save to localStorage
+    localStorage.setItem('soundEnabled', JSON.stringify(soundEnabled));
+    
+    // Apply to all audio elements
+    updateAllAudioElements();
+    
+    // Update button text
+    updateSoundButton();
+    
+    // If enabling sound, play a test click
+    if (soundEnabled) {
+        playClickSound();
+    }
+    
+    console.log("Sound toggled. Now:", soundEnabled ? "ON" : "OFF");
+}
+
+function updateAllAudioElements() {
+    // Get all audio elements including theme music
+    const allAudioElements = document.querySelectorAll('audio');
+    const allVideoElements = document.querySelectorAll('video');
+    
+    // Mute/unmute audio elements
+    allAudioElements.forEach(audio => {
+        audio.muted = !soundEnabled;
+    });
+    
+    // Mute/unmute video elements (if any)
+    allVideoElements.forEach(video => {
+        video.muted = !soundEnabled;
+    });
+}
+
+function updateSoundButton() {
+    const soundBtn = document.querySelector('.dropdown-btn[onclick*="toggleSound"]');
+    if (!soundBtn) return;
+    
+    if (soundEnabled) {
+        soundBtn.innerHTML = '<span>🔊</span> Mute All Sounds';
+    } else {
+        soundBtn.innerHTML = '<span>🔇</span> Unmute All Sounds';
+    }
+}
+
+function playClickSound() {
+    if (!soundEnabled) return;
+    
+    const sound = document.getElementById('click-sound');
+    if (!sound) return;
+
+    try {
+        sound.currentTime = 0;
+        sound.play().catch(() => {});
+    } catch (_) {}
+}
+
+/* =========================================================
    THEME AUDIO (SEPARATE FROM UI SOUNDS)
    ========================================================= */
 let themeAudio = document.getElementById('theme-music');
@@ -110,8 +211,22 @@ if (!themeAudio) {
   themeAudio.preload = 'auto';
   themeAudio.loop = true;
   themeAudio.volume = 0.55;
+  themeAudio.muted = !soundEnabled; // Set initial mute state
   document.body.appendChild(themeAudio);
 }
+
+// Initialize sound system when page loads
+document.addEventListener('DOMContentLoaded', initializeSoundSystem);
+
+// Also initialize when theme system changes themes
+window.applySiteTheme = function(key) {
+    // ... your existing theme switching code ...
+    
+    // Ensure sound state is maintained
+    if (themeAudio) {
+        themeAudio.muted = !soundEnabled;
+    }
+};
 
 /* =========================================================
    THEME SWITCHING (VIDEO + MUSIC + CSS VARIABLES)
@@ -243,7 +358,7 @@ if (!themeAudio) {
 })();
 
 /* =========================================================
-   PROJECT DETAIL PANEL
+   PROJECT DETAIL PANEL - INDEPENDENT FROM EDUCATION DETAIL
    ========================================================= */
 let currentProject = null;
 let currentEducation = null;
@@ -252,14 +367,7 @@ function showProjectDetail(card) {
   const panel = document.getElementById('project-detail');
   if (!panel || !card) return;
 
-  // Close education detail if open
-  const eduPanel = document.getElementById('education-detail');
-  if (eduPanel && !eduPanel.classList.contains('hidden')) {
-    eduPanel.classList.add('hidden');
-    currentEducation = null;
-  }
-
-  // Toggle project detail
+  // Toggle project detail only
   if (currentProject === card) {
     panel.classList.add('hidden');
     currentProject = null;
@@ -268,52 +376,38 @@ function showProjectDetail(card) {
 
   currentProject = card;
 
-  document.getElementById('detail-title').textContent =
-    card.dataset.title || '';
-
-  document.getElementById('detail-description').textContent =
-    card.dataset.description || '';
-
+  // Set the title as clickable link to GitHub
+  const titleLink = document.getElementById('detail-title-link');
+  titleLink.href = card.dataset.github;
+  
+  document.getElementById('detail-title').textContent = card.dataset.title;
+  document.getElementById('detail-description').textContent = card.dataset.description;
+  
   const img = document.getElementById('detail-image');
-  if (card.dataset.image) {
-    img.src = card.dataset.image;
-    img.style.display = 'block';
-  } else {
-    img.style.display = 'none';
-  }
+  img.src = card.dataset.image;
 
   panel.classList.remove('hidden');
   playClickSound();
 }
-
 /* =========================================================
-   EDUCATION DETAIL PANEL
+   EDUCATION DETAIL PANEL - INDEPENDENT FROM PROJECT DETAIL
    ========================================================= */
 function showEducationDetail(card) {
-  const panel = document.getElementById('education-detail');
-  if (!panel || !card) return;
+  const eduPanel = document.getElementById('education-detail');
+  if (!eduPanel || !card) return;
 
-  // Close project detail if open
-  const projectPanel = document.getElementById('project-detail');
-  if (projectPanel && !projectPanel.classList.contains('hidden')) {
-    projectPanel.classList.add('hidden');
-    currentProject = null;
-  }
-
-  // Toggle education detail
+  // Toggle education detail only
   if (currentEducation === card) {
-    panel.classList.add('hidden');
+    eduPanel.classList.add('hidden');
     currentEducation = null;
     return;
   }
 
   currentEducation = card;
 
-  document.getElementById('edu-detail-title').textContent =
-    card.dataset.title || '';
-
-  document.getElementById('edu-detail-description').textContent =
-    card.dataset.description || '';
+  // Set education details
+  document.getElementById('edu-detail-title').textContent = card.dataset.title || '';
+  document.getElementById('edu-detail-description').textContent = card.dataset.description || '';
 
   const img = document.getElementById('edu-detail-image');
   if (card.dataset.image) {
@@ -323,6 +417,7 @@ function showEducationDetail(card) {
     img.style.display = 'none';
   }
 
-  panel.classList.remove('hidden');
+  // Show education panel
+  eduPanel.classList.remove('hidden');
   playClickSound();
 }
