@@ -662,6 +662,15 @@ body {
     align-items: center;
 }
 
+.collective-visual img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
 .collective-gradient {
     width: 100%;
     max-width: 400px;
