@@ -1,9 +1,27 @@
 /* ===========================================
-   UHUY TEAM - Navy Blue Theme
-   Clean & Simple CSS
+   UHUY TEAM - Main Stylesheet
+   Theme: Navy Blue
+   Authors: Adit, Cindi, Etta
+   
+   TABLE OF CONTENTS:
+   1. Variables & Reset
+   2. Navigation Bar
+   3. Hero Slider
+   4. About Section (Timeline)
+   5. School Section
+   6. Team Section
+   7. Quote Section
+   8. News Section
+   9. Gallery Section
+   10. Collective Section
+   11. Footer
+   12. Responsive Design
    =========================================== */
 
-/* --- Color Variables --- */
+
+/* ===========================================
+   1. VARIABLES & RESET
+   =========================================== */
 :root {
     --navy: #1e3a5f;
     --navy-dark: #0f2744;
@@ -17,7 +35,7 @@
     --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
 }
 
-/* --- Reset --- */
+/* Global Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { 
@@ -25,9 +43,14 @@ body {
     line-height: 1.7; 
     color: #334155;
     background: var(--white);
+    padding-top: 70px;
 }
 
-/* --- Navbar --- */
+
+/* ===========================================
+   2. NAVIGATION BAR
+   Fixed navbar with blur effect
+   =========================================== */
 .navbar { 
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -45,11 +68,6 @@ body {
 .navbar.scrolled {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 30px rgba(30, 58, 95, 0.15);
-}
-
-
-body {
-    padding-top: 70px;
 }
 
 .nav-container { 
@@ -97,7 +115,11 @@ body {
     color: white;
 }
 
-/* --- Hero Slider --- */
+
+/* ===========================================
+   3. HERO SLIDER
+   Auto-rotating image carousel
+   =========================================== */
 .slider-container { 
     height: 500px;
     position: relative; 
@@ -166,7 +188,11 @@ body {
     transform: scale(1.2);
 }
 
-/* --- about our team --- */
+
+/* ===========================================
+   4. ABOUT SECTION (Timeline)
+   Alternating card layout with numbers
+   =========================================== */
 .info-section {
     padding: 60px 20px;
     background: var(--gray-light);
@@ -261,14 +287,6 @@ body {
     font-weight: bold;
 }
 
-.info-item.left:hover .info-dot-container {
-    left: calc(50% - 50px);
-}
-
-.info-item.right:hover .info-dot-container {
-    left: calc(50% + 50px);
-}
-
 .info-card {
     background: white;
     border-radius: 12px;
@@ -297,7 +315,11 @@ body {
     line-height: 1.7;
 }
 
-/* --- Our School Section --- */
+
+/* ===========================================
+   5. SCHOOL SECTION
+   University cards with logos
+   =========================================== */
 .school-section {
     padding: 60px 24px;
     background: var(--white);
@@ -335,7 +357,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     font-size: 2rem;
     overflow: hidden;
 }
@@ -369,7 +390,11 @@ body {
     line-height: 1.7;
 }
 
-/* --- Team Section --- */
+
+/* ===========================================
+   6. TEAM SECTION
+   Member cards with hover overlay
+   =========================================== */
 .team-section {
     padding: 80px 24px;
     background: var(--navy);
@@ -433,7 +458,11 @@ body {
 .team-card .card-overlay .card-desc { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 12px; }
 .team-card .card-overlay .card-link { color: white; font-weight: 600; }
 
-/* --- Quote / Voice Section --- */
+
+/* ===========================================
+   7. QUOTE SECTION
+   Rotating testimonials/quotes
+   =========================================== */
 .quote-section {
     padding: 100px 24px;
     background: var(--gray-light);
@@ -499,7 +528,11 @@ body {
     background: var(--navy);
 }
 
-/* --- News Section --- */
+
+/* ===========================================
+   8. NEWS SECTION
+   News cards with dates
+   =========================================== */
 .news-section {
     padding: 80px 24px;
     background: var(--white);
@@ -558,7 +591,11 @@ body {
     line-height: 1.6;
 }
 
-/* --- photo gallery --- */
+
+/* ===========================================
+   9. GALLERY SECTION
+   Photo grid with hover overlays
+   =========================================== */
 .gallery-section {
     padding: 80px 24px;
     background: var(--gray-light);
@@ -611,7 +648,11 @@ body {
 .gallery-overlay h3 { color: white; font-size: 1.1rem; margin-bottom: 4px; }
 .gallery-overlay p { color: rgba(255,255,255,0.8); font-size: 0.85rem; }
 
-/* --- Collective Identity Section --- */
+
+/* ===========================================
+   10. COLLECTIVE SECTION
+   Team manifesto with image
+   =========================================== */
 .collective-section {
     padding: 100px 24px;
     background: var(--white);
@@ -671,17 +712,11 @@ body {
     box-shadow: var(--shadow);
 }
 
-.collective-gradient {
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 50%, var(--navy-dark) 100%);
-    opacity: 0.8;
-    filter: blur(0px);
-}
 
-/* --- Footer --- */
+/* ===========================================
+   11. FOOTER
+   Site footer with navigation
+   =========================================== */
 .footer { 
     background: var(--navy-dark); 
     color: white; 
@@ -809,67 +844,166 @@ body {
 .legal-links a:hover {
     color: rgba(255,255,255,0.9);
 }
-/* --- Responsive --- */
-@media (max-width: 992px) {
-    .gallery-grid, .news-grid { grid-template-columns: repeat(2, 1fr); }
-    .team-card { width: 260px; height: 340px; }
-    .footer-container { grid-template-columns: repeat(2, 1fr); }
-    .collective-container { grid-template-columns: 1fr; gap: 40px; }
-    .collective-visual { order: -1; }
-    .collective-gradient { height: 200px; max-width: 300px; }
+
+
+/* ===========================================
+   12. RESPONSIVE DESIGN
+   Breakpoints: 992px, 768px, 480px, 375px
+   =========================================== */
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
 }
 
-@media (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 16px; }
-    .nav-menu { flex-wrap: wrap; justify-content: center; }
-    
-    .slider-container { height: 400px; }
-    .slide-content h2 { font-size: 2rem; }
-    
-    /* Timeline mobile */
-    .info-line { left: 20px; }
-    .info-dot-container { left: 20px; }
+/* --- TABLET (max-width: 992px) --- */
+@media (max-width: 992px) {
+    /* Layout padding: keep content readable (not too narrow) */
+    .nav-container,
+    .info-wrapper,
+    .school-container,
+    .team-container,
+    .quote-container,
+    .news-container,
+    .gallery-container,
+    .collective-container,
+    .footer-container,
+    .footer-bottom-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Navbar: logo centered, menu hidden (tablet & below) */
+    body { padding-top: 64px; }
+    .navbar { padding: 0 16px; }
+    .nav-container { justify-content: center; }
+    .nav-menu { display: none; }
+    .logo h1 { font-size: 1.6rem; }
+
+    /* Hero slider */
+    .slider-container { height: 440px; }
+    .slide-content h2 { font-size: 2.2rem; }
+    .slide-content p { font-size: 1.05rem; }
+
+    /* About timeline: collapse to single-left layout */
+    .info-section { padding: 64px 20px; }
+    .info-section-subtitle { margin-bottom: 40px; }
+    /* About timeline (responsive): hide the vertical line, keep number dots only */
+    .info-line { display: none; }
+    .info-dot-container { left: 0px; transform: none; margin-left: 0; transition: none; }
+
     .info-item,
     .info-item.left,
-    .info-item.right { flex-direction: row; padding-left: 0; }
+    .info-item.right {
+        flex-direction: row;
+    }
+
     .info-card,
     .info-item.left .info-card,
     .info-item.right .info-card {
-        width: calc(100% - 60px);
-        margin-left: 60px;
+        width: calc(100% - 58px);
+        margin-left: 58px;
         margin-right: 0;
         padding: 20px;
         text-align: left;
         border-left: 3px solid var(--navy);
         border-right: none;
     }
-    
-    .school-grid { grid-template-columns: 1fr; }
-    
-    .quote-section { padding: 80px 24px; }
-    .quote-text { font-size: 1.3rem; }
-    
-    .team-cards { flex-direction: column; align-items: center; }
-    .team-card { width: 100%; max-width: 320px; }
-    
-    .gallery-grid, .news-grid { grid-template-columns: 1fr; }
-    
-    .collective-section { padding: 80px 24px; }
-    .collective-text p { font-size: 1rem; line-height: 2; }
-    
+
+    /* Our Universities: vertical */
+    .school-grid { grid-template-columns: 1fr; gap: 22px; }
+    .school-card { padding: 28px; }
+
+    /* News + Gallery: reduce columns */
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Collective */
+    .collective-container { grid-template-columns: 1fr; gap: 40px; }
+    .collective-visual { order: -1; }
+
+    /* Footer */
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
+@media (max-width: 768px) {
+    /* Make sections more compact */
+    .info-section,
+    .school-section,
+    .team-section,
+    .quote-section,
+    .news-section,
+    .gallery-section,
+    .collective-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Navbar: keep logo only */
+    body { padding-top: 60px; }
+    .nav-container { padding: 12px 0; }
+    .logo h1 { font-size: 1.4rem; }
+
+    /* Hero slider */
+    .slider-container { height: 360px; }
+    .slide-content { padding: 0 16px; }
+    .slide-content h2 { font-size: 1.8rem; line-height: 1.2; }
+    .slide-content p { font-size: 1rem; }
+
+    /* About: tighten gutter so card stays wide */
+    /* About timeline (responsive): hide the vertical line, keep number dots only */
+    .info-line { display: none; }
+    .info-dot-container { left: 0px; transform: none; margin-left: 0; transition: none; }
+    .info-card,
+    .info-item.left .info-card,
+    .info-item.right .info-card {
+        width: calc(100% - 46px);
+        margin-left: 46px;
+        padding: 18px;
+    }
+    .info-content h2 { font-size: 1.15rem; }
+    .info-content p { font-size: 0.92rem; }
+
+    /* Meet Our Team: keep wrap (do not force vertical grid) */
+    .team-section { padding-top: 70px; padding-bottom: 70px; }
+    .team-cards { gap: 18px; }
+    .team-card { width: min(340px, 100%); height: 340px; }
+
+    /* News + Gallery: single column */
+    .news-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+
+    /* Quote */
+    .quote-text { font-size: 1.25rem; }
+
+    /* Footer */
     .footer-container { grid-template-columns: 1fr; text-align: center; }
     .footer-bottom-container { flex-direction: column; gap: 12px; text-align: center; }
 }
 
+/* --- SMALL MOBILE (max-width: 480px) --- */
 @media (max-width: 480px) {
-    .slider-container { height: 300px; }
-    .slide-content h2 { font-size: 1.6rem; }
-    .slide-content p { font-size: 1rem; }
-    
-    .info-section-title { font-size: 2rem; }
-    .info-content h2 { font-size: 1.6rem; }
-    .info-content p { font-size: 0.95rem; }
-    
-    .team-title, .news-title, .gallery-title { font-size: 1.8rem; }
-    .quote-text { font-size: 1.15rem; }
+    .slider-container { height: 290px; }
+    .slide-content h2 { font-size: 1.5rem; }
+    .slide-content p { font-size: 0.95rem; }
+
+    .info-section-title { font-size: 1.6rem; }
+    .school-title,
+    .team-title,
+    .news-title,
+    .gallery-title,
+    .collective-title { font-size: 1.7rem; }
+
+    .school-card { padding: 22px; }
+    .news-card img { height: 160px; }
+    .gallery-card { height: 220px; }
 }
+
+/* --- EXTRA SMALL (max-width: 375px) --- */
+@media (max-width: 375px) {
+    .slide-content h2 { font-size: 1.35rem; }
+    .quote-text { font-size: 1.1rem; }
+    .team-card { height: 320px; }
+}
+

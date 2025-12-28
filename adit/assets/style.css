@@ -1,9 +1,26 @@
 /* ============================================
-   PORTFOLIO - CLEAN STYLESHEET
-   Author: Raihan Aditito
+   PORTFOLIO - Main Stylesheet
+   Author: Raihan Aditito (韩子杰)
+   
+   TABLE OF CONTENTS:
+   1. Variables & Reset
+   2. Utilities
+   3. Header & Navbar
+   4. Back Button
+   5. Layout
+   6. Hero Section
+   7. About Section
+   8. Education Timeline
+   9. Skills Section
+   10. Experience Section
+   11. Portfolio Section
+   12. Footer
 ============================================ */
 
-/* --- 1. VARIABLES & RESET --- */
+
+/* ============================================
+   1. VARIABLES & RESET
+============================================ */
 :root {
   --primary: #12d640;
   --bg: #040b14;
@@ -20,7 +37,10 @@ ul { list-style: none; }
 img { max-width: 100%; height: auto; }
 html { scroll-behavior: smooth; }
 
-/* --- 2. UTILITIES --- */
+/* ============================================
+   2. UTILITIES
+   Reusable flexbox classes
+============================================ */
 .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 .d-flex { display: flex; }
 .align-items-center { align-items: center; }
@@ -28,7 +48,10 @@ html { scroll-behavior: smooth; }
 .justify-content-center { justify-content: center; }
 .flex-column { flex-direction: column; }
 
-/* --- 3. HEADER & NAVBAR --- */
+/* ============================================
+   3. HEADER & NAVBAR
+   Fixed navigation with blur effect
+============================================ */
 #header {
   position: fixed; top: 0; left: 0; right: 0;
   padding: 15px 0; z-index: 997;
@@ -57,7 +80,10 @@ html { scroll-behavior: smooth; }
   border: 0; cursor: pointer; z-index: 9998;
 }
 
-/* --- 4. BACK BUTTON --- */
+/* ============================================
+   4. BACK BUTTON
+   Home navigation button
+============================================ */
 .back-btn {
   display: flex;
   align-items: center;
@@ -76,7 +102,10 @@ html { scroll-behavior: smooth; }
   color: #fff;
 }
 
-/* --- 5. LAYOUT --- */
+/* ============================================
+   5. LAYOUT
+   Main content structure
+============================================ */
 main { margin-top: 70px; }
 section { padding: 60px 0; scroll-margin-top: 80px; }
 
@@ -91,7 +120,10 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
   background: var(--primary);
 }
 
-/* --- 6. HERO --- */
+/* ============================================
+   6. HERO SECTION
+   Landing area with typing effect
+============================================ */
 #hero {
   width: 100%; height: 100vh;
   background: url("https://cdn.prod.website-files.com/68bf79edad2ad780db739c46/68bf79edad2ad780db739ce9_AI%20Dot%20Grid.webp") center/cover;
@@ -113,7 +145,10 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 }
 .social-links a:hover { background: var(--primary); }
 
-/* --- 7. ABOUT --- */
+/* ============================================
+   7. ABOUT SECTION
+   Profile info and interests
+============================================ */
 .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
 .about-img img { border-radius: 10px; border: 4px solid #2c2f3f; }
 .about-info ul { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -141,7 +176,10 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
   color: var(--primary);
 }
 
-/* --- 8. EDUCATION TIMELINE --- */
+/* ============================================
+   8. EDUCATION TIMELINE
+   Zigzag timeline layout
+============================================ */
 .timeline-zigzag {
   position: relative;
   max-width: 900px;
@@ -191,7 +229,10 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .timeline-item.right .timeline-icon { left: -22px; }
 .timeline-icon i { font-size: 20px; color: var(--primary); }
 
-/* --- 10. EXPERIENCE --- */
+/* ============================================
+   10. EXPERIENCE SECTION
+   Work and achievements
+============================================ */
 .resume-item {
   padding: 0 0 20px 25px;
   border-left: 2px solid var(--border);
@@ -214,12 +255,18 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .resume-item ul { padding-left: 20px; margin-top: 10px; }
 .resume-item li { list-style: disc; color: #ccc; }
 
-/* --- 11. SKILLS --- */
+/* ============================================
+   9. SKILLS SECTION
+   Technical skills grid
+============================================ */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
 .skill-box { background: var(--card); padding: 15px; border: 1px solid transparent; transition: 0.3s; }
 .skill-box:hover { border-color: var(--primary); }
 
-/* --- 12. PORTFOLIO --- */
+/* ============================================
+   11. PORTFOLIO SECTION
+   Project showcase grid
+============================================ */
 .portfolio-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .portfolio-item { position: relative; overflow: hidden; border-radius: 8px; display: block; }
 .portfolio-item img { width: 100%; display: block; transition: 0.3s; }
@@ -236,7 +283,10 @@ section { padding: 60px 0; scroll-margin-top: 80px; }
 .portfolio-link i { margin-right: 5px; }
 .portfolio-item:hover .portfolio-info { opacity: 1; }
 
-/* --- 13. FOOTER --- */
+/* ============================================
+   12. FOOTER
+   Social links and copyright
+============================================ */
 #footer {
   background: rgba(0,0,0,0.9);
   padding: 40px 0;

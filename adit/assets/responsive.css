@@ -1,8 +1,18 @@
 /* ============================================
-   RESPONSIVE CSS - MOBILE
+   PORTFOLIO - Responsive Stylesheet
+   Author: Raihan Aditito (韩子杰)
+   
+   BREAKPOINTS:
+   - Tablet: 992px
+   - Mobile: 768px
+   - Small Mobile: 480px
+   - Extra Small: 375px
 ============================================ */
 
-/* --- TABLET (max-width: 992px) --- */
+
+/* ============================================
+   TABLET (max-width: 992px)
+============================================ */
 @media (max-width: 992px) {
   /* Hero */
   .hero-container h1 {
@@ -26,18 +36,16 @@
     text-align: left;
   }
 
-  /* Contact Grid */
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
   /* Footer */
   .footer-content h3 {
     font-size: 20px;
   }
 }
 
-/* --- MOBILE (max-width: 768px) --- */
+
+/* ============================================
+   MOBILE (max-width: 768px)
+============================================ */
 @media (max-width: 768px) {
   /* Hide Mobile Toggle - Show logo only */
   .mobile-nav-toggle {
@@ -202,27 +210,6 @@
     font-size: 13px;
   }
 
-  /* Contact - fix width */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    width: 100%;
-  }
-  .info-box {
-    padding: 18px 10px;
-  }
-  .info-box i {
-    font-size: 26px;
-  }
-  .info-box h3 {
-    font-size: 15px;
-  }
-  .info-box p {
-    font-size: 12px;
-    word-break: break-word;
-  }
-
   /* Experience */
   .resume-item {
     padding-left: 20px;
@@ -256,7 +243,10 @@
   }
 }
 
-/* --- SMALL MOBILE (max-width: 480px) --- */
+
+/* ============================================
+   SMALL MOBILE (max-width: 480px)
+============================================ */
 @media (max-width: 480px) {
   /* Prevent horizontal scroll */
   body {
@@ -377,28 +367,6 @@
     font-size: 12px;
   }
 
-  /* Contact - stack if needed */
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .info-box {
-    padding: 15px 8px;
-  }
-  .info-box i {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  .info-box h3 {
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
-  .info-box p {
-    font-size: 11px;
-  }
-
   /* Experience */
   .resume-item h4 {
     font-size: 14px;
@@ -408,7 +376,10 @@
   }
 }
 
-/* --- EXTRA SMALL MOBILE (max-width: 375px) --- */
+
+/* ============================================
+   EXTRA SMALL (max-width: 375px)
+============================================ */
 @media (max-width: 375px) {
   .hero-container h1 {
     font-size: 22px;
@@ -435,14 +406,14 @@
   .icon-box h3 {
     font-size: 11px;
   }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
 }
 
-/* --- SMOOTH SCROLL & TOUCH ENHANCEMENTS --- */
+/* ============================================
+   UTILITY ENHANCEMENTS
+   Touch & scroll optimizations
+============================================ */
+
+/* Smooth scroll for iOS */
 html {
   -webkit-overflow-scrolling: touch;
 }
@@ -470,7 +441,9 @@ html {
   }
 }
 
-/* --- LANDSCAPE MOBILE FIX --- */
+/* ============================================
+   LANDSCAPE MODE FIX
+============================================ */
 @media (max-height: 500px) and (orientation: landscape) {
   #hero {
     height: auto;

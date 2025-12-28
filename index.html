@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- ============================================
+         UHUY TEAM - Homepage
+         Final Project: Web Programming Course
+         Authors: Adit, Cindi, Etta
+         ============================================ -->
     <meta charset="UTF-8">
-    <title>Uhuy Web </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uhuy Team | Web Programming Project</title>
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Varela Round (body) & Lora (quotes) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icon Library -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Header -->
+<!-- ============================================
+     SECTION 1: HEADER
+     Contains: Navigation Bar + Hero Slider
+     ============================================ -->
 <header class="header">
     <nav class="navbar">
         <div class="nav-container">
@@ -62,9 +76,14 @@
         </div>
     </div>
 </header>
-<!-- Header Ends -->
+<!-- End of Header -->
 
-<!-- about our team begin -->
+
+<!-- ============================================
+     SECTION 2: ABOUT OUR TEAM
+     Contains: Timeline cards with team info
+     Features: Scroll animation, alternating layout
+     ============================================ -->
 <div class="info-section" id="about">
     <h2 class="info-section-title">About Our Team</h2>
     <p class="info-section-subtitle">Getting to know Uhuy Team</p>
@@ -72,11 +91,10 @@
     <div class="info-wrapper">
         <div class="info-line"></div>
         
-        <!-- card 1 - left -->
+        <!-- Card 1: About Us -->
         <div class="info-item left">
             <div class="info-dot-container">
                 <div class="info-number">1</div>
-                <div class="info-dot"></div>
             </div>
             <div class="info-card">
                 <div class="info-content">
@@ -86,11 +104,10 @@
             </div>
         </div>
         
-        <!-- card 2 - right -->
+        <!-- Card 2: About This Page -->
         <div class="info-item right">
             <div class="info-dot-container">
                 <div class="info-number">2</div>
-                <div class="info-dot"></div>
             </div>
             <div class="info-card">
                 <div class="info-content">
@@ -100,11 +117,10 @@
             </div>
         </div>
         
-        <!-- card 3 - left -->
+        <!-- Card 3: Our Journey -->
         <div class="info-item left">
             <div class="info-dot-container">
                 <div class="info-number">3</div>
-                <div class="info-dot"></div>
             </div>
             <div class="info-card">
                 <div class="info-content">
@@ -115,9 +131,14 @@
         </div>
     </div>
 </div>
-<!-- about our team end -->
+<!-- End of About Section -->
 
-<!-- Our School Section -->
+
+<!-- ============================================
+     SECTION 3: OUR UNIVERSITIES
+     Contains: UII and NXU school cards
+     Features: Hover effects, grid layout
+     ============================================ -->
 <section class="school-section" id="school">
     <div class="school-container">
         <h2 class="school-title">Our Universities</h2>
@@ -126,7 +147,7 @@
         <div class="school-grid">
             <div class="school-card">
                 <div class="school-logo">
-                    <img src="https://www.uii.ac.id/wp-content/uploads/2017/04/Logo-UII-Asli.png"/>
+                    <img src="./images/uii.webp"/>
                 </div>
                 <h3>Universitas Islam Indonesia</h3>
                 <p class="school-location"><i class="ri-map-pin-line"></i> Yogyakarta, Indonesia</p>
@@ -135,7 +156,7 @@
             
             <div class="school-card">
                 <div class="school-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/zh/thumb/3/35/Nanjing_Xiaozhuang_University_Emblem.svg/500px-Nanjing_Xiaozhuang_University_Emblem.svg.png?20251106042317"/>
+                    <img src="./images/njxu.png"/>
                 </div>
                 <h3>Nanjing Xiaozhuang University</h3>
                 <p class="school-location"><i class="ri-map-pin-line"></i> Nanjing, China</p>
@@ -144,20 +165,22 @@
         </div>
     </div>
 </section>
-<!-- Our School Section End -->
+<!-- End of School Section -->
 
-<!-- =========================== -->
-<!-- TEAM SECTION -->
-<!-- =========================== -->
-<!-- meet the team begin -->
+
+<!-- ============================================
+     SECTION 4: MEET OUR TEAM
+     Contains: Team member cards with links
+     Features: Hover overlay, image zoom effect
+     ============================================ -->
 <section class="team-section" id="team">
     <div class="team-container">
         <h2 class="team-title">Meet Our Team</h2>
         <p class="team-subtitle">The talented developers behind Uhuy Team</p>
         
         <div class="team-cards">
-            <!-- Card 1 - Adit -->
-            <a href="./adit/intro1.html" class="team-card" style="--card-bg: #c8b6d4;">
+            <!-- Card 1: Adit - Team Member -->
+            <a href="./adit/intro1.html" class="team-card">
                 <div class="card-image">
                     <img src="./images/adit.JPEG" alt="Adit">
                 </div>
@@ -169,10 +192,10 @@
                 </div>
             </a>
             
-            <!-- Card 2 - Cindi -->
-            <a href="./Cindi/intro2.html" class="team-card" style="--card-bg: #d4e6c8;">
+            <!-- Card 2: Cindi - Team Leader -->
+            <a href="./Cindi/intro2.html" class="team-card">
                 <div class="card-image">
-                    <img src="../images/cindi.jpg" alt="Cindi">
+                    <img src="./images/cindi.jpg" alt="Cindi">
                 </div>
                 <div class="card-overlay">
                     <h3>Cindi 陈欣迪</h3>
@@ -182,8 +205,8 @@
                 </div>
             </a>
             
-            <!-- Card 3 - Etta -->
-            <a href="./etta/intro3.html" class="team-card" style="--card-bg: #f5c6d0;">
+            <!-- Card 3: Etta - Team Member -->
+            <a href="./etta/intro3.html" class="team-card">
                 <div class="card-image">
                     <img src="./images/etta.jpg" alt="Etta">
                 </div>
@@ -197,23 +220,28 @@
         </div>
     </div>
 </section>
-<!-- meet the team end -->
+<!-- End of Team Section -->
 
-<!-- Quote / Voice Section -->
+
+<!-- ============================================
+     SECTION 5: TEAM QUOTES
+     Contains: Rotating inspirational quotes
+     Features: Auto-slide, dot navigation
+     ============================================ -->
 <section class="quote-section">
     <div class="quote-container">
         <div class="quote-slider">
             <div class="quote-slide active">
                 <p class="quote-text">We came here as strangers from different cities. We leave as friends who built something together.</p>
-                <span class="quote-attr">— Team Note</span>
+                <span class="quote-attr">— Uhuy Team</span>
             </div>
             <div class="quote-slide">
                 <p class="quote-text">The code will eventually become outdated. The memories we made while writing it will not.</p>
-                <span class="quote-attr">— Team Note</span>
+                <span class="quote-attr">— Uhuy Team</span>
             </div>
             <div class="quote-slide">
                 <p class="quote-text">This page exists because we wanted to prove to ourselves that we could create something real.</p>
-                <span class="quote-attr">— Team Note</span>
+                <span class="quote-attr">— Uhuy Team</span>
             </div>
         </div>
         <div class="quote-dots">
@@ -223,9 +251,14 @@
         </div>
     </div>
 </section>
-<!-- Quote Section End -->
+<!-- End of Quote Section -->
 
-<!-- news begin -->
+
+<!-- ============================================
+     SECTION 6: LATEST NEWS
+     Contains: News cards with dates
+     Features: Hover effects, responsive grid
+     ============================================ -->
 <section class="news-section" id="news">
     <div class="news-container">
         <h2 class="news-title">Latest News</h2>
@@ -264,57 +297,68 @@
         </div>
     </div>
 </section>
-<!-- news end -->
+<!-- End of News Section -->
 
-<!-- photo gallery begin -->
+
+<!-- ============================================
+     SECTION 7: PHOTO GALLERY
+     Contains: Memory photos from NXU journey
+     Features: Hover overlay, image zoom
+     ============================================ -->
 <div class="gallery-section" id="gallery">
     <div class="gallery-container">
         <h2 class="gallery-title">Our Memories</h2>
         <p class="gallery-subtitle">Capturing moments from our journey</p>
         
         <div class="gallery-grid">
+            <!-- Gallery Item 1 -->
             <div class="gallery-card">
-                <img src="../images/chineseclass.jpg" alt="Chinese Class">
+                <img src="./images/chineseclass.jpg" alt="Chinese Class">
                 <div class="gallery-overlay">
                     <h3>Chinese Class</h3>
                     <p>We wore batik, Indonesia's traditional fabric</p>
                 </div>
             </div>
             
+            <!-- Gallery Item 2 -->
             <div class="gallery-card">
-                <img src="../images/englishforit.jpg" alt="English for IT">
+                <img src="./images/englishforit.jpg" alt="English for IT">
                 <div class="gallery-overlay">
                     <h3>English for IT</h3>
                     <p>Our last English for IT class with Chen Laoshi</p>
                 </div>
             </div>
             
+            <!-- Gallery Item 3 -->
             <div class="gallery-card">
-                <img src="../images/papercutting.jpg" alt="Paper Cutting">
+                <img src="./images/papercutting.jpg" alt="Paper Cutting">
                 <div class="gallery-overlay">
                     <h3>Paper Cutting</h3>
                     <p>IT 1 class during a paper-cutting activity</p>
                 </div>
             </div>
 
+            <!-- Gallery Item 4 -->
             <div class="gallery-card">
-                <img src="../images/maskpainting.jpg" alt="Mask Painting">
+                <img src="./images/maskpainting.jpg" alt="Mask Painting">
                 <div class="gallery-overlay">
                     <h3>Mask Painting</h3>
                     <p>All IT students from the Class of 2027 during Understanding China class, painting masks together</p>
                 </div>
             </div>
             
+            <!-- Gallery Item 5 -->
             <div class="gallery-card">
-                <img src="../images/mooncake.jpg" alt="Moon Cake">
+                <img src="./images/mooncake.jpg" alt="Moon Cake">
                 <div class="gallery-overlay">
                     <h3>Moon Cake</h3>
                     <p>Our first traditional celebration with mooncakes</p>
                 </div>
             </div>
             
-             <div class="gallery-card">
-                <img src="../images/robotics.jpg" alt="Robotics Class">
+            <!-- Gallery Item 6 -->
+            <div class="gallery-card">
+                <img src="./images/robotics.jpg" alt="Robotics Class">
                 <div class="gallery-overlay">
                     <h3>Robotics Class</h3>
                     <p>Our last robotics class with Ming Laoshi</p>
@@ -323,9 +367,14 @@
         </div>
     </div>
 </div>
-<!-- photo gallery end -->
+<!-- End of Gallery Section -->
 
-<!-- Collective Identity Section -->
+
+<!-- ============================================
+     SECTION 8: COLLECTIVE IDENTITY
+     Contains: Team manifesto and group photo
+     Features: Two-column layout, typography
+     ============================================ -->
 <section class="collective-section" id="collective">
     <div class="collective-header">
         <h2 class="collective-title">Collective</h2>
@@ -345,11 +394,13 @@
         </div>
     </div>
 </section>
-<!-- Collective Identity End -->
+<!-- End of Collective Section -->
 
 
-<!-- Footer -->
-
+<!-- ============================================
+     SECTION 9: FOOTER
+     Contains: Site info, navigation, legal links
+     ============================================ -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
@@ -395,9 +446,11 @@
         </div>
     </div>
 </footer>
+<!-- End of Footer -->
 
-<!-- footer -->
 
+<!-- Main JavaScript -->
 <script src="script.js"></script>
+
 </body>
 </html>
