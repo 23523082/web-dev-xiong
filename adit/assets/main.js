@@ -4,8 +4,7 @@
    
    FEATURES:
    1. Typing Effect Animation
-   2. Mobile Navigation Toggle
-   3. Smooth Scroll & Active Link
+   2. Smooth Scroll & Active Link
 ============================================ */
 
 
@@ -52,23 +51,7 @@ document.addEventListener('DOMContentLoaded', typeWriter);
 
 
 /* ============================================
-   2. MOBILE NAVIGATION TOGGLE
-   Hamburger menu for mobile devices
-============================================ */
-const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-const navbar = document.querySelector('#navbar');
-
-if (mobileNavToggle) {
-  mobileNavToggle.addEventListener('click', function() {
-    navbar.classList.toggle('navbar-mobile');
-    this.classList.toggle('bx-menu');
-    this.classList.toggle('bx-x');
-  });
-}
-
-
-/* ============================================
-   3. SMOOTH SCROLL & ACTIVE LINK STATE
+   2. SMOOTH SCROLL & ACTIVE LINK STATE
    Highlights current section in navbar
 ============================================ */
 const navLinks = document.querySelectorAll('.nav-link');

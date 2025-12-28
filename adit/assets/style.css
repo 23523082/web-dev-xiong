@@ -74,12 +74,6 @@ html { scroll-behavior: smooth; }
 }
 .navbar a:hover::after, .navbar .active::after { width: 100%; }
 
-.mobile-nav-toggle {
-  display: none; position: fixed; right: 15px; top: 15px;
-  font-size: 32px; color: #fff; background: none;
-  border: 0; cursor: pointer; z-index: 9998;
-}
-
 /* ============================================
    4. BACK BUTTON
    Home navigation button
