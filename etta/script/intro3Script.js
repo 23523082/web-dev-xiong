@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? '<span>🎬</span> Disable Video'
       : '<span>⏸️</span> Enable Video';
   }
-});
-
-
-
+}); 
 
 /* =========================================================
    ABOUT ME MENU
