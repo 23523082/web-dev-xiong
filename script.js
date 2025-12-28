@@ -110,7 +110,7 @@ const infoObserver = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.transform = '';
         }
     });
 }, infoObserverOptions);
@@ -120,7 +120,7 @@ const infoCards = document.querySelectorAll('.info-card');
 infoCards.forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transition = 'opacity 0.6s ease, transform 0.4s ease';
     infoObserver.observe(card);
 });
 
